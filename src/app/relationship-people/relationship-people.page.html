@@ -1,0 +1,116 @@
+
+<ion-header class="container">
+  <ion-toolbar>
+    <!-- منوی کشویی سمت چپ -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <!-- عنوان در مرکز -->
+    <ion-title>{{'RelationshipPeople' | translate}}</ion-title>
+    <!-- دکمه خروج سمت راست -->
+    <ion-buttons slot="end">
+      <ion-button (click)="exitApp()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="container">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">{{'RelationshipPeople' | translate}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <form (ngSubmit)="submitForm()">
+    <ion-card>
+      <ion-card-header>
+        {{'first person' | translate}}
+      </ion-card-header>
+      <ion-card-content>
+        <!--  ورودی اسم نفر دوم-->
+        <ion-item>
+          <ion-label position="floating">{{'Enter your name' | translate}}</ion-label>
+          <ion-input [(ngModel)]="nameInput1" name="nameInput1" required></ion-input>
+        </ion-item>
+        <!-- ورودی اسم مادر نفر دوم -->
+        <ion-item>
+          <ion-label position="floating">{{'Enter your mother name' | translate}}</ion-label>
+          <ion-input [(ngModel)]="MomnameInput1" name="MomnameInput1" required></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        {{'second person' | translate}}
+      </ion-card-header>
+      <ion-card-content>
+        <!-- ورودی اسم -->
+        <ion-item>
+          <ion-label position="floating">{{'Enter your name' | translate}}</ion-label>
+          <ion-input [(ngModel)]="nameInput" name="nameInput" required></ion-input>
+        </ion-item>
+        <!-- ورودی اسم مادر -->
+        <ion-item>
+          <ion-label position="floating">{{'Enter your mother name' | translate}}</ion-label>
+          <ion-input [(ngModel)]="MomnameInput" name="MomnameInput" required></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    
+    
+    <ion-button expand="full" type="submit" class="btn-submit">{{'Submit' | translate}}</ion-button>
+  </form>
+
+  <!-- دکمه پاک کردن -->
+  <ion-button expand="full" color="danger" (click)="resetData()" class="btn-clear">{{'Clear' | translate}}</ion-button>
+
+  <!-- کارت نمایش نتایج -->
+  <ion-card *ngIf="analyzedData">
+    <ion-card-header>
+      <ion-card-title class="card-title">{{'RelationshipPeople' | translate}}</ion-card-title>
+    </ion-card-header>
+    <!-- اطلاعات روابط بین افراد -->
+
+    <ion-card-content>
+      <ion-grid>
+
+        <!-- اطلاعات روابط بین افراد -->
+        <ion-row>
+          <ion-col size="6">
+            <div class="result-item">
+              <p class="result-label"> <ion-icon name="infinite-outline"></ion-icon> {{'nameRelationship' | translate}}  :</p>
+              <h2 class="result-value">{{ NameState }}</h2>
+            </div>
+            <ion-item-divider></ion-item-divider>
+          </ion-col>
+          <ion-col size="6">
+            <div class="result-item">
+              <p class="result-label"> <ion-icon name="heart-outline"></ion-icon> {{'typeRelationship' | translate}}  :</p>
+              <h2 class="result-value">{{ quality }}</h2>
+            </div>
+            <ion-item-divider></ion-item-divider>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item-divider></ion-item-divider>
+  <ion-item>
+    <ion-label color="danger" class="center-text">
+      <p class="center-text">{{ 'Note: Sometimes the result of the relationship' | translate }}</p>
+    </ion-label>
+  </ion-item>
+  <ion-item-divider></ion-item-divider>
+</ion-content>
+
+<!-- پاورقی -->
+<ion-footer class="container">
+  <ion-item>
+    <ion-label class="center-text">{{ 'BonyanGroup' | translate }}</ion-label>
+  </ion-item>
+</ion-footer>

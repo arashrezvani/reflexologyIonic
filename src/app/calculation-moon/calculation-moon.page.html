@@ -1,0 +1,137 @@
+
+<ion-header class="container">
+  <ion-toolbar>
+    <!-- منوی کشویی سمت چپ -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <!-- عنوان در مرکز -->
+    <ion-title>{{'CalMoonZodiac' | translate}}</ion-title>
+    <!-- دکمه خروج سمت راست -->
+    <ion-buttons slot="end">
+      <ion-button (click)="exitApp()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true" class="container">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="card-title">{{'Date of the day and Persian month' | translate}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-grid >
+            <ion-row color="light">
+              <ion-col>
+                <!-- روز شمسی -->
+                <ion-item>
+                  <!-- <ion-label position="floating">روز شمسی</ion-label> -->
+                  <ion-input type="tel" [(ngModel)]="solarDay" (ionInput)="validateDay($event)" maxlength="2" required></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <!-- ماه شمسی -->
+                <ion-item>
+                  <!-- <ion-label>ماه شمسی</ion-label> -->
+                  <ion-select [(ngModel)]="solarMonth"   interface="popover" placeholder="{{'Selection of the Persian month' | translate}}">
+                    <ion-select-option *ngFor="let month of solarMonths" [value]="month.value">{{ month.name }}</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="card-title">{{'Date of the day and lunar month' | translate}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-grid >
+            <ion-row color="light">
+              <ion-col>
+                <!-- روز قمری -->
+                <ion-item>
+                  <!-- <ion-label position="floating">روز قمری</ion-label> -->
+                  <ion-input type="tel" [(ngModel)]="lunarDay" (ionInput)="validateDay($event)" maxlength="2" required></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <!-- ماه قمری -->
+                <ion-item>
+                  <!-- <ion-label>ماه قمری</ion-label> -->
+                  <ion-select [(ngModel)]="lunarMonth"   interface="popover" placeholder="{{'Selection of the lunar month' | translate}}">
+                    <ion-select-option *ngFor="let month of lunarMonths" [value]="month.value">{{ month.name }}</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+
+  <!-- نمایش اطلاعات -->
+  <ion-button expand="block" (click)="submitForm()">{{'Submit' | translate}}</ion-button>
+
+  <!-- دکمه پاک کردن -->
+  <ion-button expand="full" color="danger" (click)="resetData()" class="btn-clear">{{'Clear' | translate}}</ion-button>
+
+
+  <!-- کارت نمایش نتایج -->
+  <ion-card *ngIf="ResultNameMoon">
+    <ion-card-header>
+      <ion-card-title class="card-title">نتیجه:</ion-card-title>
+    </ion-card-header>
+    <!-- اطلاعات ابجد -->
+
+    <ion-card-content>
+      <ion-grid>
+
+        <!-- اطلاعات ابجد شخص -->
+        <ion-row class="center-text">
+          <ion-col class="center-text" size="12">
+            <div class="result-item center-text">
+              <h1 class="result-value center-text">{{'Moon in' | translate}}  {{ ResultNameMoon }} </h1>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+
+
+  <ion-item-divider></ion-item-divider>
+
+
+
+  
+  
+</ion-content>
+
+<ion-footer class="container">
+  <ion-item>
+    <ion-label color="success" class="center-text">
+      <h2 class="center-text" class="text-danger">{{'BonyanGroup' | translate}}</h2>
+    </ion-label>
+  </ion-item>
+</ion-footer>

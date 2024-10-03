@@ -9,6 +9,7 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
+ @import '~bootstrap/dist/css/bootstrap.min.css';
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
 
@@ -35,3 +36,275 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+
+@font-face {
+  font-family: 'IRANSans';
+  src: url('assets/fonts/iransans/IRANSans.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.font-iransans {
+  font-family: 'IRANSans',sans-serif;
+}
+
+@font-face {
+  font-family: "iranyekan";
+  src        : url("/assets/fonts/IRANYekanMobileRegular.ttf");
+  font-weight: normal;
+  font-style : normal;
+}
+
+@font-face {
+  font-family: "iranyekan‌ٓExtraBold";
+  src        : url('/assets/fonts/iranyekan/IRANYekanMobileExtraBold.ttf');
+  font-weight: normal;
+  font-style : normal;
+}
+
+@font-face {
+  font-family: "iranyekan‌ٓLight";
+  src        : url('/assets/fonts/iranyekan/IRANYekanLightFaNum.ttf');
+  font-weight: normal;
+  font-style : normal;
+}
+
+@font-face {
+  font-family: "iranyekan‌ٓBold";
+  src        : url('/assets/fonts/iranyekan/IRANYekanBoldFaNum.ttf');
+  font-weight: normal;
+  font-style : normal;
+}
+.font-iranyekan {
+  font-family: 'iranyekan',sans-serif;
+}
+body {
+  font-family: 'IRANSans',sans-serif;
+}
+
+.center-text {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .tocken-tag {
+      color          : red;
+      display        : flex;
+      text-decoration: none;
+      margin-top     : 5px;
+    
+      ion-icon {
+        font-size: 1.4rem;
+      }
+    }
+    
+    ion-loading.loading-no-background {
+      .loading-wrapper {
+        background: white;
+        box-shadow: none;
+      }
+    
+      .spinner-crescent,
+      .loading {
+        width : 60px;
+        height: 60px;
+      }
+    }
+    
+    /** لودینک اسکرول بینهایت */
+    .infinite-loading {
+    
+      .infinite-loading-spinner {
+        display        : flex;
+        justify-content: center;
+        align-items    : center;
+        color          : blue;
+      }
+    }
+    
+    /** لودینک استایل */
+    
+    
+    
+    .color {
+      color: red;
+    }
+    
+    .my-custom-class {
+    
+      .action-sheet-icon.sc-ion-action-sheet-md,
+      .action-sheet-button-inner.sc-ion-action-sheet-md {
+        --color: red !important;
+        color  : red !important;
+      }
+    
+    }
+    .output-container {
+      margin-top: 20px;
+      padding: 16px;
+      background-color: #f9f9f9; /* پس‌زمینه روشن */
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* سایه */
+    }
+    
+    h2 {
+      font-size: 24px;
+    }
+    
+    p {
+      font-size: 18px;
+      margin: 8px 0; /* فاصله بین پاراگراف‌ها */
+    }
+    
+    :root[dir="rtl"] {
+    
+      .toast-direction {
+        text-align  : center;
+        font-size   : 19px;
+        color       : bisque;
+        --color     : bisque;
+        --background: black;
+      }
+    
+    }
+    
+    :root[dir="ltr"] {
+    
+      .toast-direction {
+        text-align  : center;
+        font-size   : 19px;
+        color       : bisque;
+        --color     : bisque;
+        --background: black;
+      }
+    
+    }
+    
+    
+    .tab-item.tab-item-active,
+    .tab-item.active,
+    .tab-item.activated {
+      color: red;
+    }
+    
+    
+    .slides-wrap {
+      .swiper-wrapper {
+        margin         : 0 auto;
+        display        : flex !important;
+        justify-content: center !important;
+      }
+    }
+    
+    
+    // ios bottom iphone x fixed
+    body {
+      margin-top: constant(safe-area-inset-top);
+      margin-top: env(safe-area-inset-top);
+    }
+    
+    ion-tab-bar {
+      margin-bottom: calc(7px + env(safe-area-inset-top));
+    }
+    
+    
+    // 
+    
+    .loginAlert .alert-wrapper {
+      .alert-button-group {
+        display        : flex;
+        justify-content: space-around;
+      }
+    
+      .alert-button:first-child {
+        background   : #ff4081;
+        border-radius: 5px;
+        color        : white;
+      }
+    
+      .alert-button:last-child {
+        background   : #007bffc9;
+        width        : 63px;
+        border-radius: 5px;
+        color        : white;
+      }
+    
+      .alert-button-inner {
+        justify-content: center !important;
+      }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /********************************* MY NEW SOURCE CODE *********************************/
+    /********************************* MY NEW SOURCE CODE *********************************/
+    
+    .animate-item {
+      animation: fadeIn;
+    }
+    
+    // Address Action Sheet Delete Item
+    .address-action-sheet .action-sheet-group {
+      padding    : 15px;
+      height     : 60px;
+      display    : flex;
+      align-items: center;
+    
+      button.custom-icon {
+        background-position-x: 10px;
+        background-image     : url(https://www.digikala.com/static/files/a9286d2f.svg) !important;
+        background-position  : right 13px !important;
+        background-repeat    : no-repeat !important;
+        background-size      : 25px;
+        color                : red;
+      }
+    
+      button.custom-icon>span.action-sheet-button-inner {
+        font-size  : 17px;
+        font-weight: 600;
+        color      : black;
+        margin     : 0 24px;
+      }
+    }
+    
+    
+    
+    // Address ion-select popOver Css 
+    .address-popover .popover-content {
+      background: transparent !important;
+      box-shadow: none !important;
+    
+      ion-list {
+        padding-top   : 0;
+        padding-bottom: 0;
+      }
+    
+      ion-item {
+        --inner-padding-end : 13px;
+        font-size           : .9rem;
+        --inner-border-width: 0;
+        --padding-start     : 13px;
+        margin              : 4px;
+        border-radius       : 5px;
+        box-shadow          : rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;
+    
+    
+        display       : flex;
+        // color      : $item-label-color;
+        align-items   : center;
+      }
+    
+      ion-radio {
+        --color-checked: var(--primary_bg_color);
+        --border-radius: 37%;
+      }
+    }

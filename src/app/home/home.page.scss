@@ -25,3 +25,28 @@
 #container a {
   text-decoration: none;
 }
+
+
+ion-header {
+  --background: #f8f8f8; /* رنگ پس‌زمینه نوار بالا */
+}
+
+ion-toolbar {
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+ion-title {
+  text-align: center;
+  flex: 1; /* برای مرکز کردن عنوان */
+}
+
+ion-buttons[slot="start"] {
+  display: flex;
+  align-items: center;
+}
+
+ion-button {
+  --padding-start: 8px;
+  --padding-end: 8px;
+}

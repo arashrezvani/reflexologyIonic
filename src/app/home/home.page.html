@@ -1,20 +1,47 @@
-<ion-header [translucent]="true">
+<ion-header class="container">
   <ion-toolbar>
+    <!-- منوی کشویی سمت چپ -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <!-- عنوان در مرکز -->
     <ion-title>
-      Blank
+      {{'Bonyan' | translate}}
     </ion-title>
+
+    <!-- دکمه خروج سمت راست -->
+    <ion-buttons slot="end">
+      <ion-button (click)="exitApp()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+
+<ion-content [fullscreen]="true" class="container">
+  
+
+
+  <ion-item-divider></ion-item-divider>
+  <ion-item>
+    <ion-label color="Dark Gray" class="center-text">
+      <h2 class="center-text" >{{'A gift of prayers (Salawat) as a vow for the' | translate}}</h2>
+      <h2 class="center-text">اللهم صلی علی محمد و آل محمد و عجل فرجهم</h2>
+      <h2 class="center-text">اللهم بارک لمولانا صاحب الزمان(عج)</h2>
+      <h2 class="center-text">{{'A gift of Surah Al-Qadr and Ayat al-Kursi' | translate}}</h2>
+      <ion-item-divider></ion-item-divider>
+    </ion-label>
+  </ion-item>
+  
+
 </ion-content>
+<ion-footer class="container">
+  <ion-item>
+    <ion-label color="success" class="center-text">
+      <h2 class="center-text" class="text-danger">{{'BonyanGroup' | translate}}</h2>
+    </ion-label>
+  </ion-item>
+</ion-footer>

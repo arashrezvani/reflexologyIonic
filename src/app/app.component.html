@@ -1,3 +1,80 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
+<ion-app class="container font-iranyekan">
+
+  <ion-menu side="start" menuId="first" contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title> {{'MainMenu' | translate}} </ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle auto-hide="true">
+          <!-- <ion-item button routerLink="/home"> -->
+          <ion-item button (click)="navigateToPage('/home')" >
+            <ion-icon slot="start" name="home-outline"></ion-icon>
+            {{'Bonyan' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+          <ion-item button (click)="navigateToPage('/determine-time')">
+            <ion-icon slot="start" name="options"></ion-icon>
+            {{'DeterTime' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+          <ion-item button (click)="navigateToPage('/calculation-moon')">
+            <ion-icon slot="start" name="moon"></ion-icon>
+            {{'CalMoonZodiac' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+          <ion-item button (click)="navigateToPage('/info-darman-abjad')">
+            <ion-icon slot="start" name="moon"></ion-icon>
+            {{'abjadCal' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+          <ion-item button (click)="navigateToPage('/relationship-people')">
+            <ion-icon slot="start" name="moon"></ion-icon>
+            {{'RelationshipPeople' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-="true">
+          <ion-item button (click)="navigateToPage('/about-us')">
+            <ion-icon slot="start" name="information-circle-outline"></ion-icon>
+            {{'About_Us' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+          <ion-item button (click)="navigateToPage('/contact-us')">
+            <ion-icon slot="start" name="call-outline"></ion-icon>
+            {{'contact_us' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+          <ion-item (click)="checkLanguage('fa-ir')">
+            <ion-icon slot="start" name="shuffle"></ion-icon>
+            {{'Persian' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+          <ion-item (click)="checkLanguage('ar-ar')">
+            <ion-icon slot="start" name="shuffle"></ion-icon>
+            {{'Arabic' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+          <ion-item (click)="checkLanguage('en-gb')">
+            <ion-icon slot="start" name="shuffle"></ion-icon>
+            {{'English' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <!-- Main content -->
+
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-app>
