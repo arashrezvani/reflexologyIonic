@@ -35,18 +35,18 @@ export class DbinprojectService {
   ];
   
   db_NehsDayYears: Array<{Day:number, MonthNumber: number, Month: string, Nahs: string }>=[
-    {Day: 22, MonthNumber: 1, Month: 'حمل', Nahs: '22 محرم'  },
-    {Day: 11, MonthNumber: 2, Month: 'حمل', Nahs: '11 صفر' },
-    {Day: 4, MonthNumber: 3, Month: 'حمل', Nahs: '4 ربیع اول' },
-    {Day: 28, MonthNumber: 4, Month: 'حمل', Nahs: '28 ربیع الثانی' },
-    {Day: 28, MonthNumber: 5, Month: 'حمل', Nahs: '28 جمادی اول' },
-    {Day: 12, MonthNumber: 6, Month: 'حمل', Nahs: '12 جمادی الثانی' },
-    {Day: 16, MonthNumber: 7, Month: 'حمل', Nahs: '26 رجب' },
-    {Day: 12, MonthNumber: 8, Month: 'حمل', Nahs: '12 شعبان' },
-    {Day: 24, MonthNumber: 9, Month: 'حمل', Nahs: '24 رمضان' },
-    {Day: 2, MonthNumber: 10, Month: 'حمل', Nahs: '2 شوال' },
-    {Day: 28, MonthNumber: 11, Month: 'حمل', Nahs: '28 ذوالقعده' },
-    {Day: 8, MonthNumber: 12, Month: 'حمل', Nahs: '8 ذوالحجه' },
+    {Day: 22, MonthNumber: 1, Month: 'محرم', Nahs: '22 محرم'  },
+    {Day: 11, MonthNumber: 2, Month: 'صفر', Nahs: '11 صفر' },
+    {Day: 4, MonthNumber: 3, Month: 'ربیع الاول', Nahs: '4 ربیع اول' },
+    {Day: 28, MonthNumber: 4, Month: 'ربیع الثانی (ربیع الاخر)', Nahs: '28 ربیع الثانی' },
+    {Day: 28, MonthNumber: 5, Month: 'جمادی الاول', Nahs: '28 جمادی اول' },
+    {Day: 12, MonthNumber: 6, Month: 'جمادی الثانی (جمادی الاخر)', Nahs: '12 جمادی الثانی' },
+    {Day: 16, MonthNumber: 7, Month: 'رجب', Nahs: '26 رجب' },
+    {Day: 12, MonthNumber: 8, Month: 'شعبان', Nahs: '12 شعبان' },
+    {Day: 24, MonthNumber: 9, Month: 'رمضان', Nahs: '24 رمضان' },
+    {Day: 2, MonthNumber: 10, Month: 'شوال', Nahs: '2 شوال' },
+    {Day: 28, MonthNumber: 11, Month: 'ذیقعده', Nahs: '28 ذوالقعده' },
+    {Day: 8, MonthNumber: 12, Month: 'ذیحجه', Nahs: '8 ذوالحجه' },
   ];
 
   db_MonthAP:Array<{MonthNumber:number, MonthArabic: string, MonthPersian: string}>=[
@@ -368,6 +368,12 @@ export class DbinprojectService {
 
   getDatazodiac(){
     return this.db_zodiac;
+  }
+  getNehsDayYears(){
+    return this.db_NehsDayYears;
+  }
+  getMonthAP(){
+    return this.db_MonthAP;
   }
   getZodiacGeometry(){
     return this.db_zodiacGeometry;

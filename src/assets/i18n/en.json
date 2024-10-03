@@ -72,9 +72,14 @@
     "Persian":"Persian",
     "Arabic":"Arabic",
     "English":"English",
+    "Temperament":"Temperament",
+    "New Moon":"New Moon",
+    "Ominous Unlucky":"Ominous (Unlucky)",
+    "Ominous Day of the Year":"Ominous Day of the Year",
+    "Zodiac Sign":"Zodiac Sign",
+    "Nature Disposition":"Nature (Disposition)",
+    "Description1":"Description",
     "":"",
-    "":"",
-
 
     "accept_just_numbers":"Price Accept Just Numbers",
     "check_token":"Check Token ",

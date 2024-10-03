@@ -100,7 +100,6 @@ export class CalServicService {
      return this.db_DTTS;
   }
 
-
   CalcRelationshipPeople(StrName : string, StrMomName : string, StrName1 : string, StrMomName1 : string){
 
     let NumSaghir: number=0;
@@ -421,37 +420,57 @@ export class CalServicService {
 
 
   result!: number;
-
-  CalcMoon(T: number, MS: number, DS: number, MG : number, DG: number){
+  x2!: number;
+  x25!: number;
+  resultN!: number;
+  BaghiMande!: number;
+  strMessageE:string='';
+  CalcMoon(MS: number, DS: number, MG : number, DG: number){
 
     
     // محاسبه قمر در عقرب
-    this.result = (DG * 2);
-    this.result = this.result + 5;
-    this.result = this.result / 5;
+    this.x2 = (DG * 2);
+    this.x25 = this.x2 + 5;
+    this.result = this.x25 / 5;
+    this.resultN = this.x25 / 5;
+    this.BaghiMande =  this.x25 % 5;
     this.result = Math.round(this.result);
+    if(this.BaghiMande > 0)  this.resultN = this.resultN + 1;
+    if(this.resultN != this.result) this.strMessageE="احتياط 56 تا 60 ساعت";
 
     // T = تعداد عددی که باید از ماه شمسی بره جلو
     if (!this.analyzedDataMoon) {
       this.analyzedDataMoon = { 
         SignName:'',
-        StrMoon:'',
         temperament:'',
         temperamentName:'',
         Star:'',
         DayNahs:'',
         DayMahgh:'',
+        MessageE:'',
       }
     }
     let MoonZodNum: number=0;
     let StrMoon: string='';
-    MoonZodNum =MS+T;
+    MoonZodNum =MS+this.result;
     MoonZodNum=MoonZodNum-1;
 
     if(MoonZodNum>12){
       MoonZodNum=MoonZodNum-13;
     }
     
+
+    var calNehsDayYears=this.dbSer.getNehsDayYears();
+    const foundNehsDayYears = calNehsDayYears.find(item => item.MonthNumber == MG && item.Day == DG);
+    if(foundNehsDayYears){
+      this.analyzedDataMoon.DayNahs=foundNehsDayYears.Nahs;
+    }
+
+    console.log("------------------ this.dg "+DG);
+    if(DG == 1 || DG == 29 || DG == 30){
+      this.analyzedDataMoon.DayMahgh = 'محاق';
+    }
+
     var calCZodiac=this.dbSer.getDatazodiac();
     const foundWordZodiac = calCZodiac.find(item => item.SignNameNum == MoonZodNum);
     if(foundWordZodiac){
@@ -460,6 +479,7 @@ export class CalServicService {
       this.analyzedDataMoon.temperament = foundWordZodiac.temperament;
       this.analyzedDataMoon.temperamentName = foundWordZodiac.temperamentName;
       this.analyzedDataMoon.Star = foundWordZodiac.Star;
+      this.analyzedDataMoon.MessageE = this.strMessageE;
     }
     this.dbSer.setAnalyzedData(this.analyzedDataMoon);
     return StrMoon;
@@ -470,12 +490,12 @@ export class CalServicService {
 
 type MyDataMoonObj = {
   SignName: string;
-  StrMoon: string;
   temperament: string;
   temperamentName: string;
   Star: string;
   DayNahs: string;
   DayMahgh : string;
+  MessageE : string;
 };
 
 

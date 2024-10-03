@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { App } from '@capacitor/app';
 import { CalServicService } from '../services/calService/cal-servic.service';
+import { DbinprojectService } from '../services/dataBase/dbinproject.service';
 
 @Component({
   selector: 'app-calculation-moon',
@@ -10,9 +11,20 @@ import { CalServicService } from '../services/calService/cal-servic.service';
 export class CalculationMoonPage implements OnInit {
 
 
+  analyzedData: any; // داده‌هایی که قرار است نمایش داده شوند
   ResultNameMoon : string ='';
   DayShInput: number = 1;   // ورودی نام
   DayGInput: number = 1;
+
+
+  
+  SignName: string ='';
+  temperament: string ='';
+  temperamentName: string ='';
+  Star: string ='';
+  DayNahs: string ='';
+  DayMahgh: string ='';
+  MessageE: string ='';
   
   // روز و ماه شمسی
   solarDay!: number ;
@@ -55,7 +67,8 @@ export class CalculationMoonPage implements OnInit {
 
 
   constructor(
-    private calSer: CalServicService) { }
+    private calSer: CalServicService,
+    private dbSer:DbinprojectService,) { }
 
   ngOnInit() {
   }
@@ -74,13 +87,35 @@ export class CalculationMoonPage implements OnInit {
   }
   //===================================================
   submitForm() {
-    // محاسبه قمر در عقرب
-    this.result = (this.lunarDay * 2);
-    this.result = this.result + 5;
-    this.result = this.result / 5;
-    this.result = Math.round(this.result);
-    console.log("------------------ this.result "+this.result);
-    this.ResultNameMoon =this.calSer.CalcMoon(this.result,parseInt(this.solarMonth),this.DayShInput,parseInt(this.lunarMonth),this.DayGInput);
+    if(this.analyzedData != null ) this.resetData();
+    this.resetDataResult();
+    if(this.solarMonth.trim() !== '' && this.solarDay !== 0 && this.lunarMonth.trim() !== '' && this.lunarDay !== 0){
+      this.ResultNameMoon =this.calSer.CalcMoon(parseInt(this.solarMonth),this.solarDay,parseInt(this.lunarMonth),this.lunarDay);
+      this.dbSer.getAnalyzedData().subscribe((data) => {
+        if (data) {
+          this.analyzedData = data;
+          console.log('Analyzed Data:', this.analyzedData);
+          this.SignName = this.analyzedData.SignName;
+          this.temperament = this.analyzedData.temperament;
+          this.temperamentName = this.analyzedData.temperamentName;
+          this.Star = this.analyzedData.Star;
+          this.DayNahs = this.analyzedData.DayNahs;
+          if(this.analyzedData.DayNahs=='') this.DayNahs = 'نیست';
+          this.DayMahgh = this.analyzedData.DayMahgh;
+          if(this.analyzedData.DayMahgh=='') this.DayMahgh = 'نیست';
+          this.MessageE = this.analyzedData.MessageE;
+        }
+      });
+
+    }else{
+      this.SignName = '';
+      this.temperament = '';
+      this.temperamentName = '';
+      this.Star = '';
+      this.DayNahs = '';
+      this.DayMahgh = '';
+      this.MessageE = '';
+    }
     console.log("------------------ this.ResultNameMoon "+this.ResultNameMoon);
 
   }
@@ -90,11 +125,30 @@ export class CalculationMoonPage implements OnInit {
     this.solarDay = 1;
     this.solarMonth = '';
   
+    this.analyzedData = null;
     // روز و ماه قمری
     this.lunarDay = 1;
     this.lunarMonth = '';
-  }
 
+    
+    this.SignName = '';
+    this.temperament = '';
+    this.temperamentName = '';
+    this.Star = '';
+    this.DayNahs = '';
+    this.DayMahgh = '';
+    this.MessageE = '';
+  }
+  resetDataResult(){
+    this.analyzedData = null;
+    this.SignName = '';
+    this.temperament = '';
+    this.temperamentName = '';
+    this.Star = '';
+    this.DayNahs = '';
+    this.DayMahgh = '';
+    this.MessageE = '';
+  }
   exitApp() {
     console.log("exitApp");
     App.exitApp();

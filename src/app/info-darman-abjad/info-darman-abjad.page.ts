@@ -66,6 +66,8 @@ export class InfoDarmanAbjadPage implements OnInit {
 
     //===================================================
     submitForm() {
+      
+    if(this.analyzedData != null ) this.resetData();
       //this.analyzedData= '';
       if (this.nameInput.trim() !== '' && this.MomnameInput.trim() !== '' ) {
         this.blockData1=this.calSer.CalAbjadSaghir(this.nameInput,this.MomnameInput);

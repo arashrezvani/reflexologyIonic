@@ -70,6 +70,8 @@ export class RelationshipPeoplePage implements OnInit {
     //===================================================
     submitForm() {
       //this.analyzedData= '';
+      
+    if(this.analyzedData != null ) this.resetData();
       if (this.nameInput.trim() !== '' && this.nameInput1.trim() !== '' && this.MomnameInput.trim() !== '' && this.MomnameInput1.trim() !== '') {
 
         this.blockData1=this.calSer.CalcRelationshipPeople(this.nameInput,this.MomnameInput,this.nameInput1,this.MomnameInput1);

@@ -71,6 +71,13 @@
     "Persian":"فارسی",
     "Arabic":"عربی",
     "English":"انگیسی",
+    "Temperament":"مزاج",
+    "New Moon":"محاق  روز اول و آخر ماه قمری",
+    "Ominous Unlucky":"نحس (بد یمنی)",
+    "Ominous Day of the Year":"روز نحس سال",
+    "Zodiac Sign":"برج فلکی",
+    "Nature Disposition":"طبع",
+    "Description1":"توضیحات",
     "":"",
 
     "accept_just_numbers":"برای قیمت فقط عدد قابل قبول است",
