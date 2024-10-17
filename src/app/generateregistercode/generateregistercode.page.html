@@ -1,0 +1,41 @@
+<ion-header class="container font-iransans">
+  <ion-toolbar>
+    <!-- منوی کشویی سمت چپ -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <!-- عنوان در مرکز -->
+    <ion-title>
+      {{'Software lock review' | translate}}
+    </ion-title>
+
+    <!-- دکمه خروج سمت راست -->
+    <ion-buttons slot="end">
+      <ion-button (click)="exitApp()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="container font-iransans" [fullscreen]="true">
+  <div class="center-text login-container">
+    
+
+    <form (submit)="onRegister()" >
+      <ion-item class="login-input">
+        <ion-label position="floating">{{'Code sent by the buyer' | translate}}</ion-label>
+        <ion-input type="text" [(ngModel)]="UUIDdevice" name="UUIDdevice" required></ion-input>
+      </ion-item>
+      <ion-item class="login-input">
+        <ion-label position="floating">{{'Lock code' | translate}}</ion-label>
+        <ion-input type="text" [(ngModel)]="registerCode" name="registerCode" required></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" class="register-button" type="submit">{{'Code creation' | translate}}</ion-button>
+    </form>
+
+  </div>
+</ion-content>

@@ -10,9 +10,13 @@ import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-transla
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { ReactiveFormsModule } from '@angular/forms';
+import { Diagnostic } from '@awesome-cordova-plugins/diagnostic/ngx';
 export function LanguageLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
+import { IonicStorageModule } from '@ionic/storage-angular';
+import { Device } from '@awesome-cordova-plugins/device/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,9 +32,13 @@ export function LanguageLoader(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
+    IonicStorageModule.forRoot() ,
     AppRoutingModule
   ],
-  providers: [{ provide: RouteReuseStrategy, 
+  providers: [
+    Device,
+    Diagnostic,
+    { provide: RouteReuseStrategy, 
     useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

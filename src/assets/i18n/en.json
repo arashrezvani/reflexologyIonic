@@ -79,6 +79,13 @@
     "Zodiac Sign":"Zodiac Sign",
     "Nature Disposition":"Nature (Disposition)",
     "Description1":"Description",
+    "Software lock review":"Software lock review",
+    "Code sent to admin":"Code sent to admin",
+    "Lock code":"Lock code",
+    "Confirmation":"Confirmation",
+    "Generating a lock":"Generating a lock code for the software",
+    "Code sent by the buyer":"Code sent by the buyer",
+    "Code creation":"Code creation",
     "":"",
 
     "accept_just_numbers":"Price Accept Just Numbers",

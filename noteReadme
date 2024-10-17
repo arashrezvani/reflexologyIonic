@@ -60,3 +60,170 @@ git push -u origin master
 7. مخزن حذف شد:
 پس از این کار، مخزن به طور کامل از حساب کاربری شما در گیت‌هاب حذف می‌شود و دیگر به آن دسترسی نخواهید داشت.
 توجه: حذف مخزن به طور دائمی انجام می‌شود و اطلاعات پروژه شما دیگر در دسترس نخواهد بود.
+
+
+
+
+جابجا شدن به برنچ دیگر:
+برای جابجا شدن به یک برنچ دیگر، از دستور زیر استفاده کنید:
+
+bash
+Copy code
+git checkout branch-name
+جایگزین کنید branch-name با نام برنچ مورد نظرتان.
+
+ایجاد و جابجایی به برنچ جدید:
+اگر می‌خواهید یک برنچ جدید ایجاد کرده و به آن جابجا شوید:
+
+bash
+Copy code
+git checkout -b new-branch-name
+حذف برنچ:
+برای حذف یک برنچ محلی که دیگر به آن نیازی ندارید، از دستور زیر استفاده کنید:
+
+bash
+Copy code
+git branch -d branch-name
+اگر برنچ در حال حاضر merge نشده و می‌خواهید آن را به هر حال حذف کنید، از گزینه -D استفاده کنید:
+
+bash
+Copy code
+git branch -D branch-name
+حذف برنچ از مخزن ریموت:
+برای حذف یک برنچ از مخزن ریموت (GitHub یا GitLab) از دستور زیر استفاده کنید:
+
+bash
+Copy code
+git push origin --delete branch-name
+به این ترتیب می‌توانید برنچ‌ها را مدیریت کنید.
+
+
+
+
+npm install emailjs-com
+  import emailjs from 'emailjs-com';
+  //ارسال ایمیل
+
+
+https://www.emailjs.com/
+ashe405@yahoo.com
+@Rezvani67QWEqwe123*
+
+
+ymail
+ashe307
+@Rezvani67QWEqwe123*
+  
+  sendEmail(){
+
+      const serviceID = 'service_bxk9gwr';
+      const templateID = 'template_458pxqk';
+      const userID = 'oghorbpPPjhHHuyEX';
+    
+      const templateParams = {
+        to_email: 'ashe405@yahoo.com',
+        from_name: 'Your Name',
+        message: 'This is a test email sent from Ionic app info mob : ' + this.message
+      };
+    
+      console.log('befor Email sent successfully!');
+      emailjs.send(serviceID, templateID, templateParams, userID)
+        .then((response) => {
+           console.log('Email sent successfully!', response.status, response.text);
+        }, (err) => {
+           console.error('Failed to send email:', err);
+        });
+
+      console.log('after Email sent successfully!');
+
+  }
+
+
+  //===============================    diagnostic بررسی اجازه داشتن         ========================================   
+
+اجازه خواستن برای وصل شدن و فعال کردن مثلا وایفا
+
+npm install cordova.plugins.diagnostic
+npm install @awesome-cordova-plugins/diagnostic
+npx cap sync
+
+
+add in app.modeule and network.modeule.ts
+
+in provide
+
+import { Diagnostic } from '@awesome-cordova-plugins/diagnostic/ngx';
+
+,
+  providers: [Diagnostic] // اضافه کردن به providers
+
+import { Diagnostic } from '@awesome-cordova-plugins/diagnostic/ngx';
+  providers: [Diagnostic,
+
+
+
+// ============================        دسترسي به اطلاعات گوشي        =====================================
+
+npm install @capacitor/device
+  const info = await Device.getInfo();
+  const batteryInfo = await Device.getBatteryInfo();
+  const languageCode = await Device.getLanguageCode();
+
+
+// ============================        storage        =====================================
+
+
+npm install @ionic/storage-angular @ionic/storage
+
+در فایل app.module.ts، شما باید IonicStorageModule را به ماژول‌های خود اضافه کنید
+
+
+import { IonicStorageModule } from '@ionic/storage-angular';
+  imports: [
+    IonicStorageModule.forRoot() // اضافه کردن این خط
+
+
+ايجاد سرويس
+ionic generate service services/storage/storage
+
+
+
+// ============================        device        =====================================
+ npm install @awesome-cordova-plugins/device
+ npm install cordova-plugin-device
+
+ اضافه کردن به providers در app.module.ts: باید Device را در بخش providers در فایل app.module.ts اضافه کنی:
+
+ 
+  providers: [
+    Device,
+    Diagnostic,
+    { provide: RouteReuseStrategy, 
+    useClass: IonicRouteStrategy }],
+
+// ============================        crypto        =====================================
+npm install crypto-js
+npm install --save-dev @types/crypto-js
+
+ import * as crypto from 'crypto-js';
+
+ 
+
+
+//===============================    برای ایکون و اسپلش        ========================================   
+
+
+npm install @capacitor/assets --save-dev
+npx capacitor-assets generate
+
+
+
+
+//===============================     گرفتن خروجی         ========================================   
+ionic build
+ionic capacitor add android
+ionic capacitor build android
+npx cap copy
+npx cap sync
+npx capacitor-assets generate
+npx cap open android

@@ -78,6 +78,13 @@
     "Zodiac Sign":"برج فلکی",
     "Nature Disposition":"طبع",
     "Description1":"توضیحات",
+    "Software lock review":"بررسی قفل نرم افزار",
+    "Code sent to admin":"کدی که برای ادمین باید ارسال کنید",
+    "Lock code":"کد قفل",
+    "Confirmation":"تایید",
+    "Generating a lock":"تولید کد قفل برای نرم افزار",
+    "Code sent by the buyer":"کد ارسال شده از سمت خریدار",
+    "Code creation":"ایجاد کد",
     "":"",
 
     "accept_just_numbers":"برای قیمت فقط عدد قابل قبول است",

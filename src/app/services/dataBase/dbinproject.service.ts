@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DbinprojectService {
 
+  private tokenRegister:string='';
   // BehaviorSubject برای نگهداری و انتشار داده‌های تحلیل‌شده
   private analyzedData = new BehaviorSubject<any>(null);
 
@@ -365,7 +366,12 @@ export class DbinprojectService {
 
   constructor() { }
 
-
+  gettokenRegister(){
+    return this.tokenRegister;
+  }
+  settokenRegister(data: string) {
+    this.tokenRegister = data;
+  }
   getDatazodiac(){
     return this.db_zodiac;
   }
@@ -406,5 +412,6 @@ export class DbinprojectService {
     return this.db_DTTS;
   }
 
+  
   
 }

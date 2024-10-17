@@ -35,6 +35,14 @@ const routes: Routes = [
     path: 'relationship-people',
     loadChildren: () => import('./relationship-people/relationship-people.module').then( m => m.RelationshipPeoplePageModule)
   },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'generateregistercode',
+    loadChildren: () => import('./generateregistercode/generateregistercode.module').then( m => m.GenerateregistercodePageModule)
+  },
 ];
 
 @NgModule({
