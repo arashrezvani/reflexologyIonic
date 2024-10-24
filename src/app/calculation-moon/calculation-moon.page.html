@@ -96,10 +96,10 @@
   <ion-button expand="full" color="danger" (click)="resetData()" class="btn-clear">{{'Clear' | translate}}</ion-button>
 
 
-  <!-- کارت نمایش نتایج -->
+  <!-- کارت نمایش نتایج شیخ بهایی -->
   <ion-card *ngIf="ResultNameMoon">
     <ion-card-header>
-      <ion-card-title class="card-title">نتیجه:</ion-card-title>
+      <ion-card-title class="card-title">{{'Result' | translate}} {{'Sheikh' | translate}} </ion-card-title>
     </ion-card-header>
     <!-- اطلاعات ابجد -->
 
@@ -137,22 +137,6 @@
         <ion-row>
           <ion-col size="6">
             <div class="result-item">
-              <p class="result-label"> <ion-icon name="restaurant-outline"></ion-icon> {{'Ominous Day of the Year' | translate}} :</p>
-              <h2 class="result-value">{{DayNahs}}</h2>
-            </div>
-            <ion-item-divider></ion-item-divider>
-          </ion-col>
-          <ion-col size="6">
-            <div class="result-item">
-              <p class="result-label"> <ion-icon name="moon-outline"></ion-icon> {{'New Moon' | translate}} :</p>
-              <h2 class="result-value">{{ DayMahgh }}</h2>
-            </div>
-            <ion-item-divider></ion-item-divider>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col size="6">
-            <div class="result-item">
               <p class="result-label"> <ion-icon name="document-attach-outline"></ion-icon> {{'Description1' | translate}} :</p>
               <h2 class="result-value">{{ MessageE }}</h2>
             </div>
@@ -166,11 +150,77 @@
             <ion-item-divider></ion-item-divider>
           </ion-col>
         </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <div class="result-item">
+              <p class="result-label"> <ion-icon name="restaurant-outline"></ion-icon> {{'Ominous Day of the Year' | translate}} :</p>
+              <h2 class="result-value">{{DayNahs}}</h2>
+            </div>
+            <ion-item-divider></ion-item-divider>
+          </ion-col>
+          <ion-col size="6">
+            <div class="result-item">
+              <p class="result-label"> <ion-icon name="moon-outline"></ion-icon> {{'New Moon' | translate}} :</p>
+              <h2 class="result-value">{{ DayMahgh }}</h2>
+            </div>
+            <ion-item-divider></ion-item-divider>
+          </ion-col>
+        </ion-row>
       </ion-grid>
     </ion-card-content>
   </ion-card>
 
 
+  <!-- کارت نمایش نتایج خواجه نصیر -->
+  <ion-card *ngIf="ResultNameMoon">
+    <ion-card-header>
+      <ion-card-title class="card-title">{{'Result' | translate}} {{'Khawaja' | translate}} </ion-card-title>
+    </ion-card-header>
+    <!-- اطلاعات ابجد -->
+
+    <ion-card-content>
+      <ion-grid>
+
+        <!-- اطلاعات ابجد شخص -->
+        <ion-row class="center-text">
+          <ion-col class="center-text" size="12">
+            <div class="result-item center-text">
+              <h1 class="result-value center-text">{{'Moon in' | translate}}  {{ SignNameKhN }} </h1>
+            </div>
+          </ion-col>
+        </ion-row>
+        
+        <ion-item-divider></ion-item-divider>
+        
+        <ion-row>
+          <ion-col size="6">
+            <div class="result-item">
+              <p class="result-label"> <ion-icon name="star-outline"></ion-icon> {{'Star' | translate}} :</p>
+              <h2 class="result-value">{{StarKhN}}</h2>
+            </div>
+            <ion-item-divider></ion-item-divider>
+          </ion-col>
+          <ion-col size="6">
+            <div class="result-item">
+              <p class="result-label"> <ion-icon name="flame-outline"></ion-icon> {{'Temperament' | translate}} :</p>
+              <h2 class="result-value">{{ temperamentNameKhN }}</h2>
+            </div>
+            <ion-item-divider></ion-item-divider>
+          </ion-col>
+        </ion-row>
+        
+        <ion-row>
+          <ion-col size="6">
+            <div class="result-item">
+              <p class="result-label"> <ion-icon name="contrast-outline"></ion-icon> {{'Nature Disposition' | translate}} :</p>
+              <h2 class="result-value">{{ temperamentKhN }}</h2>
+            </div>
+            <ion-item-divider></ion-item-divider>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 
   <ion-item-divider></ion-item-divider>
 

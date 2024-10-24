@@ -3,7 +3,7 @@
   <ion-menu side="start" menuId="first" contentId="main-content">
     <ion-header>
       <ion-toolbar>
-        <ion-title> {{'MainMenu' | translate}} </ion-title>
+        <ion-title> {{'MainMenu' | translate}} {{NameUser}} </ion-title>
       </ion-toolbar>
     </ion-header>
 
@@ -40,6 +40,12 @@
             {{'RelationshipPeople' | translate}}
           </ion-item>
         </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+          <ion-item button (click)="navigateToPage('/ominousday')">
+            <ion-icon slot="start" name="invert-mode-outline"></ion-icon>
+            {{'Ominous Days of the Year' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
         <ion-menu-toggle auto-="true">
           <ion-item button (click)="navigateToPage('/about-us')">
             <ion-icon slot="start" name="information-circle-outline"></ion-icon>
@@ -52,10 +58,22 @@
             {{'contact_us' | translate}}
           </ion-item>
         </ion-menu-toggle>
-        <!-- <ion-menu-toggle auto-hide="true">
+        <!-- <ion-menu-toggle auto-hide="true" *ngIf="flagadmin">
           <ion-item button (click)="navigateToPage('/generateregistercode')">
-            <ion-icon slot="start" name="call-outline"></ion-icon>
+            <ion-icon slot="start" name="checkmark-done-outline"></ion-icon>
             {{'Generating a lock' | translate}}
+          </ion-item>
+        </ion-menu-toggle> -->
+        <!-- <ion-menu-toggle auto-hide="true" *ngIf="flagadmin">
+          <ion-item button (click)="navigateToPage('/register')">
+            <ion-icon slot="start" name="bonfire-outline"></ion-icon>
+            {{'register' | translate}}
+          </ion-item>
+        </ion-menu-toggle> -->
+        <!-- <ion-menu-toggle auto-hide="true" *ngIf="flagadmin">
+          <ion-item button (click)="navigateToPage('/login')">
+            <ion-icon slot="start" name="log-in-outline"></ion-icon>
+            {{'login' | translate}}
           </ion-item>
         </ion-menu-toggle> -->
         <ion-menu-toggle auto-hide="true">

@@ -43,6 +43,14 @@ const routes: Routes = [
     path: 'generateregistercode',
     loadChildren: () => import('./generateregistercode/generateregistercode.module').then( m => m.GenerateregistercodePageModule)
   },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'ominousday',
+    loadChildren: () => import('./ominousday/ominousday.module').then( m => m.OminousdayPageModule)
+  },
 ];
 
 @NgModule({

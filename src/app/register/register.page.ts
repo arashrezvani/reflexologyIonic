@@ -6,6 +6,7 @@ import * as crypto from 'crypto-js';
 import { NavController } from '@ionic/angular';
 import { DbinprojectService } from '../services/dataBase/dbinproject.service';
 import { StorageService } from '../services/storage/storage.service';
+import { RegisterService } from '../services/register/register.service';
 
 
 @Component({
@@ -25,12 +26,14 @@ export class RegisterPage implements OnInit {
   registerCodeTemp: string = '';
   constructor(
     private storage : StorageService,
+    private dbreg : RegisterService,
     private dbSer:DbinprojectService,
     private navCtrl: NavController,
     private device: Device) 
   { 
     this.deviceUUID = this.device.uuid;
-    this.activationCode = crypto.SHA256(this.deviceUUID + this.secretKey).toString();
+    //this.activationCode = crypto.SHA256(this.deviceUUID + this.secretKey).toString();
+    this.activationCode = dbreg.convertStringToAsciiString(this.deviceUUID);
     this.UUIDdevice=this.device.uuid;
     this.registerCodeTemp = this.activationCode;
   }
@@ -40,11 +43,17 @@ export class RegisterPage implements OnInit {
 
 
   onRegister() {
-    this.token = crypto.SHA256(this.deviceUUID + this.registerCode).toString();
-    if(this.activationCode == this.registerCode){
+    //this.token = crypto.SHA256(this.deviceUUID + this.registerCode).toString();
+    //alert('activationCode  :'+this.activationCode);
+    //alert('registerCode  :'+this.registerCode);
+    //alert('secretKey  :'+this.secretKey);
+    //alert('deviceUUID  :'+this.deviceUUID);
+
+    //if(this.activationCode.trim().includes(this.registerCode.trim())){
+    if(this.activationCode.trim() === this.registerCode.trim()){
       this.storage.setItem('tokenRegister',this.registerCode);
       this.dbSer.settokenRegister(this.registerCode);
-      this.navCtrl.navigateRoot('/home'); // صفحه جدید به عنوان root تنظیم می‌شود
+      this.navCtrl.navigateRoot('/login'); // صفحه جدید به عنوان root تنظیم می‌شود
     }
 
     //برای نسخه ادمین

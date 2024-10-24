@@ -6,6 +6,7 @@ import * as crypto from 'crypto-js';
 import { NavController } from '@ionic/angular';
 import { DbinprojectService } from '../services/dataBase/dbinproject.service';
 import { StorageService } from '../services/storage/storage.service';
+import { RegisterService } from '../services/register/register.service';
 
 @Component({
   selector: 'app-generateregistercode',
@@ -23,6 +24,7 @@ export class GenerateregistercodePage implements OnInit {
   registerCodeTemp: string = '';
   constructor(
     private storage : StorageService,
+    private dbreg : RegisterService,
     private dbSer:DbinprojectService,
     private navCtrl: NavController,
     private device: Device) 
@@ -35,7 +37,9 @@ export class GenerateregistercodePage implements OnInit {
 
 
   onRegister() {
-    this.registerCode = crypto.SHA256(this.secretKey + this.UUIDdevice).toString();
+    //this.registerCode = crypto.SHA256(this.deviceUUID + this.secretKey).toString();
+    console.log("++++++++++++++++this.deviceUUID :",this.UUIDdevice)
+    this.registerCode = this.dbreg.convertStringToAsciiString(this.UUIDdevice);
   }
 
   exitApp() {

@@ -22,6 +22,10 @@ export class CalculationMoonPage implements OnInit {
   temperament: string ='';
   temperamentName: string ='';
   Star: string ='';
+  SignNameKhN: string ='';
+  temperamentKhN: string ='';
+  temperamentNameKhN: string ='';
+  StarKhN: string ='';
   DayNahs: string ='';
   DayMahgh: string ='';
   MessageE: string ='';
@@ -99,6 +103,10 @@ export class CalculationMoonPage implements OnInit {
           this.temperament = this.analyzedData.temperament;
           this.temperamentName = this.analyzedData.temperamentName;
           this.Star = this.analyzedData.Star;
+          this.SignNameKhN = this.analyzedData.SignNameKhN;
+          this.temperamentKhN = this.analyzedData.temperamentKhN;
+          this.temperamentNameKhN = this.analyzedData.temperamentNameKhN;
+          this.StarKhN = this.analyzedData.StarKhN;
           this.DayNahs = this.analyzedData.DayNahs;
           if(this.analyzedData.DayNahs=='') this.DayNahs = 'نیست';
           this.DayMahgh = this.analyzedData.DayMahgh;
@@ -112,6 +120,10 @@ export class CalculationMoonPage implements OnInit {
       this.temperament = '';
       this.temperamentName = '';
       this.Star = '';
+      this.SignNameKhN = '';
+      this.temperamentKhN = '';
+      this.temperamentNameKhN = '';
+      this.StarKhN = '';
       this.DayNahs = '';
       this.DayMahgh = '';
       this.MessageE = '';
@@ -135,6 +147,10 @@ export class CalculationMoonPage implements OnInit {
     this.temperament = '';
     this.temperamentName = '';
     this.Star = '';
+    this.SignNameKhN = '';
+    this.temperamentKhN = '';
+    this.temperamentNameKhN = '';
+    this.StarKhN = '';
     this.DayNahs = '';
     this.DayMahgh = '';
     this.MessageE = '';
@@ -145,6 +161,10 @@ export class CalculationMoonPage implements OnInit {
     this.temperament = '';
     this.temperamentName = '';
     this.Star = '';
+    this.SignNameKhN = '';
+    this.temperamentKhN = '';
+    this.temperamentNameKhN = '';
+    this.StarKhN = '';
     this.DayNahs = '';
     this.DayMahgh = '';
     this.MessageE = '';

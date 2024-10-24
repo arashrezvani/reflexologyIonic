@@ -280,10 +280,10 @@ export class CalServicService {
       if (i==0) {
         var calCDirection=this.dbSer.getDirectionABJAD();
         calCDirection.forEach(element => {
-          console.log("************************************ "+element.WordAbjad);
-          console.log("************************************ "+letters[i]);
+          //console.log("************************************ "+element.WordAbjad);
+          //console.log("************************************ "+letters[i]);
           if (element.WordAbjad.includes(letters[i])) {
-            console.log("************************************ "+element.Direction);
+            //console.log("************************************ "+element.Direction);
             Direction=element.Direction;
           }
         });
@@ -313,15 +313,15 @@ export class CalServicService {
     let angelStr2="";
 
     this.separatedNumbersKabir=this.separateNumber(NumKabir);
-    // console.log("+++++++++++++++++++++++*************************************    "+this.separatedNumbersKabir);
+     console.log("+++++++++++++++++++++++*************************************  separatedNumbersKabir  "+this.separatedNumbersKabir);
     for (let index = 0; index < this.separatedNumbersKabir.length; index++) {
       const element = this.separatedNumbersKabir[index];
-      // console.log("+++++++++++++++++++++++*************************************    "+element);
+       console.log("+++++++++++++++++++++++*************************************  element  "+element);
       
       
       const foundWordAngel = calC.find(c=>c.Kabir==element);
       if(foundWordAngel){
-        // console.log("+++++++++++++++++++++++*************************************    "+foundWordAngel.W);
+         console.log("+++++++++++++++++++++++************************************* foundWordAngel   "+foundWordAngel.W);
         angelStr=angelStr+foundWordAngel.W;
         
       }
@@ -405,10 +405,13 @@ export class CalServicService {
   separateNumber(num: number): number[]{
     const numStr = num.toString();
     const separatedNumbers: number[] = [];
+    //console.log("+++++++++++++++++++++++++++ numStr angel :",numStr);
 
     for (let i = 0; i < numStr.length; i++) {
       const digit = parseInt(numStr[i]);
+      //console.log("+++++++++++++++++++++++++++ digit angel :",digit," ++++ ",numStr.length);
       const placeValue = digit * Math.pow(10, numStr.length - i - 1);
+      //console.log("+++++++++++++++++++++++++++ placeValue angel :",placeValue ," +++++ i :",i);
       separatedNumbers.push(placeValue);
     }
     for (let index = 0; index < separatedNumbers.length; index++) {
@@ -422,7 +425,7 @@ export class CalServicService {
   result!: number;
   x2!: number;
   x25!: number;
-  resultN!: number;
+  resultKhN!: number;
   BaghiMande!: number;
   strMessageE:string='';
   CalcMoon(MS: number, DS: number, MG : number, DG: number){
@@ -432,11 +435,16 @@ export class CalServicService {
     this.x2 = (DG * 2);
     this.x25 = this.x2 + 5;
     this.result = this.x25 / 5;
-    this.resultN = this.x25 / 5;
+    this.resultKhN = this.x25 / 5;
     this.BaghiMande =  this.x25 % 5;
-    this.result = Math.round(this.result);
-    if(this.BaghiMande > 0)  this.resultN = this.resultN + 1;
-    if(this.resultN != this.result) this.strMessageE="احتياط 56 تا 60 ساعت";
+    //this.result =Number(this.result);
+    console.log(" +++++++++++++  result ",this.result);
+    this.result = Math.floor(this.result);
+    //this.result = Math.round(this.result);
+    if(this.BaghiMande > 0)  this.resultKhN = this.result + 1;
+    if(this.resultKhN != this.result){
+      this.strMessageE=" احتياط 56 تا 60 ساعت. توجه در ماه قمری 29 روزه 28ام محاق می باشد.";
+    }else this.strMessageE="توجه در ماه قمری 29 روزه 28ام محاق می باشد.";
 
     // T = تعداد عددی که باید از ماه شمسی بره جلو
     if (!this.analyzedDataMoon) {
@@ -448,17 +456,34 @@ export class CalServicService {
         DayNahs:'',
         DayMahgh:'',
         MessageE:'',
+        SignNameKhN: '',
+        temperamentKhN: '',
+        temperamentNameKhN: '',
+        StarKhN: '',
+        DayNahsKhN: '',
+        DayMahghKhN : '',
       }
     }
+    console.log(" +++++++++++++  result ",this.result);
+    console.log(" +++++++++++++  resultKhN ",this.resultKhN);
     let MoonZodNum: number=0;
     let StrMoon: string='';
     MoonZodNum =MS+this.result;
-    MoonZodNum=MoonZodNum-1;
+    MoonZodNum=MoonZodNum;
 
     if(MoonZodNum>12){
       MoonZodNum=MoonZodNum-13;
     }
+    console.log(" +++++++++++++  MoonZodNum ",MoonZodNum);
     
+    let MoonZodNumKhN: number=0;
+    let StrMoonKhN: string='';
+    MoonZodNumKhN =MS+this.resultKhN;
+    MoonZodNumKhN=MoonZodNumKhN;
+    if(MoonZodNumKhN>12){
+      MoonZodNumKhN=MoonZodNumKhN-13;
+    }
+    console.log(" +++++++++++++  MoonZodNumKhN ",MoonZodNumKhN);
 
     var calNehsDayYears=this.dbSer.getNehsDayYears();
     const foundNehsDayYears = calNehsDayYears.find(item => item.MonthNumber == MG && item.Day == DG);
@@ -474,6 +499,7 @@ export class CalServicService {
     var calCZodiac=this.dbSer.getDatazodiac();
     const foundWordZodiac = calCZodiac.find(item => item.SignNameNum == MoonZodNum);
     if(foundWordZodiac){
+      console.log(" +++++++++++++  foundWordZodiac ",foundWordZodiac);
       StrMoon =  foundWordZodiac.SignName;
       this.analyzedDataMoon.SignName = foundWordZodiac.SignName;
       this.analyzedDataMoon.temperament = foundWordZodiac.temperament;
@@ -481,6 +507,19 @@ export class CalServicService {
       this.analyzedDataMoon.Star = foundWordZodiac.Star;
       this.analyzedDataMoon.MessageE = this.strMessageE;
     }
+
+    var calCZodiac1=this.dbSer.getDatazodiac();
+    const foundWordZodiacKhN = calCZodiac1.find(item => item.SignNameNum == MoonZodNumKhN);
+    if(foundWordZodiacKhN){
+      console.log(" +++++++++++++  foundWordZodiacKhN ",foundWordZodiacKhN);
+      this.analyzedDataMoon.SignNameKhN = foundWordZodiacKhN.SignName;
+      this.analyzedDataMoon.temperamentKhN = foundWordZodiacKhN.temperament;
+      this.analyzedDataMoon.temperamentNameKhN = foundWordZodiacKhN.temperamentName;
+      this.analyzedDataMoon.StarKhN = foundWordZodiacKhN.Star;
+    }
+
+
+    console.log(" +++++++++++++  analyzedDataMoon ",this.analyzedDataMoon);
     this.dbSer.setAnalyzedData(this.analyzedDataMoon);
     return StrMoon;
   }
@@ -495,6 +534,12 @@ type MyDataMoonObj = {
   Star: string;
   DayNahs: string;
   DayMahgh : string;
+  SignNameKhN: string;
+  temperamentKhN: string;
+  temperamentNameKhN: string;
+  StarKhN: string;
+  DayNahsKhN: string;
+  DayMahghKhN : string;
   MessageE : string;
 };
 

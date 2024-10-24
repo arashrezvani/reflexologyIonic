@@ -7,7 +7,7 @@
 
     <!-- عنوان در مرکز -->
     <ion-title>
-      {{'Software lock review' | translate}}
+      {{'login' | translate}}
     </ion-title>
 
     <!-- دکمه خروج سمت راست -->
@@ -22,19 +22,20 @@
 
 <ion-content class="container font-iransans" [fullscreen]="true">
   <div class="center-text login-container">
-    
+    <!-- <ion-img class="logo" src="assets/imgs/login.png"></ion-img> -->
 
-    <form (submit)="onRegister()" >
+    <form (submit)="onLogin()" >
       <ion-item class="login-input">
-        <ion-label position="floating">{{'Code sent by the buyer' | translate}}</ion-label>
-        <ion-input type="text" [(ngModel)]="UUIDdevice" name="UUIDdevice" required></ion-input>
-      </ion-item>
-      <ion-item class="login-input">
-        <ion-label position="floating">{{'Lock code' | translate}}</ion-label>
-        <ion-input type="text" [(ngModel)]="registerCode" name="registerCode" required></ion-input>
+        <ion-label position="floating">{{'Username' | translate}}</ion-label>
+        <ion-input type="number" pattern="[0-9]*" inputmode="numeric"  aria-setsize="10"   [(ngModel)]="username" name="username" required></ion-input>
       </ion-item>
 
-      <ion-button expand="block" class="register-button" type="submit">{{'Code creation' | translate}}</ion-button>
+      <ion-item class="login-input">
+        <ion-label position="floating">{{'Password' | translate}}</ion-label>
+        <ion-input pattern="[0-9]*" inputmode="numeric"  aria-setsize="11"  type="password" [(ngModel)]="password" name="password" required></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" class="login-button" type="submit">{{'login' | translate}}</ion-button>
     </form>
 
   </div>

@@ -6,6 +6,7 @@ import { App } from '@capacitor/app';
 import { Capacitor } from '@capacitor/core';
 import { DbinprojectService } from './services/dataBase/dbinproject.service';
 import { StorageService } from './services/storage/storage.service';
+import { TitleStrategy } from '@angular/router';
 
 
 
@@ -16,7 +17,9 @@ import { StorageService } from './services/storage/storage.service';
 })
 export class AppComponent {
   
+  flagadmin : boolean =false;
   tokenRegister: string = '';
+  NameUser: string = '';
   tap = 0;
   constructor(
     private storage : StorageService,
@@ -28,22 +31,38 @@ export class AppComponent {
     private alertCtrl: AlertController,
     @Optional() private routerOutlet?: IonRouterOutlet) 
   {
+    
       this.checkLanguage("fa-ir");
       //this.checkLanguage("en-gb");
       this.platform.ready().then(() => {
         this.exitAppOnDoubleTap();
-        // this.exitAppOnAlert();
+        this.exitAppOnAlert();
       });
       this.initializeApp();
+      this.getNameUser();
   }
   async initializeApp() {
-
     this.tokenRegister = await this.storage.getItem('tokenRegister') || '';  // انتظار برای دریافت مقدار
-    
     //alert('tokenRegister :'+ this.tokenRegister);
     if(this.tokenRegister ==''){
       this.navCtrl.navigateRoot('/register'); // صفحه جدید به عنوان root تنظیم می‌شود
     }
+  }
+
+  async getNameUser() {
+
+    this.NameUser = await this.storage.getItem('userName') || '';
+    if(this.NameUser==='ادمین'){
+      this.flagadmin=true;
+    }
+    if(this.NameUser==='ژیلا سلیمانی'){
+      this.flagadmin=true;
+    }
+    this.dbSer.setNameUser(this.NameUser);
+  }
+
+  ngOnInit() {
+    this.getNameUser();
   }
   navigateToPage(page: string) {
     this.navCtrl.navigateRoot(page); // صفحه جدید به عنوان root تنظیم می‌شود
@@ -93,17 +112,17 @@ export class AppComponent {
   async alertExit() {
     console.log('alert');
     const alert = await this.alertCtrl.create({
-      header: 'Exit App',
-      subHeader: 'Confirm',
-      message: 'Are you sure you want to exit the App?',
+      header: this.translate.instant('Exit App'),
+      subHeader: this.translate.instant('Confirm'),
+      message: this.translate.instant('Are you sure'),
       buttons: [
         {
-          text: 'NO',
-          role: 'cancel'
+          text: this.translate.instant('NO'),
+          role: this.translate.instant('Cancel1')
         },
         {
-          text: 'YES',
-          role: 'confirm',
+          text: this.translate.instant('YES'),
+          role: this.translate.instant('Confirm'),
           handler: () => { App.exitApp(); }
         }
       ],
@@ -119,6 +138,7 @@ export class AppComponent {
     switch (language) {
       case 'ar': case 'ar-ar':
         {
+          this.translate.use('ar');
           document.documentElement.setAttribute('dir', 'rtl')
           this.translate.setDefaultLang('ar');
           this.translate.use('ar');
@@ -133,6 +153,7 @@ export class AppComponent {
         }
       case 'fa-ir':
         {
+          this.translate.use('fa');
           document.documentElement.setAttribute('dir', 'rtl')
           this.translate.setDefaultLang('fa-ir');
           this.translate.use('fa-ir');
@@ -140,6 +161,7 @@ export class AppComponent {
         }
       case 'en-gb':
         {
+          this.translate.use('en');
           document.documentElement.setAttribute('dir', 'ltr');
           this.translate.setDefaultLang('en');
           this.translate.use('en');
