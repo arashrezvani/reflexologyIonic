@@ -51,6 +51,26 @@ const routes: Routes = [
     path: 'ominousday',
     loadChildren: () => import('./ominousday/ominousday.module').then( m => m.OminousdayPageModule)
   },
+  {
+    path: 'list-users',
+    loadChildren: () => import('./list-users/list-users.module').then( m => m.ListUsersPageModule)
+  },
+  {
+    path: 'edit-users/:id',
+    loadChildren: () => import('./edit-users/edit-users.module').then( m => m.EditUsersPageModule)
+  },
+  {
+    path: 'nerves',
+    loadChildren: () => import('./Acupressure/nerves/nerves.module').then( m => m.NervesPageModule)
+  },
+  {
+    path: 'digestive',
+    loadChildren: () => import('./Acupressure/digestive/digestive.module').then( m => m.DigestivePageModule)
+  },
+  {
+    path: 'abjaperson',
+    loadChildren: () => import('./abjaperson/abjaperson.module').then( m => m.AbjapersonPageModule)
+  },
 ];
 
 @NgModule({

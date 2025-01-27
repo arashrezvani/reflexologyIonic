@@ -1,0 +1,21 @@
+.image-container {
+    text-align: center;
+    position: relative;
+  }
+  
+  .image-container img {
+    max-height: 200px; /* ارتفاع تصویر کوچک */
+    max-width: 100%; /* عرض تصویر */
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
+  }
+  
+  /* زوم تصویر با کلیک */
+  .image-container img:active {
+    transform: scale(2); /* زوم 2 برابر */
+    cursor: zoom-out;
+  }
+  .image-container {
+    margin-top: 20%; /* فاصله از بالا */
+  }

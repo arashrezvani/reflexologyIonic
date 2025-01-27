@@ -38,15 +38,23 @@ export class AppComponent {
         this.exitAppOnDoubleTap();
         this.exitAppOnAlert();
       });
+      //this.flagadmin=true;
       this.initializeApp();
-      this.getNameUser();
+      
+      if(this.tokenRegister != ''){
+        this.getNameUser(); // صفحه جدید به عنوان root تنظیم می‌شود
+      }
   }
   async initializeApp() {
     this.tokenRegister = await this.storage.getItem('tokenRegister') || '';  // انتظار برای دریافت مقدار
     //alert('tokenRegister :'+ this.tokenRegister);
-    if(this.tokenRegister ==''){
+    
+    //this.flagadmin=true;
+    if(this.tokenRegister == ''){
       this.navCtrl.navigateRoot('/register'); // صفحه جدید به عنوان root تنظیم می‌شود
     }
+    //this.navCtrl.navigateRoot('/home');
+    //this.flagadmin=true;
   }
 
   async getNameUser() {
@@ -58,11 +66,30 @@ export class AppComponent {
     if(this.NameUser==='ژیلا سلیمانی'){
       this.flagadmin=true;
     }
+    if(this.NameUser==='استاد کوهی'){
+      this.flagadmin=true;
+    }
+    if(this.NameUser==='آرش رضوانی'){
+      this.flagadmin=true;
+    }
+    if (this.NameUser == ''){
+      this.navCtrl.navigateRoot('/login');
+    }
     this.dbSer.setNameUser(this.NameUser);
   }
 
   ngOnInit() {
     this.getNameUser();
+  }
+  logout(){
+    this.storage.setItem('userName','');
+    this.dbSer.setNameUser('');
+    this.NameUser='';
+    console.log("this.NameUser",this.NameUser);
+    if (this.NameUser == ''){
+      this.navCtrl.navigateRoot('/login');
+    }
+
   }
   navigateToPage(page: string) {
     this.navCtrl.navigateRoot(page); // صفحه جدید به عنوان root تنظیم می‌شود

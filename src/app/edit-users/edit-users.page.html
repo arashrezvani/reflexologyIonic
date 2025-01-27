@@ -1,0 +1,76 @@
+<ion-header class="container font-iransans">
+  <ion-toolbar>
+    <!-- منوی کشویی سمت چپ -->
+    <!-- <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons> -->
+
+    <!-- عنوان در مرکز -->
+    <ion-title>
+      {{'Users' | translate}}
+    </ion-title>
+
+    <!-- دکمه خروج سمت راست -->
+    <ion-buttons slot="end">
+      <ion-button (click)="exitApp()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="user" [fullscreen]="true">
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">{{'Username' | translate}}</ion-label>
+      <ion-input [(ngModel)]="user.Username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">{{'Password' | translate}}</ion-label>
+      <ion-input [(ngModel)]="user.Password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">{{'Mobile number' | translate}}</ion-label>
+      <ion-input [(ngModel)]="user.Mobile"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">{{'First name' | translate}}</ion-label>
+      <ion-input [(ngModel)]="user.FirstName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">{{'Last name' | translate}}</ion-label>
+      <ion-input [(ngModel)]="user.LastName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">{{'First name' | translate}} {{'Last name' | translate}}</ion-label>
+      <ion-input [(ngModel)]="user.Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">{{'City' | translate}}</ion-label>
+      <ion-input [(ngModel)]="user.City"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">{{'Fee has been paid' | translate}}</ion-label>
+      <ion-input [(ngModel)]="user.Cost"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">{{'Eitaa' | translate}}</ion-label>
+      <ion-input [(ngModel)]="user.etiaa"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">{{'Telegram' | translate}}</ion-label>
+      <ion-input [(ngModel)]="user.telegram"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">{{'Package' | translate}}</ion-label>
+      <ion-input [(ngModel)]="user.Package"></ion-input>
+    </ion-item>
+    <!-- سایر فیلدهای قابل ویرایش -->
+  </ion-list>
+  <ion-buttons>
+    <ion-button class="custom-save" expand="full" (click)="saveUser()">
+      <ion-icon slot="start" name="save-outline"></ion-icon>
+      {{'save' | translate}}
+    </ion-button>
+  </ion-buttons>
+</ion-content>

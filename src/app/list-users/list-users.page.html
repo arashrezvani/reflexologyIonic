@@ -1,0 +1,92 @@
+<ion-header class="container font-iransans">
+  <ion-toolbar>
+    <!-- منوی کشویی سمت چپ -->
+    <!-- <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons> -->
+
+    <!-- عنوان در مرکز -->
+    <ion-title>
+      {{'User list' | translate}}
+    </ion-title>
+
+    <!-- دکمه خروج سمت راست -->
+    <ion-buttons slot="end">
+      <ion-button (click)="exitApp()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="container font-iransans" [fullscreen]="true">
+  
+
+
+  <!-- جستجو -->
+  <ion-searchbar 
+  [(ngModel)]="searchTermCost"
+  placeholder="{{'Search by Cost' | translate}}"
+  (ionInput)="searchUsersByCost()"
+></ion-searchbar>
+  <ion-searchbar  type="number" pattern="[0-9]*" inputmode="numeric"  aria-setsize="10"  
+    [(ngModel)]="searchTerm"
+    placeholder="{{'Search by national ID' | translate}}"
+    (ionInput)="searchUsers()"
+  ></ion-searchbar>
+  <ion-searchbar  type="number" pattern="[0-9]*" inputmode="numeric"  aria-setsize="11"  
+    [(ngModel)]="searchTermMob"
+    placeholder="{{'Search by mobile number' | translate}}"
+    (ionInput)="searchUsersByMob()"
+  ></ion-searchbar>
+  <ion-searchbar
+    [(ngModel)]="searchTermFam"
+    placeholder="{{'Search by last name' | translate}}"
+    (ionInput)="searchUsersByFam()"
+  ></ion-searchbar>
+  <ion-searchbar type="number" pattern="[0-9]*" inputmode="numeric"  aria-setsize="3"   
+    [(ngModel)]="searchTermId"
+    placeholder="{{'Search by Id' | translate}}"
+    (ionInput)="searchUsersById()"
+  ></ion-searchbar>
+
+  <!-- لیست کاربران -->
+  <ion-list>
+    <ion-item *ngFor="let user of filteredUsers"  >
+      <ion-icon name="person-circle-outline" slot="start"></ion-icon>
+      <ion-label>
+        <h2>{{ user.id }} : {{ user.Gender }} {{ user.LastName }} </h2>
+        <h2>UserName: {{ user.Username }}  </h2>
+        <h2>Password: {{ user.Password }} </h2>
+        <p>{{'City' | translate}} : {{ user.City }}</p>
+        <p>{{'Package' | translate}} :  {{ user.Package }}</p>
+        <p>{{'Fee has been paid' | translate}} :  {{ user.Cost }}</p>
+        <p>{{'Eitaa' | translate}} :  {{ user.etiaa }}</p>
+        <p>
+          <span>{{'Eitaa' | translate}}: </span>
+          <a (click)="openEitaa(user.etiaa)" *ngIf="user.etiaa.startsWith('@')">
+            {{ user.etiaa }}
+          </a>
+        </p>
+        <p>
+          <span>{{'Telegram' | translate}}: </span>
+          <a (click)="openTelegram(user.telegram)" *ngIf="user.telegram.startsWith('@')">
+            {{ user.telegram }}
+          </a>
+        </p>
+        
+        <ion-buttons class=" font-iransans">
+          <ion-button  expand="block" class="custom-edit-button"  (click)="editUser(user)">
+            <ion-icon slot="start" name="create-outline"></ion-icon>
+            {{'Edit' | translate}}
+          </ion-button>
+        </ion-buttons>
+      </ion-label>
+      <ion-icon name="arrow-forward-circle-outline" slot="end"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+

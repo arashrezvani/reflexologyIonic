@@ -29,6 +29,12 @@
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle auto-hide="true">
+          <ion-item button (click)="navigateToPage('/abjaperson')">
+            <ion-icon slot="start" name="qr-code-outline"></ion-icon>
+            {{'Calperabjad' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
           <ion-item button (click)="navigateToPage('/info-darman-abjad')">
             <ion-icon slot="start" name="finger-print-outline"></ion-icon>
             {{'abjadCal' | translate}}
@@ -58,24 +64,45 @@
             {{'contact_us' | translate}}
           </ion-item>
         </ion-menu-toggle>
-        <!-- <ion-menu-toggle auto-hide="true" *ngIf="flagadmin">
+        
+        <!-- <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
+          <ion-item button (click)="navigateToPage('/list-users')">
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            {{'User list' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
           <ion-item button (click)="navigateToPage('/generateregistercode')">
             <ion-icon slot="start" name="checkmark-done-outline"></ion-icon>
             {{'Generating a lock' | translate}}
           </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin" >
+          <ion-item button (click)="logout()">
+            <ion-icon slot="start" name="log-in-outline"></ion-icon>
+            {{'logout' | translate}}
+          </ion-item>
         </ion-menu-toggle> -->
-        <!-- <ion-menu-toggle auto-hide="true" *ngIf="flagadmin">
+
+        <!-- <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin" >
+          <ion-item button (click)="navigateToPage('/edit-users')">
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            {{'Users' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
           <ion-item button (click)="navigateToPage('/register')">
             <ion-icon slot="start" name="bonfire-outline"></ion-icon>
             {{'register' | translate}}
           </ion-item>
-        </ion-menu-toggle> -->
-        <!-- <ion-menu-toggle auto-hide="true" *ngIf="flagadmin">
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
           <ion-item button (click)="navigateToPage('/login')">
             <ion-icon slot="start" name="log-in-outline"></ion-icon>
             {{'login' | translate}}
           </ion-item>
         </ion-menu-toggle> -->
+
         <ion-menu-toggle auto-hide="true">
           <ion-item (click)="checkLanguage('fa-ir')">
             <ion-icon slot="start" name="shuffle"></ion-icon>

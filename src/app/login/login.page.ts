@@ -4,6 +4,7 @@ import { NavController } from '@ionic/angular';
 import { DbinprojectService } from '../services/dataBase/dbinproject.service';
 import { StorageService } from '../services/storage/storage.service';
 import { LoginService } from '../services/login/login.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -15,13 +16,15 @@ export class LoginPage implements OnInit {
   token: string='';
   username: string='';
   password: string='';
+  tokenRegister: string = '';
   constructor(
     private storage : StorageService,
     private dbSer:DbinprojectService,
     private dbLogin: LoginService,
     private navCtrl: NavController,
+    public translate: TranslateService,
   ) {
-
+    this.initializeApp();
   }
 
   ngOnInit() {
@@ -34,15 +37,32 @@ export class LoginPage implements OnInit {
       let logintest = this.dbLogin.login(this.username,this.password);
       if(logintest != ''){
         //alert(logintest);
-        this.navCtrl.navigateForward('/home');
+        this.initializeApp1();
+        //this.navCtrl.navigateForward('/home');
       }else{
-        //alert('invalid username or password');
+        alert(this.translate.instant('invalid username'));
       }
     } else {
       //alert('Invalid credentials');
     }
   }
 
+  async initializeApp() {
+    this.tokenRegister = await this.storage.getItem('tokenRegister') || '';  // انتظار برای دریافت مقدار
+    //alert('tokenRegister :'+ this.tokenRegister);
+    if(this.tokenRegister == ''){
+      this.navCtrl.navigateRoot('/register'); // صفحه جدید به عنوان root تنظیم می‌شود
+    }
+  }
+  async initializeApp1() {
+    this.tokenRegister = await this.storage.getItem('tokenRegister') || '';  // انتظار برای دریافت مقدار
+    //alert('tokenRegister :'+ this.tokenRegister);
+    if(this.tokenRegister == ''){
+      this.navCtrl.navigateRoot('/register'); // صفحه جدید به عنوان root تنظیم می‌شود
+    }else{
+      this.navCtrl.navigateRoot('/home');
+    }
+  }
   exitApp() {
     console.log("exitApp");
     App.exitApp();

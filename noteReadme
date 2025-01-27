@@ -227,3 +227,69 @@ npx cap copy
 npx cap sync
 npx capacitor-assets generate
 npx cap open android
+
+
+
+//===============================     گرفتن خروجی بدون اندروید استادیو         ========================================   
+
+ionic build --prod
+npx cap sync android
+
+cd .\android\
+./gradlew assembleRelease
+./gradlew assembleDebug
+./gradlew clean
+gradle -v
+
+cd app\build\outputs\apk\release
+
+کپی کردن کلید در مسیر
+jarsigner -verbose -keystore ashe-key.jks -signedjar app-release-signed.apk app-release-unsigned.apk ashe-key
+jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore  ashe-key.jks -signedjar app-release-signed.apk app-release-unsigned.apk ashe-key
+apksigner sign --ks ashe-key.jks --ks-key-alias ashe-key --key-pass pass:123456 --out app-release-signed.apk app-release-unsigned.apk
+
+zipalign -v 4 app-release-signed.apk app-release-aligned.apk
+
+
+
+
+
+// fodev.org ۸۱۱۸
+
+freegate 127.0.0.1 8580
+
+
+//===============================     گرفتن پی دی اف         ========================================   
+
+npm i cordova-plugin-file
+npm install @awesome-cordova-plugins/file
+npm i cordova-plugin-file-opener2
+npm install @awesome-cordova-plugins/file-opener
+npm i pdfmake
+npm i pdfmake-unicode
+npm install @types/pdfmake --save-dev
+npm install @ionic-native/file
+npm install @ionic-native/file --legacy-peer-deps
+
+
+
+
+
+npm install rxjs@7.8.1 --save
+ npm cache clean --force      
+
+ fodev.org
+
+
+
+ گردیل سیستم من پروکسی گرفته بود
+command Prompt سیستمون رو باز کنید
+dir تایپ کنید
+بعد cd کنید به gradle
+با code . 
+ویژال کد خود رو بازکنید
+نگاه کنید در gradle.properties گردیل شما پروکسی نگرفته باشه اگه گردیلتون پروکسی گرفته کامنت یا پاکش کنید
+که واسه گردیل سیستم من پروکسی گرفته بود پاکش کردم (چون از اون وی پی ان دیگه استفاده نمی‌کردم)
+و بعدش با پروکسی x-vpn 
+https://xvpn.io/download/vpn-win
+وی پی ان رو فعال کردم بعدش sdk build tools 33.0.1 رو نصب کردم و الحمدللله مشکل برطرف شد.

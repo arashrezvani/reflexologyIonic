@@ -147,6 +147,13 @@ export class CalServicService {
         PrimaryStoneM: '',
         SecondaryStoneD: '',
         Direction:'',
+        tw1: '',
+        tw2: '',
+        tw3: '',
+        job1: '',
+        job2: '',
+        job3: '',
+        mean:[],
         angel:'',
         angel1:'',
         oliM:'',
@@ -161,6 +168,10 @@ export class CalServicService {
         SexStar:'',
         NameState:'',
         quality:'',
+        herz:'',
+        MF:'',
+        PF:'',
+        NF:'',
         Calc:0,
         Date: new Date() }; // مقادیر پیش‌فرض
     }
@@ -245,6 +256,13 @@ export class CalServicService {
         PrimaryStoneM: '',
         SecondaryStoneD: '',
         Direction:'',
+        tw1: '',
+        tw2: '',
+        tw3: '',
+        job1: '',
+        job2: '',
+        job3: '',
+        mean:[],
         angel:'',
         angel1:'',
         oliM:'',
@@ -257,6 +275,10 @@ export class CalServicService {
         featureStar:'',
         featuretemperament:'',
         SexStar:'',
+        herz:'',
+        MF:'',
+        PF:'',
+        NF:'',
         NameState:'',
         quality:'',
         Calc:0,
@@ -278,6 +300,31 @@ export class CalServicService {
     }
     for (let i = 0; i < letters.length; i++) {
       if (i==0) {
+
+        calC.forEach(element =>{
+          
+          if(element.W.includes(letters[i])){
+            if (this.analyzedData) {
+              console.log("eeeeeeeeeeeeeeeeeeeee w :"+element.W);
+              console.log("eeeeeeeeeeeeeeeeeeeee tw1 :"+element.tw1);
+              console.log("eeeeeeeeeeeeeeeeeeeee tw2 :"+element.tw2);
+              console.log("eeeeeeeeeeeeeeeeeeeee tw2 :"+element.tw2);
+              console.log("eeeeeeeeeeeeeeeeeeeee tw3 :"+element.tw3);
+              console.log("eeeeeeeeeeeeeeeeeeeee job1 :"+element.jab1);
+              console.log("eeeeeeeeeeeeeeeeeeeee job2 :"+element.jab2);
+              console.log("eeeeeeeeeeeeeeeeeeeee job3 :"+element.jab3);
+              console.log("eeeeeeeeeeeeeeeeeeeee :"+letters[i]);
+              
+              this.analyzedData.tw1 = element.tw1;
+              this.analyzedData.tw2 = element.tw2;
+              this.analyzedData.tw3 = element.tw3;
+              this.analyzedData.job1 = element.jab1;
+              this.analyzedData.job2 = element.jab2;
+              this.analyzedData.job3 = element.jab3;
+            }
+          }
+        });
+
         var calCDirection=this.dbSer.getDirectionABJAD();
         calCDirection.forEach(element => {
           //console.log("************************************ "+element.WordAbjad);
@@ -288,7 +335,22 @@ export class CalServicService {
           }
         });
       }
-      console.log("+++++++++++++++++++++++    "+letters[i]);
+      console.log("+++++++++++++++++++++++ قبل از حلقه  letters[i]  "+letters[i]);
+      console.log("+++++++++++++++++++++++  i  "+i);
+      calC.forEach(element =>{
+        
+      console.log("------------------- داخل حلقه  letters[i]  "+letters[i]);
+        if(element.W.includes(letters[i])){
+          if (this.analyzedData) {
+            console.log("+++++++++++++++++++++++ قبل از مقدار گرفتن   "+element.mean);
+            this.analyzedData.mean[i] = element.mean;
+            
+            console.log("+++++++++++++++++++++++ بعد از مقدار گرفتن   "+element.mean);
+          }
+        }
+      });
+      
+      console.log("+++++++++++++++++++++++ بعد از حلقه letters[i]  "+letters[i]); 
 
       const foundWord = calC.find(item => item.W == letters[i]);
       if(foundWord){
@@ -345,6 +407,10 @@ export class CalServicService {
       this.analyzedData.temperament =  foundWordZodiac.temperament;
       this.analyzedData.temperamentName =  foundWordZodiac.temperamentName;
       this.analyzedData.Star =  foundWordZodiac.Star;
+      this.analyzedData.herz = foundWordZodiac.herz;
+      this.analyzedData.MF = foundWordZodiac.MF;
+      this.analyzedData.PF = foundWordZodiac.PF;
+      this.analyzedData.NF =foundWordZodiac.NF;
     }
 
     var tn=this.analyzedData.temperamentName;
@@ -462,6 +528,10 @@ export class CalServicService {
         StarKhN: '',
         DayNahsKhN: '',
         DayMahghKhN : '',
+        herz:'',
+        MF:'',
+        PF:'',
+        NF:'',
       }
     }
     console.log(" +++++++++++++  result ",this.result);
@@ -505,6 +575,10 @@ export class CalServicService {
       this.analyzedDataMoon.temperament = foundWordZodiac.temperament;
       this.analyzedDataMoon.temperamentName = foundWordZodiac.temperamentName;
       this.analyzedDataMoon.Star = foundWordZodiac.Star;
+      this.analyzedDataMoon.herz = foundWordZodiac.herz;
+      this.analyzedDataMoon.MF = foundWordZodiac.MF;
+      this.analyzedDataMoon.PF = foundWordZodiac.PF;
+      this.analyzedDataMoon.NF =foundWordZodiac.NF;
       this.analyzedDataMoon.MessageE = this.strMessageE;
     }
 
@@ -541,6 +615,10 @@ type MyDataMoonObj = {
   DayNahsKhN: string;
   DayMahghKhN : string;
   MessageE : string;
+  herz:string;
+  MF:string;
+  PF:string;
+  NF:string;
 };
 
 
@@ -565,6 +643,13 @@ type MyDataObject = {
   oliM:string;
   oliD:string;
   Direction: string;
+  tw1: string;
+  tw2: string;
+  tw3: string;
+  job1: string;
+  job2: string;
+  job3: string;
+  mean: string[];
   angel:string;
   angel1:string;
   feature:string;
@@ -575,7 +660,10 @@ type MyDataObject = {
   featureStar:string;
   SexStar:string;
   featuretemperament:string;
-  
+  herz:string;
+  MF:string;
+  PF:string;
+  NF:string;
   NameState: string;
   quality: string;
   Calc: number;

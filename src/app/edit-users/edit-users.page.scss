@@ -1,0 +1,12 @@
+ion-button.custom-save {
+    background-color: #4CAF50; /* رنگ پس‌زمینه سبز */
+    color: white; /* رنگ متن سفید */
+    border-radius: 25px; /* گوشه‌های گرد */
+    font-weight: bold; /* متن بولد */
+    padding: 12px 20px; /* فاصله داخلی */
+    transition: background-color 0.3s; /* انیمیشن تغییر رنگ */
+    
+    &:hover {
+      background-color: #45a049; /* رنگ تغییر یافته در حالت hover */
+    }
+  }

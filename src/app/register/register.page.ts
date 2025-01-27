@@ -36,9 +36,13 @@ export class RegisterPage implements OnInit {
     this.activationCode = dbreg.convertStringToAsciiString(this.deviceUUID);
     this.UUIDdevice=this.device.uuid;
     this.registerCodeTemp = this.activationCode;
+    
+    //this.navCtrl.navigateRoot('/home');
   }
 
   ngOnInit() {
+    
+    //this.navCtrl.navigateRoot('/home');
   }
 
 
@@ -48,11 +52,12 @@ export class RegisterPage implements OnInit {
     //alert('registerCode  :'+this.registerCode);
     //alert('secretKey  :'+this.secretKey);
     //alert('deviceUUID  :'+this.deviceUUID);
-
+    //this.navCtrl.navigateRoot('/home');
     //if(this.activationCode.trim().includes(this.registerCode.trim())){
     if(this.activationCode.trim() === this.registerCode.trim()){
       this.storage.setItem('tokenRegister',this.registerCode);
       this.dbSer.settokenRegister(this.registerCode);
+      //this.navCtrl.navigateRoot('/home'); // صفحه جدید به عنوان root تنظیم می‌شود
       this.navCtrl.navigateRoot('/login'); // صفحه جدید به عنوان root تنظیم می‌شود
     }
 
