@@ -3,6 +3,10 @@ apply plugin: 'com.android.application'
 android {
     namespace "ultra.medicice.app"
     compileSdk rootProject.ext.compileSdkVersion
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_22
+        targetCompatibility JavaVersion.VERSION_22
+    }
     defaultConfig {
         applicationId "ultra.medicice.app"
         minSdkVersion rootProject.ext.minSdkVersion
