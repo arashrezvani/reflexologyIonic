@@ -27,6 +27,7 @@ export class CommentsPage implements OnInit {
   async shareComment(comment: CommentModel) {
     const shareText = `${comment.name} (${comment.job} از ${comment.city}):\n\n"${comment.comment}"`;
     //const shareText = `👤 ${comment.name} از ${comment.city}\n📝 ${comment.comment}`;
+
     await Share.share({
       title: 'نظر کاربر',
       text: shareText,
@@ -48,5 +49,7 @@ export class CommentsPage implements OnInit {
       this.fontSize -= 2; // کاهش اندازه فونت
     }
   }
+
+
 
 }
