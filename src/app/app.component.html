@@ -64,8 +64,16 @@
             {{'contact_us' | translate}}
           </ion-item>
         </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+          <ion-item button (click)="navigateToPage('/comments')">
+            <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+            {{'comments' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
 
-        <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
+
+        <!-- <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
+
           <ion-item button (click)="navigateToPage('/list-users')">
             <ion-icon slot="start" name="people-outline"></ion-icon>
             {{'User list' | translate}}
@@ -82,9 +90,8 @@
             <ion-icon slot="start" name="log-in-outline"></ion-icon>
             {{'logout' | translate}}
           </ion-item>
-        </ion-menu-toggle> 
-
-         <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin" >
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin" >
           <ion-item button (click)="navigateToPage('/edit-users')">
             <ion-icon slot="start" name="people-outline"></ion-icon>
             {{'Users' | translate}}
@@ -102,6 +109,49 @@
             {{'login' | translate}}
           </ion-item>
         </ion-menu-toggle>
+        -->
+
+
+        
+        <!-- براي استاد بدون قفل -->
+        <!-- <ion-menu-toggle auto-hide="true"  >
+          <ion-item button (click)="navigateToPage('/list-users')">
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            {{'User list' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true"  >
+          <ion-item button (click)="navigateToPage('/generateregistercode')">
+            <ion-icon slot="start" name="checkmark-done-outline"></ion-icon>
+            {{'Generating a lock' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true"   >
+          <ion-item button (click)="logout()">
+            <ion-icon slot="start" name="log-in-outline"></ion-icon>
+            {{'logout' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true"   >
+          <ion-item button (click)="navigateToPage('/edit-users')">
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            {{'Users' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true"  >
+          <ion-item button (click)="navigateToPage('/register')">
+            <ion-icon slot="start" name="bonfire-outline"></ion-icon>
+            {{'register' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true"  >
+          <ion-item button (click)="navigateToPage('/login')">
+            <ion-icon slot="start" name="log-in-outline"></ion-icon>
+            {{'login' | translate}}
+          </ion-item>
+        </ion-menu-toggle> -->
+        <!-- براي استاد بدون قفل -->
+
 
         <ion-menu-toggle auto-hide="true">
           <ion-item (click)="checkLanguage('fa-ir')">
@@ -121,6 +171,16 @@
             {{'English' | translate}}
           </ion-item>
         </ion-menu-toggle>
+
+        
+        <!-- <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
+          <ion-item button (click)="navigateToPage('/study')">
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            {{'study' | translate}}
+          </ion-item>
+        </ion-menu-toggle> -->
+
+
       </ion-list>
     </ion-content>
   </ion-menu>

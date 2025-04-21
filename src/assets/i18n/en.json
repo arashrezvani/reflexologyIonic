@@ -1,8 +1,8 @@
 {
     
     "DetermineTime":"Determine Time Saad",
-    "Bonyan":"Bonyan Marsus",
-    "BonyanGroup":"Bonyan Marsus group",
+    "Bonyan":"Bonyan Marsus Professor Koohi",
+    "BonyanGroup":"Bonyan Marsus group Professor Koohi",
     "CalMoonZodiac":"Calculation of the Moon in the Zodiac",
     "DeterTime":"Calculation of the Auspicious Hour of the Day",
     "MainMenu":"Main Menu",
@@ -64,11 +64,11 @@
     "As a precaution, start 10 minutes":"As a precaution, start 10 minutes later and finish 10 minutes earlier.",
     "The output will appear after":"The output will appear after selecting the type.",
     "A gift of prayers (Salawat) as a vow":"A gift of prayers (Salawat) as a vow for the reappearance of Imam Mahdi (peace be upon him).",
-    "Bonyan Mersous Group Application":"Bonyan Mersous Group Application",
+    "Bonyan Mersous Group Application":"Bonyan Mersous Group Application Professor Koohi",
     "A gift of Surah Al-Qadr and Ayat al-Kursi":"A gift of Surah Al-Qadr and Ayat al-Kursi with the intention of energy for Bonyan Mersous.",
     "Our communication channels":"Our communication channels are through the Eitaa and Telegram apps. Please share your questions and opinions with us. Thank you.",
-    "Bonyan Mersous Group was founded by":"Bonyan Mersous Group was founded by a great master who prefers not to reveal their name. The knowledge used comes from the teachings of this esteemed master, who, according to their own words, gathered information from four authentic sources: The Holy Quran, Nahjul Balagha, Sahifa Sajjadiya, and Mafatih al-Jinan.",
-    "For the health of the esteemed master":"For the health of the esteemed master, recite Surah Al-Qadr and Ayat al-Kursi as a gift to the Prophet Muhammad (peace be upon him) and Imam Ali (peace be upon him).",
+    "Bonyan Mersous Group was founded by":"Bonyan Mersous Group was founded by a great Professor Koohi. The knowledge used comes from the teachings of this esteemed master, who, according to their own words, gathered information from four authentic sources: The Holy Quran, Nahjul Balagha, Sahifa Sajjadiya, and Mafatih al-Jinan.",
+    "For the health of the esteemed master":"For the health of the esteemed master Koohi, recite Surah Al-Qadr and Ayat al-Kursi as a gift to the Prophet Muhammad (peace be upon him) and Imam Ali (peace be upon him).",
     
     "Persian":"Persian",
     "Arabic":"Arabic",
@@ -121,7 +121,7 @@
     "save":"Save",
     "Eitaa":"Eitaa",
     "Telegram":"Telegram",
-    "If you are not a member":"If you are not a member of the Bonyan Mersous group and not a student of the master, using this software is religiously forbidden.",
+    "If you are not a member":"If you are not a member of the Bonyan Mersous group and not a student of the Professor Koohi, using this software is religiously forbidden.",
     "invalid username":"invalid username or password",
     "Calperabjad":"Calculation of a person's abjad",
     "NumberZM":"Number - Zodiac Month",
@@ -132,6 +132,8 @@
     "Types of letters 3":"Types of letters 3",
     "Feature":"Feature",
     "Meaning of the letters":"Meaning of the letters of a person's name in order",
+    "study":"study",
+    "comments":"comments",
     "":"",
 
     "accept_just_numbers":"Price Accept Just Numbers",

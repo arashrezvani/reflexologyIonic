@@ -538,20 +538,29 @@ export class CalServicService {
     console.log(" +++++++++++++  resultKhN ",this.resultKhN);
     let MoonZodNum: number=0;
     let StrMoon: string='';
+    //if(MS==1){MoonZodNum =MS+this.result-1;}else{MoonZodNum =MS+this.result;}
     MoonZodNum =MS+this.result;
     MoonZodNum=MoonZodNum;
 
+    console.log(" +++++++++++++  MoonZodNum ",MoonZodNum);
     if(MoonZodNum>12){
       MoonZodNum=MoonZodNum-13;
+    }else{MoonZodNum=MoonZodNum-1;}
+    if (MoonZodNum==0) {
+      MoonZodNum=12;
     }
     console.log(" +++++++++++++  MoonZodNum ",MoonZodNum);
     
     let MoonZodNumKhN: number=0;
     let StrMoonKhN: string='';
+    //if(MS==1){MoonZodNumKhN =MS+this.resultKhN-1;}else{MoonZodNumKhN =MS+this.resultKhN;}
     MoonZodNumKhN =MS+this.resultKhN;
     MoonZodNumKhN=MoonZodNumKhN;
     if(MoonZodNumKhN>12){
       MoonZodNumKhN=MoonZodNumKhN-13;
+    }else{MoonZodNumKhN=MoonZodNumKhN-1;}
+    if (MoonZodNumKhN==0) {
+      MoonZodNumKhN=12;
     }
     console.log(" +++++++++++++  MoonZodNumKhN ",MoonZodNumKhN);
 

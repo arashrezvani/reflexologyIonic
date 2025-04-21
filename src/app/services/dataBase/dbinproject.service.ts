@@ -8,7 +8,7 @@ import { User } from '../dataBase/InterFaceDb'; // مسیر به فایل این
 export class DbinprojectService {
 
   private tokenRegister:string='';
-
+  
   private NameUser:string='';
 
   setNameUser(nameUser:string){
@@ -45,7 +45,7 @@ export class DbinprojectService {
     {SignNameNum: 11, SignName: 'دلو', Element: 'هوا', temperament:'گرم و تر' ,temperamentName:'دم', Star:'زحل', moon:'بهمن', herz:'حرز امام جواد علیه سلام روی پوست آهو نوشته شود',MF:'برج یازده - برج فلکی دلو (بهمن)',PF:'دوست داشتنی بودن- بشر دوستی - خلاقیت- وفاداری',NF:'غیر قابل پیش بینی بودن- عدم ثبات - یک دنده- گوشه گیری ناگهانی- تندرو'},
     {SignNameNum: 12, SignName: 'حوت', Element: 'آب', temperament:'سرد و تر' ,temperamentName:'بلغم', Star:'مشتری', moon:'اسفند', herz:'حرز امام جواد علیه سلام روی کاغذ نوشته شود',MF:'برج دوازده - برج فلکی حوت یا ماهی (اسفند)',PF:'تخیل فوق العاده- مهربانی- غمخواری بودن- قدرت تفکربالا- احساسی بودن',NF:'تمایل به فرار از موقعیت- منفی گرایی - تنبلی'},
   ];
-
+  
   db_NehsDayYears: Array<{Day:number, MonthNumber: number, Month: string, Nahs: string }>=[
     {Day: 22, MonthNumber: 1, Month: 'محرم', Nahs: '22 محرم'  },
     {Day: 11, MonthNumber: 2, Month: 'صفر', Nahs: '11 صفر' },
@@ -131,7 +131,7 @@ export class DbinprojectService {
     {day: 'جمعه', StarName: 'زهره', temperamentName: 'بلغم', temperament: 'سرد و تر'},
   ];
 
-
+  
   db_RelationshipsStar:Array<{StarName: string, friendStar: string, enemyStar: string, mediatorStar: string}>=[
     {StarName: 'زحل', friendStar: 'زهره-عطارد', enemyStar: 'مریخ-شمس-قمر', mediatorStar: 'مشتری'},
     {StarName: 'مشتری', friendStar: 'مریخ-شمس-قمر', enemyStar: 'زهره-عطارد', mediatorStar: 'زحل'},
@@ -223,7 +223,7 @@ export class DbinprojectService {
     {dayName: 'شنبه',day: 1, time: 22, type: 'نحس اصغر', star: 'مریخ',timeCal: ""},
     {dayName: 'شنبه',day: 1, time: 23, type: 'سعد', star: 'شمس',timeCal: ""},
     {dayName: 'شنبه',day: 1, time: 24, type: 'سعد اصغر', star: 'زهره',timeCal: ""},
-
+    
     {dayName: 'يكشنبه',day: 2, time: 1, type: 'میانه', star: 'عطارد',timeCal: ""},
     {dayName: 'يكشنبه',day: 2, time: 2, type: 'تابع موقعیت', star: 'قمر',timeCal: ""},
     {dayName: 'يكشنبه',day: 2, time: 3, type: 'نحس اکبر', star: 'زحل',timeCal: ""},
@@ -323,7 +323,7 @@ export class DbinprojectService {
     {dayName: 'چهارشنبه',day: 5, time: 22, type: 'نحس اکبر', star: 'زحل',timeCal: ""},
     {dayName: 'چهارشنبه',day: 5, time: 23, type: 'سعد اکبر', star: 'مشتری',timeCal: ""},
     {dayName: 'چهارشنبه',day: 5, time: 24, type: 'نحس اصغر', star: 'مریخ',timeCal: ""},
-
+    
     {dayName: 'پنج شنبه',day: 6, time: 1, type: 'سعد', star: 'شمس',timeCal: ""},
     {dayName: 'پنج شنبه',day: 6, time: 2, type: 'سعد اصغر', star: 'زهره',timeCal: ""},
     {dayName: 'پنج شنبه',day: 6, time: 3, type: 'میانه', star: 'عطارد',timeCal: ""},
@@ -348,7 +348,7 @@ export class DbinprojectService {
     {dayName: 'پنج شنبه',day: 6, time: 22, type: 'سعد', star: 'شمس',timeCal: ""},
     {dayName: 'پنج شنبه',day: 6, time: 23, type: 'سعد اصغر', star: 'زهره',timeCal: ""},
     {dayName: 'پنج شنبه',day: 6, time: 24, type: 'میانه', star: 'عطارد',timeCal: ""},
-
+    
     {dayName: 'جمعه',day: 7, time: 1, type: 'تابع موقعیت', star: 'قمر',timeCal: ""},
     {dayName: 'جمعه',day: 7, time: 2, type: 'نحس اکبر', star: 'زحل',timeCal: ""},
     {dayName: 'جمعه',day: 7, time: 3, type: 'سعد اکبر', star: 'مشتری',timeCal: ""},
@@ -377,24 +377,7 @@ export class DbinprojectService {
 
 
   db_Users: Array<{Username: string, Mobile: string, Mobile1: string, Password: string, City: string, Package : string, Cost: string, Costopt: string, Gender: string, etiaa: string ,telegram: string, FirstName: string, LastName: string, Name:string, id:number}>=[
-
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 235  },
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 236  },
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 237  },
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 238  },
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 239  },
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 240  },
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 241  },
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 242  },
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 243  },
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 244  },
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 245  },
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 246  },
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 247  },
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 248  },
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 249  },
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 250  },
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 251  },
+    
     {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 252  },
     {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 253  },
     {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 254  },
@@ -583,7 +566,6 @@ export class DbinprojectService {
     {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 437  },
     {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 438  },
     {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 439  },
-
     {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 440  },
     {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 441  },
     {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Cost: 'بله', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 442  },
@@ -708,5 +690,5 @@ export class DbinprojectService {
   getuser(){
     return this.db_Users;
   }
-
+  
 }

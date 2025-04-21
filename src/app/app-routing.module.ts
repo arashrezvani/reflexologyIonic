@@ -71,6 +71,14 @@ const routes: Routes = [
     path: 'abjaperson',
     loadChildren: () => import('./abjaperson/abjaperson.module').then( m => m.AbjapersonPageModule)
   },
+  {
+    path: 'study',
+    loadChildren: () => import('./study/study.module').then( m => m.StudyPageModule)
+  },
+  {
+    path: 'comments',
+    loadChildren: () => import('./comments/comments.module').then( m => m.CommentsPageModule)
+  },
 ];
 
 @NgModule({
