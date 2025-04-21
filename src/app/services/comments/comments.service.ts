@@ -583,7 +583,7 @@ export class CommentsService {
     return this.shuffle(this.comments);
     //return this.comments;
   }
-
+  //برای اینکه هر سری باز میشه نظرات متفاوت باشند جابجا باشند در نمایش
   private shuffle(array: CommentModel[]): CommentModel[] {
     const copy = [...array];
     for (let i = copy.length - 1; i > 0; i--) {

@@ -25,17 +25,19 @@ export class CommentsPage implements OnInit {
   }
 
   async shareComment(comment: CommentModel) {
+    //   const shareText = `👤 ${comment.name} از ${comment.city}\n📝 ${comment.comment}`;
     const shareText = `${comment.name} (${comment.job} از ${comment.city}):\n\n"${comment.comment}"`;
     //const shareText = `👤 ${comment.name} از ${comment.city}\n📝 ${comment.comment}`;
 
     await Share.share({
       title: 'نظر کاربر',
       text: shareText,
-      dialogTitle: 'اشتراک‌گذاری نظر',
+      dialogTitle: 'اشتراک‌ گذاری نظر',
     });
   }
 
   // متغیر اندازه فونت
+
   fontSize = 14; // اندازه پیش‌فرض
 
   // تابع برای افزایش اندازه فونت
@@ -49,7 +51,5 @@ export class CommentsPage implements OnInit {
       this.fontSize -= 2; // کاهش اندازه فونت
     }
   }
-
-
 
 }
