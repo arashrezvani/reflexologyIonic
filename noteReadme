@@ -166,6 +166,44 @@ git branch backup-before-fix
 
 
 
+ChatGPT said:
+سلام 👋
+اگر توی یه برنچ مثلاً به اسم feature-x تغییراتی دادی و حالا می‌خوای اون تغییرات رو روی main اعمال کنی، دو روش اصلی داری: merge یا rebase. اینجا ساده‌ترین و رایج‌ترین روش یعنی merge رو برات توضیح می‌دم:
+
+✅ روش ۱: استفاده از merge
+bash
+Copy
+Edit
+# برو روی برنچ main
+git checkout main
+
+# آخرین تغییرات رو از ریموت بیار (اختیاری ولی بهتره):
+git pull origin main
+
+# حالا برنچ feature-x رو با main merge کن:
+git merge feature-x
+
+# در صورت نیاز:
+git push origin main
+🔁 روش ۲: استفاده از rebase (در صورت نیاز به تاریخچه تمیزتر)
+bash
+Copy
+Edit
+# برو روی برنچ feature-x
+git checkout feature-x
+
+# ری‌بیسش کن روی آخرین main
+git rebase main
+
+# حالا برو روی main و تغییرات feature-x رو مرج کن (بدون commit اضافه):
+git checkout main
+git merge feature-x --ff-only
+
+# یا اگر ری‌بیس شده باشه می‌تونی حتی fast-forward کنی
+git push origin main
+
+
+
 
 npm install emailjs-com
   import emailjs from 'emailjs-com';
