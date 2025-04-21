@@ -13,16 +13,19 @@
 </ion-header>
 
 
-<ion-content class="ion-padding">
-  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()" placeholder="جستجو..."></ion-searchbar>
+<ion-content [fullscreen]="true"  class="ion-padding">
+    <!-- ✅ با ion-sticky-header شبیه‌سازی شده -->
+    <div style="position: sticky; top: 0; z-index: 10; background: white; padding-bottom: 8px;">
+      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()"  placeholder="جستجو در نظرات"></ion-searchbar>
+    </div>
 
   <ion-list>
     <ion-card *ngFor="let comment of comments">
       <ion-card-header>
-        <ion-card-title>{{ comment.name }}</ion-card-title>
-        <ion-card-subtitle>{{ comment.job }} - {{ comment.city }}</ion-card-subtitle>
+        <ion-card-title  [ngStyle]="{'font-size': fontSize + 6 + 'px'}">{{ comment.name }}</ion-card-title>
+        <ion-card-subtitle  [ngStyle]="{'font-size': fontSize + 'px'}" >{{ comment.job }} - {{ comment.city }}</ion-card-subtitle>
       </ion-card-header>
-      <ion-card-content>
+      <ion-card-content  [ngStyle]="{'font-size': fontSize + 'px'}" >
         {{ comment.comment }}
       </ion-card-content>
       <ion-button fill="clear" (click)="shareComment(comment)">
@@ -31,3 +34,17 @@
     </ion-card>
   </ion-list>
 </ion-content>
+
+
+<ion-footer class="container">
+  <ion-item>
+    <ion-label color="success" class="center-text">
+      <h2 class="center-text" class="text-danger">{{'BonyanGroup' | translate}}</h2>
+    </ion-label>
+    <!-- دکمه‌های تغییر اندازه فونت -->
+    <div class="font-size-controls">
+      <ion-button (click)="increaseFontSize()">بزرگتر</ion-button>
+      <ion-button (click)="decreaseFontSize()">کوچکتر</ion-button>
+    </div>
+  </ion-item>
+</ion-footer>

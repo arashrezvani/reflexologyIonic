@@ -27,8 +27,16 @@
     </ion-accordion>
   </ion-accordion-group>
 </ion-content>
-<!-- دکمه‌های تغییر اندازه فونت -->
-<div class="font-size-controls">
-  <ion-button (click)="increaseFontSize()">بزرگتر</ion-button>
-  <ion-button (click)="decreaseFontSize()">کوچکتر</ion-button>
-</div>
+
+<ion-footer class="container">
+  <ion-item>
+    <ion-label color="success" class="center-text">
+      <h2 class="center-text" class="text-danger">{{'BonyanGroup' | translate}}</h2>
+    </ion-label>
+    <!-- دکمه‌های تغییر اندازه فونت -->
+    <div class="font-size-controls">
+      <ion-button (click)="increaseFontSize()">بزرگتر</ion-button>
+      <ion-button (click)="decreaseFontSize()">کوچکتر</ion-button>
+    </div>
+  </ion-item>
+</ion-footer>

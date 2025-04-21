@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommentsService, CommentModel } from '../services/comments/comments.service';
-//import { Share } from '@capacitor/share';//for share npm install @capacitor/share npx cap sync
+import { Share } from '@capacitor/share';//for share npm install @capacitor/share npx cap sync
 
 @Component({
   selector: 'app-comments',
@@ -23,28 +23,30 @@ export class CommentsPage implements OnInit {
 
   ngOnInit() {
   }
-  // async shareComment(comment: CommentModel) {
-  //   const shareText = `${comment.name} (${comment.job} از ${comment.city}):\n\n"${comment.comment}"`;
-  //   await Share.share({
-  //     title: 'نظر کاربر',
-  //     text: shareText,
-  //     dialogTitle: 'اشتراک‌گذاری نظر',
-  //   });
-  // }
 
+  async shareComment(comment: CommentModel) {
+    const shareText = `${comment.name} (${comment.job} از ${comment.city}):\n\n"${comment.comment}"`;
+    //const shareText = `👤 ${comment.name} از ${comment.city}\n📝 ${comment.comment}`;
+    await Share.share({
+      title: 'نظر کاربر',
+      text: shareText,
+      dialogTitle: 'اشتراک‌گذاری نظر',
+    });
+  }
 
-  shareComment(comment: CommentModel) {
-    const shareText = `👤 ${comment.name} از ${comment.city}\n📝 ${comment.comment}`;
-    
-    if (navigator.share) {
-      navigator.share({
-        title: 'نظر کاربر',
-        text: shareText,
-      })
-      .then(() => console.log('Shared successfully'))
-      .catch(err => console.error('Share failed:', err));
-    } else {
-      alert('مرورگر از اشتراک‌گذاری پشتیبانی نمی‌کند');
+  // متغیر اندازه فونت
+  fontSize = 14; // اندازه پیش‌فرض
+
+  // تابع برای افزایش اندازه فونت
+  increaseFontSize() {
+    this.fontSize += 2; // افزایش اندازه فونت
+  }
+
+  // تابع برای کاهش اندازه فونت
+  decreaseFontSize() {
+    if (this.fontSize > 8) { // حداقل اندازه فونت
+      this.fontSize -= 2; // کاهش اندازه فونت
     }
   }
+
 }

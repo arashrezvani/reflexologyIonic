@@ -52,6 +52,12 @@
             {{'Ominous Days of the Year' | translate}}
           </ion-item>
         </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+          <ion-item button (click)="navigateToPage('/comments')">
+            <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+            {{'comments' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
         <ion-menu-toggle auto-="true">
           <ion-item button (click)="navigateToPage('/about-us')">
             <ion-icon slot="start" name="information-circle-outline"></ion-icon>
@@ -62,12 +68,6 @@
           <ion-item button (click)="navigateToPage('/contact-us')">
             <ion-icon slot="start" name="call-outline"></ion-icon>
             {{'contact_us' | translate}}
-          </ion-item>
-        </ion-menu-toggle>
-        <ion-menu-toggle auto-hide="true">
-          <ion-item button (click)="navigateToPage('/comments')">
-            <ion-icon slot="start" name="person-circle-outline"></ion-icon>
-            {{'comments' | translate}}
           </ion-item>
         </ion-menu-toggle>
 
