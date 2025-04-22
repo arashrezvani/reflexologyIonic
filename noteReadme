@@ -360,3 +360,79 @@ dir تایپ کنید
 و بعدش با پروکسی x-vpn 
 https://xvpn.io/download/vpn-win
 وی پی ان رو فعال کردم بعدش sdk build tools 33.0.1 رو نصب کردم و الحمدللله مشکل برطرف شد.
+
+
+
+برای شیر نظرات در شبکه های مجازی نیاز به نصب 
+
+for share 
+
+
+npm install @capacitor/share npx cap sync
+
+
+jdk 21
+رو نصب کردم
+در 
+envirmante system
+Java_Home 
+C:\Program Files\Java\jdk-21
+
+و در
+path
+C:\Program Files\Java\jdk-21
+و
+%JAVA_HOME%\bin
+رو اضافه میکنیم
+
+در س ام دی ران تایپ میکنیم 
+java -version
+باید 21 باشه
+در سی ام دی بزن
+echo %JAVA_HOME%
+باید باشه
+C:\Program Files\Java\jdk-21
+در سی ام دی بزن
+where java
+باید ادرس یه جا باشه
+وگرنه ادرس های دیگه رو پاک کن
+
+
+در فایل زیر 
+android/app/build.gradle
+اضافه میکنیم
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
+    }
+    ...
+}
+
+در فایل زیر
+android/gradle/wrapper/gradle-wrapper.properties
+اضافه میکنیم
+distributionUrl=https\://services.gradle.org/distributions/gradle-8.3-all.zip
+
+در فایل 
+فایل variables.gradle
+تایپ میکنیم
+ext {
+    minSdkVersion = 24
+    compileSdkVersion = 35
+    targetSdkVersion = 35
+    androidxAppCompatVersion = '1.6.1'
+    androidxCoordinatorLayoutVersion = '1.2.0'
+    coreSplashScreenVersion = '1.0.1'
+    junitVersion = '4.13.2'
+    androidxJunitVersion = '1.1.5'
+    androidxEspressoCoreVersion = '3.5.1'
+}
+اگه چیزی غیرعادی تو فایل variables.gradle دیدی، درستش کن.
+
+
+
+بعدش 
+cd E:\arash\project\ionic\UltraMedicine\android
+./gradlew clean
+./gradlew build
