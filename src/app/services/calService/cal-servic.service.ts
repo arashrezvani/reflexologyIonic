@@ -173,7 +173,7 @@ export class CalServicService {
         PF:'',
         NF:'',
         Calc:0,
-        Date: new Date() }; // مقادیر پیش‌فرض
+        Date: new Date(),Asma_Array: [] }; // مقادیر پیش‌فرض
     }
     
     var zodiacRelationships = this.dbSer.getzodiacRelationships();
@@ -282,7 +282,7 @@ export class CalServicService {
         NameState:'',
         quality:'',
         Calc:0,
-        Date: new Date() }; // مقادیر پیش‌فرض
+        Date: new Date(),Asma_Array:[] }; // مقادیر پیش‌فرض
     }
 
     var calC=this.dbSer.getDataABJAD();
@@ -369,6 +369,7 @@ export class CalServicService {
     this.analyzedData.NumSaghirSelfMom = NumSaghirSelfMom; 
     this.analyzedData.NumMoon = NumMoon;
 
+    this.calAsma(NumKabir,NumKabirMom);
 
     let angelStr="";
     let angelStr1="";
@@ -607,6 +608,34 @@ export class CalServicService {
     return StrMoon;
   }
 
+
+  
+  calAsma(ak:number,akhm:number){
+    let t!: number;
+    t=ak+akhm;
+    console.log("asma =========================================================== : "+t);
+    if (this.analyzedData) {
+      this.analyzedData.Asma_Array = [];  // فقط وقتی که analyzedData وجود داشته باشد آرایه را ریست کن
+    }
+    for(let i=t;i>1;i-=12){
+      if(i<100){
+        var calCArrayAsma=this.dbSer.getAsma();
+        const foundcalCArrayAsma = calCArrayAsma.find(item => item.id == i.toString());
+        if(foundcalCArrayAsma){
+          console.log(" ===========================================================  foundcalCArrayAsma ",foundcalCArrayAsma);
+          this.analyzedData?.Asma_Array.push({
+            id: foundcalCArrayAsma.id,
+            name: foundcalCArrayAsma.name,
+            meaning: foundcalCArrayAsma.meaning,
+            abjadkabir: foundcalCArrayAsma.abjadkabir,
+            desc: foundcalCArrayAsma.desc
+          });
+        }
+        console.log("asma =========================================================== : "+i);}
+    }
+  }
+
+
 }
 
 
@@ -681,4 +710,5 @@ type MyDataObject = {
   // key8: number[];
   // key9: { nestedKey: string };
   Date: Date;
+  Asma_Array: Array<{id: string, name: string, meaning: string, abjadkabir: string, desc: string}>;
 };

@@ -22,7 +22,7 @@ export class InfoDarmanAbjadPage implements OnInit {
   
 
   analyzedData: any; // داده‌هایی که قرار است نمایش داده شوند
-
+  Asma_Array: Array<{id: string, name: string, meaning: string, abjadkabir: string, desc: string}>=[];
   //=========================================
 
   nameInput: string = '';   // ورودی نام
@@ -87,7 +87,6 @@ export class InfoDarmanAbjadPage implements OnInit {
   }
 
   ngOnInit() {
-
     // اضافه کردن فونت فارسی به VFS
     // const loadFonts = async () => {
     //   const fontPath = 'assets/fonts/iransans/IRANSans.ttf'; // مسیر فونت در پروژه
@@ -130,6 +129,7 @@ export class InfoDarmanAbjadPage implements OnInit {
       // اشتراک به داده‌های تحلیل شده و دریافت داده‌ها
       this.dbSer.getAnalyzedData().subscribe((data) => {
         if (data) {
+          this.Asma_Array = []; // ریست آرایه قبلی
           this.analyzedData = data;
           console.log('Analyzed Data:', this.analyzedData);
           this.NumSaghir = this.analyzedData.NumSaghir;
@@ -173,6 +173,7 @@ export class InfoDarmanAbjadPage implements OnInit {
           this.featureStar = this.analyzedData.featureStar;
           this.featuretemperament = this.analyzedData.featuretemperament;
           this.SexStar = this.analyzedData.SexStar;
+          this.Asma_Array= this.analyzedData.Asma_Array;
         }
       });
 
@@ -260,6 +261,24 @@ export class InfoDarmanAbjadPage implements OnInit {
     this.oliM = '';
     this.oliD = '';
     this.DayDarman = '';
+    this.Asma_Array=[];
   }
+
+  // متغیر اندازه فونت
+
+  fontSize = 14; // اندازه پیش‌فرض
+
+  // تابع برای افزایش اندازه فونت
+  increaseFontSize() {
+    this.fontSize += 2; // افزایش اندازه فونت
+  }
+
+  // تابع برای کاهش اندازه فونت
+  decreaseFontSize() {
+    if (this.fontSize > 8) { // حداقل اندازه فونت
+      this.fontSize -= 2; // کاهش اندازه فونت
+    }
+  }
+
 
 }

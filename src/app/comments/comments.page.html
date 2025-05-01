@@ -15,10 +15,14 @@
 <ion-content [fullscreen]="true"  class="ion-padding">
     <!-- ✅ با ion-sticky-header شبیه‌سازی شده -->
     <div style="position: sticky; top: 0; z-index: 10; background: white; padding-bottom: 8px;">
-      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()"  placeholder="جستجو..."></ion-searchbar>
+      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()"  placeholder="{{'search' | translate}} ..."></ion-searchbar>
     </div>
 
-
+    <ion-item lines="none" class="total-comments">
+      <ion-label>
+        📝 {{'Number of submitted comments' | translate}} {{ comments.length }}
+      </ion-label>
+    </ion-item>
   <ion-list>
     <ion-card *ngFor="let comment of comments">
       <ion-card-header>
