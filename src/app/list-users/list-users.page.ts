@@ -49,7 +49,7 @@ export class ListUsersPage implements OnInit {
   searchUsersByFam() {
     const term = this.searchTermFam.trim().toLowerCase();
     this.filteredUsers = this.users.filter(user =>
-      user.LastName.toLowerCase().includes(term)
+      user.LastName.toLowerCase().includes(term) 
     );
   }
 

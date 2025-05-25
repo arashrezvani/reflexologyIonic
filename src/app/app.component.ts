@@ -18,6 +18,7 @@ import { TitleStrategy } from '@angular/router';
 export class AppComponent {
   
   flagadmin : boolean =false;
+  flagLogin : boolean =false;
   tokenRegister: string = '';
   NameUser: string = '';
   tap = 0;
@@ -51,8 +52,10 @@ export class AppComponent {
     
     //this.flagadmin=true;
     if(this.tokenRegister == ''){
-      this.navCtrl.navigateRoot('/register'); // صفحه جدید به عنوان root تنظیم می‌شود
-    }
+      this.flagLogin=false;
+      this.navCtrl.navigateRoot('/login');
+      //this.navCtrl.navigateRoot('/register'); // صفحه جدید به عنوان root تنظیم می‌شود
+    }else{this.flagLogin=true;}
     //this.navCtrl.navigateRoot('/home');
     //this.flagadmin=true;
   }
@@ -73,6 +76,7 @@ export class AppComponent {
       this.flagadmin=true;
     }
     if (this.NameUser == ''){
+      this.flagLogin=false;
       this.navCtrl.navigateRoot('/login');
     }
     this.dbSer.setNameUser(this.NameUser);
@@ -87,6 +91,7 @@ export class AppComponent {
     this.NameUser='';
     console.log("this.NameUser",this.NameUser);
     if (this.NameUser == ''){
+      this.flagLogin=false;
       this.navCtrl.navigateRoot('/login');
     }
 

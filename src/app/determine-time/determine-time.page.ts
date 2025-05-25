@@ -35,13 +35,13 @@ export class DetermineTimePage implements OnInit {
   ];
   selectedOption: string="1";
   options2 = [
-    { value: 'سعد', text: 'سعد' },
-    { value: 'سعد اکبر', text: 'سعد اکبر' },
-    { value: 'سعد اصغر', text: 'سعد اصغر' },
-    { value: 'میانه', text: 'میانه' },
-    { value: 'نحس اکبر', text: 'نحس اکبر' },
-    { value: 'نحس اصغر', text: 'نحس اصغر' },
-    { value: 'تابع موقعیت', text: 'تابع موقعیت' }
+    { value: 'سعد', text: 'سعد (شمس)' },
+    { value: 'سعد اکبر', text: 'سعد اکبر (مشتری)' },
+    { value: 'سعد اصغر', text: 'سعد اصغر (زهره)' },
+    { value: 'میانه', text: 'میانه (عُطارِد)' },
+    { value: 'نحس اکبر', text: 'نحس اکبر (زحل)' },
+    { value: 'نحس اصغر', text: 'نحس اصغر (مریخ)' },
+    { value: 'تابع موقعیت', text: 'تابع موقعیت (قمر)' }
   ];
   selectedOption2: string="";
 

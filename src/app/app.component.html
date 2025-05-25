@@ -1,6 +1,6 @@
 <ion-app class="container font-iranyekan">
 
-  <ion-menu side="start" menuId="first" contentId="main-content">
+  <ion-menu side="start" menuId="first" contentId="main-content"  *ngIf="flagLogin">
     <ion-header>
       <ion-toolbar>
         <ion-title> {{'MainMenu' | translate}} {{NameUser}} </ion-title>
@@ -71,8 +71,6 @@
           </ion-item>
         </ion-menu-toggle>
 
-
-
         
         <!-- براي admin -->
         <!-- <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
@@ -93,12 +91,7 @@
             {{'logout' | translate}}
           </ion-item>
         </ion-menu-toggle>
-        <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin" >
-          <ion-item button (click)="navigateToPage('/edit-users')">
-            <ion-icon slot="start" name="people-outline"></ion-icon>
-            {{'Users' | translate}}
-          </ion-item>
-        </ion-menu-toggle>
+        
         <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
           <ion-item button (click)="navigateToPage('/register')">
             <ion-icon slot="start" name="bonfire-outline"></ion-icon>
@@ -134,12 +127,7 @@
             {{'logout' | translate}}
           </ion-item>
         </ion-menu-toggle>
-        <ion-menu-toggle auto-hide="true"   >
-          <ion-item button (click)="navigateToPage('/edit-users')">
-            <ion-icon slot="start" name="people-outline"></ion-icon>
-            {{'Users' | translate}}
-          </ion-item>
-        </ion-menu-toggle>
+        
         <ion-menu-toggle auto-hide="true"  >
           <ion-item button (click)="navigateToPage('/register')">
             <ion-icon slot="start" name="bonfire-outline"></ion-icon>

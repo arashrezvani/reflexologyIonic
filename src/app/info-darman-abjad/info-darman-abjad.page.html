@@ -393,7 +393,7 @@
         </ion-list>
 
         <!-- اسما حسني --> 
-        <!-- <ion-row>
+        <ion-row  *ngIf="IsHosna">
           <ion-col size="12">
             <ion-card class="health-card" style="padding: 16px; text-align: center;">
               <div style="display: flex; justify-content: center; align-items: center; gap: 8px; font-size: 24px; font-weight: bold; color: #3880ff;">
@@ -405,21 +405,24 @@
             <ion-item-divider style="margin-top: 10px; border: none; height: 1px; background-color: #dcdcdc;"></ion-item-divider>
           </ion-col>
         </ion-row>
-
-        <ion-row *ngFor="let item of Asma_Array | slice:0:10">
-          <ion-col size="12">
-            <ion-card class="health-card">
-              <ion-card-header>
-                <ion-card-title>{{ item.name }}</ion-card-title>
-                <ion-card-subtitle>{{ 'Meaning' | translate }} : {{ item.meaning }}</ion-card-subtitle>
-              </ion-card-header>
-              <ion-card-content>
-                <p>{{ 'Abjad Kabir' | translate }} : {{ item.abjadkabir }}</p>
-                <ion-note color="medium">{{ item.desc }}</ion-note>
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
-        </ion-row> -->
+        <!-- اسما حسني --> 
+        <span  *ngIf="IsHosna">
+          <ion-row *ngFor="let item of Asma_Array | slice:0:10" >
+            <ion-col size="12">
+              <ion-card class="health-card">
+                <ion-card-header>
+                  <ion-card-title>{{ item.name }}</ion-card-title>
+                  <ion-card-subtitle>{{ 'Meaning' | translate }} : {{ item.meaning }}</ion-card-subtitle>
+                </ion-card-header>
+                <ion-card-content>
+                  <p>{{ 'Abjad Kabir' | translate }} : {{ item.abjadkabir }}</p>
+                  <ion-note color="medium">{{ item.desc }}</ion-note>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </span>
+        
 
 
       </ion-grid>

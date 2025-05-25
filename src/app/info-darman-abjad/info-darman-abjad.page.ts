@@ -10,6 +10,7 @@ const pdfMakeX = require('pdfmake/build/pdfmake.js');
 const pdfFontsX = require('pdfmake-unicode/dist/pdfmake-unicode.js');
 pdfMakeX.vfs = pdfFontsX.pdfMake.vfs;
 import * as pdfMake from 'pdfmake/build/pdfmake';
+import { StorageService } from '../services/storage/storage.service';
 
 @Component({
   selector: 'app-info-darman-abjad',
@@ -76,17 +77,34 @@ export class InfoDarmanAbjadPage implements OnInit {
   job3: string='';
   mean: string[]=[];
   featuretemperament:string ='';
-
+  IsHosna : boolean = false;
 
 
   //=========================================
   constructor(
-  private calSer: CalServicService,
-  private dbSer:DbinprojectService) {
+    private calSer: CalServicService,
+    private storage : StorageService,
+    private dbSer:DbinprojectService) {
     
   }
-
+  async checkAsmaHosna() {
+    console.log("asmaHosna   b  ", this.IsHosna);
+    try {
+      const cal = await this.storage.getItem('Obj_Opt'); // منتظر می‌مانیم تا Promise رفع شود
+      console.log("cal   b  ", cal);
+      this.IsHosna = cal ? cal.includes('asmaHosna') : false;
+      console.log("asmaHosna    a     ", this.IsHosna);
+    } catch (error) {
+      console.error("خطا در دریافت داده از storage: ", error);
+      this.IsHosna = false; // در صورت خطا، مقدار پیش‌فرض
+    }
+  }
   ngOnInit() {
+    this.checkAsmaHosna();
+    
+    //const AsmaHosna =  calCArrayAsma ? calCArrayAsma.includes('سلام') : false;
+   
+    
     // اضافه کردن فونت فارسی به VFS
     // const loadFonts = async () => {
     //   const fontPath = 'assets/fonts/iransans/IRANSans.ttf'; // مسیر فونت در پروژه
