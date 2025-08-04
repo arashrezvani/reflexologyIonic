@@ -1,0 +1,77 @@
+<ion-header class="container" style="top: 2%;">
+  <ion-toolbar>
+    <!-- منوی کشویی سمت چپ -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <!-- عنوان در مرکز -->
+    <ion-title>
+      {{'Description' | translate}}
+    </ion-title>
+
+    <!-- دکمه خروج سمت راست -->
+    <ion-buttons slot="end">
+      <ion-button (click)="exitApp()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content [fullscreen]="true" class="ion-padding container font-iransans content-area">
+
+  <!-- Search Bar -->
+
+  <div style="position: sticky; top: 0; z-index: 10; background: white; padding-bottom: 8px;">
+      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()"  placeholder="{{'search' | translate}} ..."></ion-searchbar>
+    </div>
+
+  <!-- <ion-searchbar 
+    [(ngModel)]="searchText" 
+    debounce="300" 
+    placeholder="جستجو..." 
+    show-clear-button="focus" 
+    (ionInput)="filterItems()">
+  </ion-searchbar> -->
+
+  <!-- لیست نتایج جستجو -->
+  <ion-card *ngFor="let item of descriptions">
+    <ion-card-header>
+      <ion-card-title [ngStyle]="{'font-size': fontSize + 'px'}">{{ item.title }}</ion-card-title>
+    </ion-card-header>
+    <!-- <ion-card-content>
+      <p>{{ item.description }}</p>
+    </ion-card-content> -->
+    
+    <!-- <ion-card-content>
+      <div [ngStyle]="{'font-size': fontSize + 'px'}" [innerHTML]="item.description"></div>  استفاده از innerHTML 
+    </ion-card-content> -->
+     <ion-card-content [ngStyle]="{'font-size': fontSize + 'px'}" >
+
+        {{ item.description }}
+      </ion-card-content>
+    <ion-button  fill="clear" (click)="shareDescription(item)">
+      <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
+    </ion-button>
+  </ion-card>
+</ion-content>
+
+
+
+  
+
+<ion-footer class="container"  class="custom-footer">
+  <ion-item>
+    <!-- دکمه‌های تغییر اندازه فونت -->
+    <div class="font-size-controls">
+      <ion-button (click)="increaseFontSize()">{{'Larger' | translate}}</ion-button>
+      <ion-button (click)="decreaseFontSize()">{{'Smaller' | translate}}</ion-button>
+    </div>
+    <ion-label color="success" class="center-text">
+      <h2 class="center-text" class="text-danger">{{'BonyanGroup' | translate}}</h2>
+    </ion-label>
+  </ion-item>
+</ion-footer>

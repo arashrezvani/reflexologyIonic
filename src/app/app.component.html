@@ -7,7 +7,7 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content>
+    <ion-content [fullscreen]="true" class="content-area font-iransans">
       <ion-list>
         <ion-menu-toggle auto-hide="true">
           <!-- <ion-item button routerLink="/home"> -->
@@ -70,6 +70,12 @@
             {{'contact_us' | translate}}
           </ion-item>
         </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+          <ion-item button (click)="navigateToPage('/description')">
+            <ion-icon slot="start" name="book-outline"></ion-icon>
+            {{'Description' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
 
         
         <!-- براي admin -->
@@ -102,6 +108,18 @@
           <ion-item button (click)="navigateToPage('/login')">
             <ion-icon slot="start" name="log-in-outline"></ion-icon>
             {{'login' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
+          <ion-item button (click)="navigateToPage('/study')">
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            {{'study' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
+          <ion-item button (click)="navigateToPage('/nerves')">
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            {{'nerves' | translate}}
           </ion-item>
         </ion-menu-toggle> -->
         <!-- براي admin -->
@@ -162,13 +180,17 @@
           </ion-item>
         </ion-menu-toggle>
 
-        
-        <!-- <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
-          <ion-item button (click)="navigateToPage('/study')">
-            <ion-icon slot="start" name="people-outline"></ion-icon>
-            {{'study' | translate}}
+        <ion-menu-toggle auto-hide="true">
+          <ion-item >
+            
           </ion-item>
-        </ion-menu-toggle> -->
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+          <ion-item >
+            
+          </ion-item>
+        </ion-menu-toggle>
+        
 
 
       </ion-list>

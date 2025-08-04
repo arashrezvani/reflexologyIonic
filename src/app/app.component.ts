@@ -7,7 +7,7 @@ import { Capacitor } from '@capacitor/core';
 import { DbinprojectService } from './services/dataBase/dbinproject.service';
 import { StorageService } from './services/storage/storage.service';
 import { TitleStrategy } from '@angular/router';
-
+import { StatusBar, Style } from '@capacitor/status-bar';
 
 
 @Component({
@@ -32,13 +32,24 @@ export class AppComponent {
     private alertCtrl: AlertController,
     @Optional() private routerOutlet?: IonRouterOutlet) 
   {
-    
+    if (Capacitor.isNativePlatform()) {
+      // تنظیم استایل نوار وضعیت
+      //StatusBar.setStyle({ style: Style.Dark }); // یا Style.Light بسته به نیاز
+      // اختیاری: مخفی کردن نوار وضعیت
+      // StatusBar.hide();
+      // اختیاری: نمایش نوار وضعیت
+      // StatusBar.show();
+      // تنظیم رنگ پس‌زمینه نوار وضعیت (فقط در Android)
+      //StatusBar.setBackgroundColor({ color: '#ffffff' });
+    }
       this.checkLanguage("fa-ir");
       //this.checkLanguage("en-gb");
       this.platform.ready().then(() => {
         this.exitAppOnDoubleTap();
         this.exitAppOnAlert();
       });
+      this.navCtrl.navigateRoot('/register');
+      console.log("app component constructor");
       //this.flagadmin=true;
       this.initializeApp();
       
@@ -47,15 +58,20 @@ export class AppComponent {
       }
   }
   async initializeApp() {
+      console.log("app component initializeApp");
     this.tokenRegister = await this.storage.getItem('tokenRegister') || '';  // انتظار برای دریافت مقدار
     //alert('tokenRegister :'+ this.tokenRegister);
     
     //this.flagadmin=true;
     if(this.tokenRegister == ''){
+      console.log("app component initializeApp if(this.tokenRegister == '') ");
       this.flagLogin=false;
-      this.navCtrl.navigateRoot('/login');
-      //this.navCtrl.navigateRoot('/register'); // صفحه جدید به عنوان root تنظیم می‌شود
-    }else{this.flagLogin=true;}
+      this.navCtrl.navigateRoot('/register'); // صفحه جدید به عنوان root تنظیم می‌شود
+      //this.navCtrl.navigateRoot('/login');
+    }else{
+      this.flagLogin=true;
+      this.navCtrl.navigateRoot('/home');
+    }
     //this.navCtrl.navigateRoot('/home');
     //this.flagadmin=true;
   }
@@ -77,7 +93,7 @@ export class AppComponent {
     }
     if (this.NameUser == ''){
       this.flagLogin=false;
-      this.navCtrl.navigateRoot('/login');
+      this.navCtrl.navigateRoot('/register');
     }
     this.dbSer.setNameUser(this.NameUser);
   }
@@ -92,7 +108,7 @@ export class AppComponent {
     console.log("this.NameUser",this.NameUser);
     if (this.NameUser == ''){
       this.flagLogin=false;
-      this.navCtrl.navigateRoot('/login');
+      this.navCtrl.navigateRoot('/register');
     }
 
   }

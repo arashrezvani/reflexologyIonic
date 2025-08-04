@@ -75,6 +75,57 @@
   font-weight: normal;
   font-style : normal;
 }
+
+
+:root {
+  --ion-safe-area-top: env(safe-area-inset-top);
+  --ion-safe-area-bottom: env(safe-area-inset-bottom);
+}
+
+ion-content, ion-menu {
+  padding-top: var(--ion-safe-area-top, 0px);
+  padding-bottom: var(--ion-safe-area-bottom, 0px);
+}
+
+.custom-footer {
+  position: absolute; // یا fixed، بسته به نیاز
+  bottom: 4%; // فاصله ۴ درصد از پایین صفحه
+  width: 100%; // عرض کامل
+  background-color: #ffffff; // پس‌زمینه سفید
+  padding: 10px; // فاصله داخلی برای ظاهر بهتر
+  box-sizing: border-box; // شامل padding در محاسبات عرض و ارتفاع
+
+  // استفاده از safe-area برای جلوگیری از تداخل با نوار ناوبری
+  padding-bottom: calc(var(--ion-safe-area-bottom, 0) + 10px); // تنظیم پدینگ پایین
+
+  // اطمینان از نمایش در بالای محتوای دیگر
+  z-index: 1000;
+}
+
+.footer-content {
+  text-align: center; // مرکز کردن محتوا
+}
+.custom-header {
+  position: absolute; // یا fixed، بسته به نیاز
+  top: 2%; // فاصله ۲ درصد از بالای صفحه
+  width: 100%; // عرض کامل
+  background-color: #ffffff; // پس‌زمینه سفید
+  padding: 10px; // فاصله داخلی برای ظاهر بهتر
+  box-sizing: border-box; // شامل padding در محاسبات عرض و ارتفاع
+
+  // استفاده از safe-area برای جلوگیری از تداخل با نوار وضعیت
+  padding-top: calc(var(--ion-safe-area-top, 0) + 10px); // تنظیم پدینگ بالا
+
+  // اطمینان از نمایش در بالای محتوای دیگر
+  z-index: 1000;
+}
+
+ion-toolbar {
+  --background: #ffffff; // اطمینان از پس‌زمینه سفید برای نوار ابزار
+  --color: #000000; // رنگ متن تیره برای خوانایی
+}
+
+
 .font-iranyekan {
   font-family: 'iranyekan',sans-serif;
 }

@@ -14,7 +14,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding font-iransans content-area " [fullscreen]="true">
   <ion-accordion-group>
     <ion-accordion *ngFor="let note of notes">
       <ion-item slot="header">
@@ -27,7 +27,7 @@
     </ion-accordion>
   </ion-accordion-group>
 </ion-content>
-<ion-footer class="container">
+<ion-footer class="container"  class="custom-footer">
   <ion-item>
     <!-- دکمه‌های تغییر اندازه فونت -->
     <div class="font-size-controls">

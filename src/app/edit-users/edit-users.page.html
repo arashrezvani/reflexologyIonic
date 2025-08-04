@@ -19,7 +19,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="user" [fullscreen]="true">
+<ion-content *ngIf="user" [fullscreen]="true" class="content-area font-iransans">
   <ion-list>
     <ion-item>
       <ion-label position="floating">{{'Username' | translate}}</ion-label>
@@ -47,7 +47,7 @@
     </ion-item>
     <ion-item>
       <ion-label position="floating">{{'job' | translate}}</ion-label>
-      <ion-input [(ngModel)]="user.job"></ion-input>
+      <ion-input [(ngModel)]="user.Job"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">{{'City' | translate}}</ion-label>

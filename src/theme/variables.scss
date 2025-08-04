@@ -31,6 +31,28 @@
 /** Ionic CSS Variables **/
 :root {
 
+    //برای فوتر و هدر
+
+  // .ion-content {
+  //   padding-bottom: env(safe-area-inset-bottom);
+  // }
+  // @media (max-height: 600px) {
+  //   ion-footer {
+  //     position: absolute;
+  //     bottom: 0;
+  //     width: 100%;
+  //   }
+  // }
+  // ion-content {
+  //   padding-bottom: 0; /* حذف فاصله اضافی پایین صفحه */
+  // }
+
+  // ion-footer {
+  //   margin-top: auto;
+  // }
+
+
+  
   .font-small {
     font-size: 14px;
   }
@@ -40,7 +62,6 @@
   .font-large {
     font-size: 18px;
   }
-
   /************* GLOBAL COLORS VARRIABLES *************/
   --primary_bg_color  : var(--colorBgPrimary);
   --primary_text_color: var(--colorTextPrimary);

@@ -16,6 +16,9 @@ export class ListUsersPage implements OnInit {
   searchTermFam: string = '';
   searchTermCost: string = '';
   searchTermId : number=0;
+  searchTermCity: string = '';
+  searchTermJob: string = '';
+  searchTermPackage: string = '';
   users: User[] = [];
   usersID: User[] = [];
   filteredUsers: User[] = [];
@@ -52,6 +55,19 @@ export class ListUsersPage implements OnInit {
       user.LastName.toLowerCase().includes(term) 
     );
   }
+  searchUsersByCity() {
+    console.log("1111   "+this.searchTermCity);
+    const term = this.searchTermCity.trim().toLowerCase();
+    this.filteredUsers = this.users.filter(user =>
+      user.City.toLowerCase().includes(term) 
+    );
+  }
+  searchUsersByJob() {
+    const term = this.searchTermJob.trim().toLowerCase();
+    this.filteredUsers = this.users.filter(user =>
+      user.Job.toLowerCase().includes(term) 
+    );
+  }
 
   searchUsersByCost() {
     const term = this.searchTermCost.trim().toLowerCase();
@@ -59,7 +75,13 @@ export class ListUsersPage implements OnInit {
       user.Cost.toLowerCase().includes(term)
     );
   }
-  
+  searchUsersByPackage() {
+    const term = this.searchTermPackage.trim().toLowerCase();
+    this.filteredUsers = this.users.filter(user =>
+      user.Package.toLowerCase().includes(term) 
+    );
+  } 
+
   searchUsersById() {
     const term = this.searchTermId;
     this.filteredUsers = this.usersID.filter(user =>

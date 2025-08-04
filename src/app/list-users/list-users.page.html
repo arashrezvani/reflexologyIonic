@@ -20,16 +20,16 @@
 </ion-header>
 
 
-<ion-content class="container font-iransans" [fullscreen]="true">
+<ion-content class="container font-iransans content-area" [fullscreen]="true">
   
 
 
   <!-- جستجو -->
-  <ion-searchbar 
+  <!-- <ion-searchbar 
   [(ngModel)]="searchTermCost"
   placeholder="{{'Search by Cost' | translate}}"
   (ionInput)="searchUsersByCost()"
-></ion-searchbar>
+  ></ion-searchbar> -->
   <ion-searchbar  type="number" pattern="[0-9]*" inputmode="numeric"  aria-setsize="10"  
     [(ngModel)]="searchTerm"
     placeholder="{{'Search by national ID' | translate}}"
@@ -45,6 +45,21 @@
     placeholder="{{'Search by last name' | translate}}"
     (ionInput)="searchUsersByFam()"
   ></ion-searchbar>
+  <ion-searchbar  
+    [(ngModel)]="searchTermCity"
+    placeholder="{{'Search by City' | translate}}"
+    (ionInput)="searchUsersByCity()"
+  ></ion-searchbar>
+  <ion-searchbar  
+    [(ngModel)]="searchTermJob"
+    placeholder="{{'Search by Job' | translate}}"
+    (ionInput)="searchUsersByJob()"
+  ></ion-searchbar>
+  <ion-searchbar  
+    [(ngModel)]="searchTermPackage"
+    placeholder="{{'Search by Package' | translate}}"
+    (ionInput)="searchUsersByPackage()"
+  ></ion-searchbar>
   <ion-searchbar type="number" pattern="[0-9]*" inputmode="numeric"  aria-setsize="3"   
     [(ngModel)]="searchTermId"
     placeholder="{{'Search by Id' | translate}}"
@@ -53,6 +68,11 @@
 
   <!-- لیست کاربران -->
   <ion-list>
+    <ion-item lines="none" class="total-comments">
+      <ion-label>
+        📝 {{'Number of submitted' | translate}} {{ filteredUsers.length }}
+      </ion-label>
+    </ion-item>
     <ion-item *ngFor="let user of filteredUsers"  >
       <ion-icon name="person-circle-outline" slot="start"></ion-icon>
       <ion-label>
@@ -60,6 +80,7 @@
         <h2>UserName: {{ user.Username }}  </h2>
         <h2>Password: {{ user.Password }} </h2>
         <p>{{'City' | translate}} : {{ user.City }}</p>
+        <p>{{'Job' | translate}} : {{ user.Job }}</p>
         <p>{{'Package' | translate}} :  {{ user.Package }}</p>
         <p>{{'Fee has been paid' | translate}} :  {{ user.Cost }}</p>
         <p>{{'Eitaa' | translate}} :  {{ user.etiaa }}</p>

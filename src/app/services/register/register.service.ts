@@ -10,7 +10,7 @@ export class RegisterService {
 
   
   convertStringToAsciiString(inputString: string,c: string,m: string): string {
-    inputString=inputString+"koohi"+c;
+    inputString=inputString+"koohi";
     let asciiString = '';
 
     //alert('inputString  :'+inputString);

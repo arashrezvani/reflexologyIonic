@@ -38,11 +38,12 @@ export class RegisterPage implements OnInit {
     public translate: TranslateService,
     private device: Device) 
   { 
+      console.log("Register page ");
     this.deviceUUID = this.device.uuid;
     //this.activationCode = crypto.SHA256(this.deviceUUID + this.secretKey).toString();
-    //this.activationCode = dbreg.convertStringToAsciiString(this.deviceUUID,this.codeMelli,this.mobile);
+    this.activationCode = dbreg.convertStringToAsciiString(this.deviceUUID,this.codeMelli,this.mobile);
     this.UUIDdevice=this.device.uuid;
-    this.GetUserPass();
+    //this.GetUserPass();
     this.registerCodeTemp = this.activationCode;
     //this.navCtrl.navigateRoot('/home');
   }
@@ -51,26 +52,26 @@ export class RegisterPage implements OnInit {
     
     //this.navCtrl.navigateRoot('/home');
   }
-  async GetUserPass() {
-    try {
-      const calcodeMelli = await this.storage.getItem('UserName'); // منتظر می‌مانیم تا Promise رفع شود
-      this.codeMelli=calcodeMelli;
+  // async GetUserPass() {
+  //   try {
+  //     const calcodeMelli = await this.storage.getItem('UserName'); // منتظر می‌مانیم تا Promise رفع شود
+  //     this.codeMelli=calcodeMelli;
       
-      console.log("codeMelli: ", this.codeMelli);
+  //     console.log("codeMelli: ", this.codeMelli);
       
-      const calPassword = await this.storage.getItem('PassWord'); // منتظر می‌مانیم تا Promise رفع شود
-      this.password=calPassword;
+  //     const calPassword = await this.storage.getItem('PassWord'); // منتظر می‌مانیم تا Promise رفع شود
+  //     this.password=calPassword;
       
       
-      console.log("password: ", this.password);
+  //     console.log("password: ", this.password);
 
 
-      this.activationCode = await this.dbreg.convertStringToAsciiString(this.deviceUUID,this.codeMelli,this.password);
+  //     this.activationCode = await this.dbreg.convertStringToAsciiString(this.deviceUUID,this.codeMelli,this.password);
 
-    } catch (error) {
-      console.error("خطا در دریافت داده از storage: ", error);
-    }
-  }
+  //   } catch (error) {
+  //     console.error("خطا در دریافت داده از storage: ", error);
+  //   }
+  // }
 
   onRegister() {
     
@@ -87,8 +88,8 @@ export class RegisterPage implements OnInit {
       this.storage.setItem('tokenRegister',this.registerCode);
       this.dbSer.settokenRegister(this.registerCode);
       //this.initializeApp();
-      this.navCtrl.navigateRoot('/home'); // صفحه جدید به عنوان root تنظیم می‌شود
-      //this.navCtrl.navigateRoot('/login'); // صفحه جدید به عنوان root تنظیم می‌شود
+      //this.navCtrl.navigateRoot('/home'); // صفحه جدید به عنوان root تنظیم می‌شود
+      this.navCtrl.navigateRoot('/login'); // صفحه جدید به عنوان root تنظیم می‌شود
     }else{
         alert(this.translate.instant('invalid register'));
     }

@@ -24,6 +24,7 @@ export class LoginPage implements OnInit {
     private navCtrl: NavController,
     public translate: TranslateService,
   ) {
+    console.log("login page");
     this.initializeApp();
   }
 
@@ -36,7 +37,6 @@ export class LoginPage implements OnInit {
     console.log("onLogin");
     if (this.username != '' && this.password != '') {
       let logintest = this.dbLogin.login(this.username,this.password);
-    console.log("logintest logintest :",logintest);
       if(logintest != ''){
         //alert(logintest);
         this.initializeApp1();
@@ -50,10 +50,8 @@ export class LoginPage implements OnInit {
   }
 
   async initializeApp() {
-    console.log("initializeApp");
     this.tokenRegister = await this.storage.getItem('tokenRegister') || '';  // انتظار برای دریافت مقدار
     
-    console.log("initializeApp tokenRegister :",this.tokenRegister);
     //alert('tokenRegister :'+ this.tokenRegister);
     if(this.tokenRegister == ''){
       //this.navCtrl.navigateRoot('/register'); // صفحه جدید به عنوان root تنظیم می‌شود
@@ -66,8 +64,8 @@ export class LoginPage implements OnInit {
       this.navCtrl.navigateRoot('/register');
       //this.navCtrl.navigateRoot('/register'); // صفحه جدید به عنوان root تنظیم می‌شود
     }else{
-      this.navCtrl.navigateRoot('/register');
-      //this.navCtrl.navigateRoot('/home');
+      //this.navCtrl.navigateRoot('/register');
+      this.navCtrl.navigateRoot('/home');
     }
   }
   exitApp() {

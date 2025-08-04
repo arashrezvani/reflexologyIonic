@@ -23,7 +23,7 @@ export class HomePage {
   namesList: string[] = []; // لیست برای نمایش نام‌ها
   //=========================================
 
-  
+  appVersion: string = '';
   optionss = [
     { value: '1', text: 'شنبه' },
     { value: '2', text: 'يكشنبه' },
@@ -65,6 +65,12 @@ export class HomePage {
 
       
     }
+  async ngOnInit() {
+    const info = await App.getInfo();
+    this.appVersion = info.build + info.id + info.name + info.version;
+    console.log('App Version:', this.appVersion);
+  }
+
 
     //===================================================
     submitForm() {

@@ -474,3 +474,8 @@ ext {
 cd E:\arash\project\ionic\UltraMedicine\android
 ./gradlew clean
 ./gradlew build
+
+
+
+برای ورژن 
+npm install @capacitor/app --legacy-peer-deps

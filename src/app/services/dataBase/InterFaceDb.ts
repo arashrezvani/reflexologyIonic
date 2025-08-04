@@ -5,7 +5,7 @@ export interface User {
   Mobile1: string;
   City: string;
   Package: string;
-  job: string;
+  Job: string;
   Cost: string;
   Costopt: string;
   Gender: string;

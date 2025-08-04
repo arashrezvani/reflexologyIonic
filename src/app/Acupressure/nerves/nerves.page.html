@@ -6,7 +6,7 @@
 
 
 
-<ion-content>
+<ion-content [fullscreen]="true" class="content-area font-iransans">
   <!-- لینک نمایش تصویر -->
   <ion-list>
     <ion-item button (click)="openImageModal()">
@@ -25,7 +25,7 @@
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
-      <ion-content class="ion-padding">
+      <ion-content class="ion-padding font-iransans">
         <!-- کانتینر تصویر -->
         <div class="image-container">
           <img src="assets/images/hegu.png" alt="Hegu Point" />
