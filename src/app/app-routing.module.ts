@@ -73,15 +73,32 @@ const routes: Routes = [
   },
   {
     path: 'study',
-    loadChildren: () => import('./study/study.module').then( m => m.StudyPageModule)
+    loadChildren: () => import('./book/study/study.module').then( m => m.StudyPageModule)
   },
   {
     path: 'comments',
     loadChildren: () => import('./comments/comments.module').then( m => m.CommentsPageModule)
-  },  {
+  },
+  {
     path: 'description',
     loadChildren: () => import('./description/description.module').then( m => m.DescriptionPageModule)
   },
+  {
+    path: 'prescription',
+    loadChildren: () => import('./book/prescription/prescription.module').then( m => m.PrescriptionPageModule)
+  },  {
+    path: 'prescriptionultra',
+    loadChildren: () => import('./book/prescriptionultra/prescriptionultra.module').then( m => m.PrescriptionultraPageModule)
+  },
+  {
+    path: 'grocery',
+    loadChildren: () => import('./book/grocery/grocery.module').then( m => m.GroceryPageModule)
+  },
+  {
+    path: 'mention',
+    loadChildren: () => import('./book/mention/mention.module').then( m => m.MentionPageModule)
+  },
+
 
 ];
 

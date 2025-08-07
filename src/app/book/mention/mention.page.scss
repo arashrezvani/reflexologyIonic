@@ -1,0 +1,19 @@
+ion-item {
+    --background: #f9f9f9;
+    --color: #222;
+  }
+  ion-card-content pre {
+    direction: rtl;  /* راست به چپ */
+    text-align: right;  /* متن را در راست چین می‌کند */
+  }
+  ion-accordion {
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .pre-rtl {
+    white-space: pre-wrap;
+    direction: ltr;
+    text-align: right;
+    font-family: "IRANSans", sans-serif; /* اگر می‌خواهید فونت فارسی مشخص کنید */
+  }

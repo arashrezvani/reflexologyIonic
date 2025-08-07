@@ -1,0 +1,83 @@
+<ion-header class="container" style="top: 2%;">
+  <ion-toolbar>
+    <!-- منوی کشویی سمت چپ -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <!-- عنوان در مرکز -->
+    <ion-title>
+    {{'study' | translate}}
+    </ion-title>
+    <!-- <ion-toolbar>
+      <ion-searchbar placeholder="جستجو..." (ionInput)="onSearch($event)"></ion-searchbar>  
+    </ion-toolbar> -->
+    <!-- دکمه خروج سمت راست -->
+    <ion-buttons slot="end">
+      <ion-button (click)="exitApp()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+  
+<ion-content class="ion-padding font-iransans content-area " [fullscreen]="true">
+  
+    <!-- ✅ با ion-sticky-header شبیه‌سازی شده -->
+    <div style="position: sticky; top: 0; z-index: 10; background: white; padding-bottom: 8px;">
+      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearchSubject()"  placeholder="{{'search' | translate}} ..."></ion-searchbar>
+    </div>
+    <div style="position: sticky; top: 0; z-index: 10; background: white; padding-bottom: 8px;">
+      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch1()"  placeholder="{{'search' | translate}} ..."></ion-searchbar>
+    </div>
+  <div style="position: sticky; top: 4%; z-index: 10; background: white; padding-bottom: 10px;" class="font-size-controls">
+    <ion-button (click)="increaseFontSize()">{{'Larger' | translate}}</ion-button>
+    <ion-button (click)="decreaseFontSize()">{{'Smaller' | translate}}</ion-button>
+  </div>
+
+    <ion-item lines="none" class="total-comments">
+      <ion-label>
+        📝 {{'Number of submitted study' | translate}} {{ study.length }}
+      </ion-label>
+    </ion-item>
+    <ion-accordion-group>
+      <ion-accordion *ngFor="let stu of study">
+        <ion-item slot="header">
+          <ion-label>{{ stu.title }} </ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <pre [ngStyle]="{'font-size': fontSize + 'px'}" class="pre-rtl ion-padding">{{ stu.content }}</pre>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  <!-- <ion-accordion-group>
+    <ion-accordion *ngFor="let note of notes">
+      <ion-item slot="header">
+        <ion-label>{{ note.title }}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <pre [ngStyle]="{'font-size': fontSize + 'px'}" class="pre-rtl ion-padding">{{ note.content }}</pre>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group> -->
+</ion-content>
+
+
+<!-- <ion-footer class="container"  class="custom-footer">
+  <ion-item>
+    
+    <div class="font-size-controls">
+      <ion-button (click)="increaseFontSize()">{{'Larger' | translate}}</ion-button>
+      <ion-button (click)="decreaseFontSize()">{{'Smaller' | translate}}</ion-button>
+    </div>
+  </ion-item>
+  <ion-item>
+    <ion-label color="success" class="center-text">
+      <h2 class="center-text" class="text-danger">{{'BonyanGroup' | translate}}</h2>
+    </ion-label>
+  </ion-item>
+</ion-footer> -->
+

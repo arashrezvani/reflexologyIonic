@@ -50,23 +50,28 @@ export class AppComponent {
       });
       this.navCtrl.navigateRoot('/register');
       console.log("app component constructor");
+      console.log("NameUser:",this.NameUser);
       //this.flagadmin=true;
-      this.initializeApp();
+      this.initializeApp(); // براي استاد بدون قفل 
       
+    //this.navCtrl.navigateRoot('/home'); //اضافه براي استاد بدون قفل 
       if(this.tokenRegister != ''){
+        this.getNameUser(); // صفحه جدید به عنوان root تنظیم می‌شود
+      }
+      if(this.NameUser==''){
         this.getNameUser(); // صفحه جدید به عنوان root تنظیم می‌شود
       }
   }
   async initializeApp() {
-      console.log("app component initializeApp");
+    console.log("app component initializeApp");
     this.tokenRegister = await this.storage.getItem('tokenRegister') || '';  // انتظار برای دریافت مقدار
     //alert('tokenRegister :'+ this.tokenRegister);
-    
+   
     //this.flagadmin=true;
     if(this.tokenRegister == ''){
       console.log("app component initializeApp if(this.tokenRegister == '') ");
       this.flagLogin=false;
-      this.navCtrl.navigateRoot('/register'); // صفحه جدید به عنوان root تنظیم می‌شود
+      this.navCtrl.navigateRoot('/register'); // صفحه جدید به عنوان root تنظیم می‌شود     // for ostad whitout code comment
       //this.navCtrl.navigateRoot('/login');
     }else{
       this.flagLogin=true;
@@ -77,7 +82,8 @@ export class AppComponent {
   }
 
   async getNameUser() {
-
+    
+    console.log("getNameUser:",this.NameUser);
     this.NameUser = await this.storage.getItem('userName') || '';
     if(this.NameUser==='ادمین'){
       this.flagadmin=true;
@@ -91,15 +97,17 @@ export class AppComponent {
     if(this.NameUser==='آرش رضوانی'){
       this.flagadmin=true;
     }
-    if (this.NameUser == ''){
-      this.flagLogin=false;
-      this.navCtrl.navigateRoot('/register');
-    }
+    // if (this.NameUser.length > 3){
+      
+    //   console.log(" if (this.NameUser == ''",this.NameUser);
+    //   this.flagLogin=false;
+    //   this.navCtrl.navigateRoot('/register');// for ostad whitout code comment
+    // }
     this.dbSer.setNameUser(this.NameUser);
   }
 
   ngOnInit() {
-    this.getNameUser();
+    //this.getNameUser();// for ostad whitout code comment
   }
   logout(){
     this.storage.setItem('userName','');

@@ -1,13 +1,118 @@
-<ion-header [translucent]="true">
+<ion-header class="container" style="top: 2%;">
   <ion-toolbar>
-    <ion-title>digestive</ion-title>
+    <!-- منوی کشویی سمت چپ -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <!-- عنوان در مرکز -->
+    <ion-title>
+    {{'digestive' | translate}}
+    </ion-title>
+    <!-- دکمه خروج سمت راست -->
+    <ion-buttons slot="end">
+      <ion-button (click)="exitApp()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+<ion-content [fullscreen]="true" class="content-area font-iransans">
 
-<ion-content [fullscreen]="true" class="content-area ">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">digestive</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- 🔍 سرچ -->
+  <div style="position: sticky; top: 2%; z-index: 10; background: white; padding-bottom: 10px;">
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()" placeholder="{{'search' | translate}} ..."></ion-searchbar>
+  </div>
+  <div style="position: sticky; top: 4%; z-index: 10; background: white; padding-bottom: 10px;" class="font-size-controls">
+    <ion-button (click)="increaseFontSize()">{{'Larger' | translate}}</ion-button>
+    <ion-button (click)="decreaseFontSize()">{{'Smaller' | translate}}</ion-button>
+  </div>
+  <!-- 🧠 تعداد موارد -->
+  <ion-item lines="none" class="total-comments">
+    <ion-label>
+      <!-- 📝 {{ 'Number of submitted nerves' | translate }} {{ nerves.length }} -->
+    </ion-label>
+  </ion-item>
+
+  <!-- 📦 لیست نقاط -->
+  <ion-accordion-group>
+    <ion-accordion *ngFor="let nerve of nerves">
+      <ion-item slot="header">
+        <ion-label >
+          <b>{{ nerve.id }}</b> - {{ nerve.name }}
+        </ion-label>
+      </ion-item>
+
+      <ion-card slot="content" class="ion-padding" *ngIf="nerve">
+        <!-- توضیحات اصلی -->
+        <ion-list  lines="none">
+          
+          <ion-item [ngStyle]="{'font-size': fontSize + 'px'}" *ngIf="nerve.description">
+            <ion-icon name="information-circle-outline" slot="start"></ion-icon>
+            <ion-label >{{ nerve.description }}</ion-label>
+          </ion-item>
+
+          <ion-item [ngStyle]="{'font-size': fontSize + 'px'}" *ngIf="nerve.location">
+            <ion-icon name="location-outline" slot="start"></ion-icon>
+            <ion-label>{{ nerve.location }}</ion-label>
+          </ion-item>
+
+          <ion-item [ngStyle]="{'font-size': fontSize + 'px'}" *ngIf="nerve.pressureAmount">
+            <ion-icon name="speedometer-outline" slot="start"></ion-icon>
+            <ion-label>میزان فشار: {{ nerve.pressureAmount }}</ion-label>
+          </ion-item>
+
+          <ion-item [ngStyle]="{'font-size': fontSize + 'px'}" *ngIf="nerve.pressureAngle">
+            <ion-icon name="swap-vertical-outline" slot="start"></ion-icon>
+            <ion-label>زاویه فشار: {{ nerve.pressureAngle }}</ion-label>
+          </ion-item>
+
+          <ion-item [ngStyle]="{'font-size': fontSize + 'px'}" *ngIf="nerve.repetitions">
+            <ion-icon name="repeat-outline" slot="start"></ion-icon>
+            <ion-label>تکرار: {{ nerve.repetitions }}</ion-label>
+          </ion-item>
+
+          <ion-item [ngStyle]="{'font-size': fontSize + 'px'}" *ngIf="nerve.time">
+            <ion-icon name="time-outline" slot="start"></ion-icon>
+            <ion-label>زمان: {{ nerve.time }}</ion-label>
+          </ion-item>
+
+          <ion-item [ngStyle]="{'font-size': fontSize + 'px'}" *ngIf="nerve.extra">
+            <ion-icon name="sparkles-outline" slot="start"></ion-icon>
+            <ion-label>{{ nerve.extra }}</ion-label>
+          </ion-item>
+
+          <ion-item [ngStyle]="{'font-size': fontSize + 'px'}" *ngIf="nerve.Fameridian">
+            <ion-icon name="pulse-outline" slot="start"></ion-icon>
+            <ion-label>مریدین: {{ nerve.Fameridian }}</ion-label>
+          </ion-item>
+
+          <!-- 📷 تصویر -->
+          <ion-item button *ngIf="nerve.imageUrl" (click)="openImageModal(nerve.imageUrl)">
+            <ion-icon name="image-outline" slot="start"></ion-icon>
+            <ion-label [ngStyle]="{'font-size': fontSize + 'px'}">مشاهده تصویر {{ nerve.name }}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card>
+    </ion-accordion>
+  </ion-accordion-group>
+
+  <!-- 🖼 Modal تصویر -->
+  <ion-modal [isOpen]="isModalOpen" (willDismiss)="closeImageModal()">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>نمایش تصویر</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="closeImageModal()">بستن</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding font-iransans">
+        <div class="zoom-container" style="text-align: center;">
+          <img [src]="selectedImageUrl" alt="نقطه طب فشاری" style="max-width: 100%; border-radius: 12px;" />
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

@@ -26,8 +26,12 @@
   <!-- Search Bar -->
 
   <div style="position: sticky; top: 0; z-index: 10; background: white; padding-bottom: 8px;">
-      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()"  placeholder="{{'search' | translate}} ..."></ion-searchbar>
-    </div>
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()"  placeholder="{{'search' | translate}} ..."></ion-searchbar>
+  </div>
+  <div style="position: sticky; top: 4%; z-index: 10; background: white; padding-bottom: 10px;" class="font-size-controls">
+    <ion-button (click)="increaseFontSize()">{{'Larger' | translate}}</ion-button>
+    <ion-button (click)="decreaseFontSize()">{{'Smaller' | translate}}</ion-button>
+  </div>
 
   <!-- <ion-searchbar 
     [(ngModel)]="searchText" 
@@ -63,9 +67,8 @@
 
   
 
-<ion-footer class="container"  class="custom-footer">
+<!-- <ion-footer class="container"  class="custom-footer">
   <ion-item>
-    <!-- دکمه‌های تغییر اندازه فونت -->
     <div class="font-size-controls">
       <ion-button (click)="increaseFontSize()">{{'Larger' | translate}}</ion-button>
       <ion-button (click)="decreaseFontSize()">{{'Smaller' | translate}}</ion-button>
@@ -74,4 +77,4 @@
       <h2 class="center-text" class="text-danger">{{'BonyanGroup' | translate}}</h2>
     </ion-label>
   </ion-item>
-</ion-footer>
+</ion-footer> -->

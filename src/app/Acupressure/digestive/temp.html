@@ -1,0 +1,115 @@
+
+<ion-content [fullscreen]="true" class="content-area font-iransans">
+    <!-- ✅ با ion-sticky-header شبیه‌سازی شده -->
+    <div style="position: sticky; top: 0; z-index: 10; background: white; padding-bottom: 8px;">
+      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearchSubject()"  placeholder="{{'search' | translate}} ..."></ion-searchbar>
+    </div>
+    <div style="position: sticky; top: 0; z-index: 10; background: white; padding-bottom: 8px;">
+      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()"  placeholder="{{'search' | translate}} ..."></ion-searchbar>
+    </div>
+
+    <ion-item lines="none" class="total-comments">
+      <ion-label>
+        📝 {{'Number of submitted nerves' | translate}} {{ nerves.length }}
+      </ion-label>
+    </ion-item>
+    <ion-accordion-group>
+      <ion-accordion *ngFor="let nerve of nerves">
+        <ion-item slot="header">
+          <ion-label>{{ nerve.id }}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <pre [ngStyle]="{'font-size': fontSize + 'px'}" class="pre-rtl ion-padding">{{ nerve.location }} - {{ nerve.pressureAmount }}  </pre>
+          <!-- Modal نمایش تصویر -->
+          <ion-list *ngIf="nerve.imageUrl">
+            <ion-item button (click)="openImageModal(nerve.imageUrl)">
+              <ion-label>نمایش تصویر {{ nerve.name }}</ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+
+  <!-- Modal -->
+  <ion-modal [isOpen]="isModalOpen" (willDismiss)="closeImageModal()">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>نمایش تصویر</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="closeImageModal()">بستن</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding font-iransans">
+        <!-- <div class="image-container" style="text-align: center;">
+          <img [src]="selectedImageUrl" alt="نقطه طب فشاری" style="max-width: 100%; border-radius: 12px;" />
+        </div> -->
+        <div class="zoom-container">
+          <img [src]="selectedImageUrl"  alt="نقطه طب فشاری" />
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+</ion-content>
+
+
+
+
+
+
+<ion-content [fullscreen]="true" class="content-area font-iransans">
+    <!-- ✅ با ion-sticky-header شبیه‌سازی شده -->
+    <div style="position: sticky; top: 0; z-index: 10; background: white; padding-bottom: 8px;">
+      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearchSubject()"  placeholder="{{'search' | translate}} ..."></ion-searchbar>
+    </div>
+    <div style="position: sticky; top: 0; z-index: 10; background: white; padding-bottom: 8px;">
+      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()"  placeholder="{{'search' | translate}} ..."></ion-searchbar>
+    </div>
+
+    <ion-item lines="none" class="total-comments">
+      <ion-label>
+        📝 {{'Number of submitted nerves' | translate}} {{ nerves.length }}
+      </ion-label>
+    </ion-item>
+    <ion-accordion-group>
+      <ion-accordion *ngFor="let nerve of nerves">
+        <ion-item slot="header">
+          <ion-label>{{ nerve.id }}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <pre [ngStyle]="{'font-size': fontSize + 'px'}" class="pre-rtl ion-padding">{{ nerve.location }} - {{ nerve.pressureAmount }}  </pre>
+          <!-- Modal نمایش تصویر -->
+          <ion-list *ngIf="nerve.imageUrl">
+            <ion-item button (click)="openImageModal(nerve.imageUrl)">
+              <ion-label>نمایش تصویر {{ nerve.name }}</ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+
+  <!-- Modal -->
+  <ion-modal [isOpen]="isModalOpen" (willDismiss)="closeImageModal()">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>نمایش تصویر</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="closeImageModal()">بستن</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding font-iransans">
+        <!-- <div class="image-container" style="text-align: center;">
+          <img [src]="selectedImageUrl" alt="نقطه طب فشاری" style="max-width: 100%; border-radius: 12px;" />
+        </div> -->
+        <div class="zoom-container">
+          <img [src]="selectedImageUrl"  alt="نقطه طب فشاری" />
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+</ion-content>

@@ -11,7 +11,7 @@ android {
         applicationId "ultra.medicice.app"
         // minSdkVersion rootProject.ext.minSdkVersion
         // targetSdkVersion rootProject.ext.targetSdkVersion
-        minSdkVersion 21       // این باعث میشه روی اندروید 5 به بعد نصب بشه
+        minSdkVersion 24       // این باعث میشه روی اندروید 5 به بعد نصب بشه
         targetSdkVersion 33    // اندروید 13، مشکلی برای 10 نداره
         versionCode 2
         versionName "1.1"

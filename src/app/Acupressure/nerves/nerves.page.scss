@@ -19,3 +19,15 @@
   .image-container {
     margin-top: 20%; /* فاصله از بالا */
   }
+
+  .zoom-container {
+    overflow: hidden;
+    touch-action: none; // برای جلوگیری از اسکرول پیش‌فرض
+  }
+
+  .zoom-container img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    touch-action: none;
+  }

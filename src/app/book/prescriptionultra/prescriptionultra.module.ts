@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { NervesPageRoutingModule } from './nerves-routing.module';
+import { PrescriptionultraPageRoutingModule } from './prescriptionultra-routing.module';
 
-import { NervesPage } from './nerves.page';
+import { PrescriptionultraPage } from './prescriptionultra.page';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
@@ -15,8 +15,8 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     IonicModule,
     TranslateModule,
-    NervesPageRoutingModule
+    PrescriptionultraPageRoutingModule
   ],
-  declarations: [NervesPage]
+  declarations: [PrescriptionultraPage]
 })
-export class NervesPageModule {}
+export class PrescriptionultraPageModule {}

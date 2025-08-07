@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { StudyService } from '../services/study/study.service';
+import { StudyModel, StudyService } from '../../services/study/study.service';
+import { Share } from '@capacitor/share';//for share npm install @capacitor/share npx cap sync
+import { App } from '@capacitor/app';
 
 @Component({
   selector: 'app-study',
@@ -7,10 +9,18 @@ import { StudyService } from '../services/study/study.service';
   styleUrls: ['./study.page.scss'],
 })
 export class StudyPage implements OnInit {
+
+  
+  study: StudyModel[] = [];
+  searchTerm: string = '';
+
   notes: any[] = [];
   allNotes: any[] = [];
 
-  constructor(private studyService: StudyService) { }
+  constructor(private studyService: StudyService) { 
+    
+    this.study = this.studyService.getAllStudys();
+  }
 
   ngOnInit() {
     this.allNotes = this.studyService.getAllNotes();
@@ -26,6 +36,26 @@ export class StudyPage implements OnInit {
   }
 
   
+  onSearch1() {
+    this.study = this.studyService.searchStudys(this.searchTerm);
+  }
+  onSearchSubject(){
+    this.study = this.studyService.searchStudysSubject(this.searchTerm);
+  }
+
+
+  async sharePrescription(study: StudyModel) {
+    const shareText = ` مطلب ${study.title} :\n\n"${study.content}"`;
+
+    await Share.share({
+      title: 'مطلب',
+      text: shareText,
+      dialogTitle: 'اشتراک‌ گذاری نسخه',
+    });
+  }
+
+
+  
   // متغیر اندازه فونت
   fontSize = 16; // اندازه پیش‌فرض
 
@@ -39,5 +69,9 @@ export class StudyPage implements OnInit {
     if (this.fontSize > 8) { // حداقل اندازه فونت
       this.fontSize -= 2; // کاهش اندازه فونت
     }
+  }
+  exitApp() {
+    console.log("exitApp");
+    App.exitApp();
   }
 }

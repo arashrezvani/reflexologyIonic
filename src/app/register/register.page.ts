@@ -45,7 +45,7 @@ export class RegisterPage implements OnInit {
     this.UUIDdevice=this.device.uuid;
     //this.GetUserPass();
     this.registerCodeTemp = this.activationCode;
-    //this.navCtrl.navigateRoot('/home');
+    //this.navCtrl.navigateRoot('/home');// for ostad whitout code comment
   }
 
   ngOnInit() {
@@ -82,7 +82,7 @@ export class RegisterPage implements OnInit {
     //alert('registerCode  :'+this.registerCode);
     //alert('secretKey  :'+this.secretKey);
     //alert('deviceUUID  :'+this.deviceUUID);
-    //this.navCtrl.navigateRoot('/home');
+    //this.navCtrl.navigateRoot('/home'); // for ostad whitout code add
     //if(this.activationCode.trim().includes(this.registerCode.trim())){
     if(this.activationCode.trim() === this.registerCode.trim()){
       this.storage.setItem('tokenRegister',this.registerCode);

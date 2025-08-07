@@ -1,6 +1,6 @@
 <ion-app class="container font-iranyekan">
 
-  <ion-menu side="start" menuId="first" contentId="main-content"  *ngIf="flagLogin">
+  <ion-menu side="start" menuId="first" contentId="main-content"  >
     <ion-header>
       <ion-toolbar>
         <ion-title> {{'MainMenu' | translate}} {{NameUser}} </ion-title>
@@ -80,15 +80,45 @@
         
         <!-- براي admin -->
         <!-- <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
-          <ion-item button (click)="navigateToPage('/list-users')">
-            <ion-icon slot="start" name="people-outline"></ion-icon>
-            {{'User list' | translate}}
-          </ion-item>
-        </ion-menu-toggle>
-        <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
           <ion-item button (click)="navigateToPage('/generateregistercode')">
             <ion-icon slot="start" name="checkmark-done-outline"></ion-icon>
             {{'Generating a lock' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
+          <ion-item button (click)="navigateToPage('/study')">
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            {{'study' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
+          <ion-item button (click)="navigateToPage('/prescription')">
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            {{'prescription' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
+          <ion-item button (click)="navigateToPage('/prescriptionultra')">
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            {{'prescriptionultra' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
+          <ion-item button (click)="navigateToPage('/nerves')">
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            {{'nerves' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
+          <ion-item button (click)="navigateToPage('/digestive')">
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            {{'digestive' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
+          <ion-item button (click)="navigateToPage('/list-users')">
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            {{'User list' | translate}}
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin" >
@@ -109,7 +139,20 @@
             <ion-icon slot="start" name="log-in-outline"></ion-icon>
             {{'login' | translate}}
           </ion-item>
+        </ion-menu-toggle> -->
+        <!-- براي admin -->
+
+
+        
+        <!-- براي استاد بدون قفل -->
+
+        <!-- <ion-menu-toggle auto-hide="true"  >
+          <ion-item button (click)="navigateToPage('/list-users')">
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            {{'User list' | translate}}
+          </ion-item>
         </ion-menu-toggle>
+        
         <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
           <ion-item button (click)="navigateToPage('/study')">
             <ion-icon slot="start" name="people-outline"></ion-icon>
@@ -117,20 +160,21 @@
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
+          <ion-item button (click)="navigateToPage('/prescription')">
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            {{'prescription' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
+          <ion-item button (click)="navigateToPage('/prescriptionultra')">
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            {{'prescriptionultra' | translate}}
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true"  *ngIf="flagadmin">
           <ion-item button (click)="navigateToPage('/nerves')">
             <ion-icon slot="start" name="people-outline"></ion-icon>
             {{'nerves' | translate}}
-          </ion-item>
-        </ion-menu-toggle> -->
-        <!-- براي admin -->
-
-
-        
-        <!-- براي استاد بدون قفل -->
-        <!-- <ion-menu-toggle auto-hide="true"  >
-          <ion-item button (click)="navigateToPage('/list-users')">
-            <ion-icon slot="start" name="people-outline"></ion-icon>
-            {{'User list' | translate}}
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle auto-hide="true"  >
@@ -157,7 +201,7 @@
             <ion-icon slot="start" name="log-in-outline"></ion-icon>
             {{'login' | translate}}
           </ion-item>
-        </ion-menu-toggle> -->
+        </ion-menu-toggle>  -->
         <!-- براي استاد بدون قفل -->
 
 
