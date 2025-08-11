@@ -17,7 +17,7 @@ export class ContactUsPage implements OnInit {
 
   
   openEitaa() {
-    const eitaaUrl = 'https://eitaa.com/yasenokhbe12'; // لینک Eitaa خود را اینجا قرار دهید
+    const eitaaUrl = 'https://eitaa.com/rezvaniarash'; // لینک Eitaa خود را اینجا قرار دهید
     if (this.platform.is('capacitor')) {
       // برای اپلیکیشن‌های Capacitor
       window.open(eitaaUrl, '_system');
@@ -27,7 +27,7 @@ export class ContactUsPage implements OnInit {
     }
   }
   openTelegram(){
-    const eitaaUrl = 'https://t.me/yasenokhbe12'; // لینک telegaram خود را اینجا قرار دهید
+    const eitaaUrl = 'https://t.me/systemAnalyzer'; // لینک telegaram خود را اینجا قرار دهید
     if (this.platform.is('capacitor')) {
       // برای اپلیکیشن‌های Capacitor
       window.open(eitaaUrl, '_system');
