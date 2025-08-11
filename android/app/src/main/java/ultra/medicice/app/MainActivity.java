@@ -1,4 +1,4 @@
-package ultra.medicice.app;
+package reflex.reflexology.app;
 
 import com.getcapacitor.BridgeActivity;
 
