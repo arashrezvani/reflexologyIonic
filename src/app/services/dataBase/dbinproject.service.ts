@@ -398,15 +398,7 @@ export class DbinprojectService {
 
 
   db_Users: Array<{Username: string, Mobile: string, Mobile1: string, Password: string, City: string, Package : string,Job: string, Cost: string, Costopt: string, Gender: string, etiaa: string ,telegram: string, FirstName: string, LastName: string, Name:string, id:number}>=[
-    
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 346  },
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 347  },
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 348  },
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 349  },
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 350  },
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 351  },
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 352  },
-    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 353  },
+    {Username: '1064010000' , Mobile: '', Mobile1: '', Password: '09106401000', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: '', etiaa: '' ,telegram: '@systemAnalyzer', FirstName: 'ادمین', LastName: '', Name:'ادمین', id: 0 },
     {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 354  },
     {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 355  },
     {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 356  },

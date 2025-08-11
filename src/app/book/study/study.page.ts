@@ -13,6 +13,7 @@ export class StudyPage implements OnInit {
   
   study: StudyModel[] = [];
   searchTerm: string = '';
+  searchTermSubject: string = '';
 
   notes: any[] = [];
   allNotes: any[] = [];
@@ -27,7 +28,7 @@ export class StudyPage implements OnInit {
     this.notes = this.allNotes;
   }
 
-  onSearch(event: any) {
+  onSearch1(event: any) {
     const query = event.detail.value.toLowerCase();
     this.notes = this.allNotes.filter(note =>
       note.title.toLowerCase().includes(query) ||
@@ -36,11 +37,11 @@ export class StudyPage implements OnInit {
   }
 
   
-  onSearch1() {
+  onSearch() {
     this.study = this.studyService.searchStudys(this.searchTerm);
   }
   onSearchSubject(){
-    this.study = this.studyService.searchStudysSubject(this.searchTerm);
+    this.study = this.studyService.searchStudysSubject(this.searchTermSubject);
   }
 
 
