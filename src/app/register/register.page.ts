@@ -89,7 +89,7 @@ export class RegisterPage implements OnInit {
       this.dbSer.settokenRegister(this.registerCode);
       //this.initializeApp();
       //this.navCtrl.navigateRoot('/home'); // صفحه جدید به عنوان root تنظیم می‌شود
-      this.navCtrl.navigateRoot('/login'); // صفحه جدید به عنوان root تنظیم می‌شود
+      this.navCtrl.navigateRoot('/home'); // صفحه جدید به عنوان root تنظیم می‌شود
     }else{
         alert(this.translate.instant('invalid register'));
     }
