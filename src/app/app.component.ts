@@ -8,6 +8,8 @@ import { DbinprojectService } from './services/dataBase/dbinproject.service';
 import { StorageService } from './services/storage/storage.service';
 import { TitleStrategy } from '@angular/router';
 import { StatusBar, Style } from '@capacitor/status-bar';
+import { Router } from '@angular/router';
+import { PointGroup,PonitsService } from './services/acupressure/ponits/ponits.service';
 
 
 @Component({
@@ -16,6 +18,76 @@ import { StatusBar, Style } from '@capacitor/status-bar';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  public menuSearchTerm: string = '';
+  groups: PointGroup[] = [];
+  public filteredGroups: PointGroup[] = [];
+
+  // آرایه منو
+  reflexologyMenu: string[] = [
+    "reflexology",
+    "BossPoint",
+    "nerves",
+    "digestive",
+    "FrozenShoulder",
+    "NeckWaistKneesAnkles",
+    "hypertension",
+    "nose",
+    "eye",
+    "mouth",
+    "ear",
+    "fever",
+    "addiction",
+    "toothache",
+    "diabetes",
+    "headache",
+    "slimming",
+    "AlarmPoint",
+    "WellPoint",
+    "WaterPoint",
+    "SourcePoint",
+    "ConnectingPoint",
+    "EntryPoint",
+    "ExitPoint",
+    "TonificationPoint",
+    "SedationPoint",
+    "TransportPoint",
+    "BrookPoint",
+    "TwoCommandPoint",
+    "FourCommandPoint",
+    "SixCommandPoint",
+    "LowerSeaPointsOfTheSixBowelsPoint",
+    "EightMeetingPoint",
+    "ConfluencePointsOfTheEightVesselsPoint",
+    "SevenPointForCVAPoint",
+    "8PointsForBeriberi",
+    "NinePointsForRecoveryYang",
+    "WindowsOfHeavenPoint",
+    "StreamPoint",
+    "MaDanYangTwelveHeavenlyStarPoint",
+    "13GhostPoint",
+    "ThreeJiaoProblems",
+    "ThreeSubstancesPoint",
+    "4GatePoint",
+    "PointsOfTheFourSeasSeaOfQi",
+    "PointsOfTheFourSeasSeaOfBlood",
+    "PointsOfTheFourSeasSeaOfWater&Grain",
+    "PointsOfTheFourSeasSeaOfMarrow",
+    "RiverPoint",
+    "SeaPoint",
+    "WoodPoint",
+    "FirePoint",
+    "EarthPoint",
+    "MetalPoint",
+    "FrontMuPoints",
+    "8exYinLink",
+    "8exYangLink",
+    "8exYangHeel",
+    "8exYinHeel",
+    "8excv",
+    "8exgv",
+    "8exbv",
+    "8extv"
+  ];
   
   flagadmin : boolean =false;
   flagLogin : boolean =false;
@@ -23,6 +95,7 @@ export class AppComponent {
   NameUser: string = '';
   tap = 0;
   constructor(
+    private pointsService: PonitsService,
     private storage : StorageService,
     private dbSer:DbinprojectService,
     public translate: TranslateService,
@@ -30,6 +103,7 @@ export class AppComponent {
     private toastCtrl: ToastController,
     private navCtrl: NavController,
     private alertCtrl: AlertController,
+    private router: Router,
     @Optional() private routerOutlet?: IonRouterOutlet) 
   {
     if (Capacitor.isNativePlatform()) {
@@ -47,6 +121,7 @@ export class AppComponent {
       this.platform.ready().then(() => {
         this.exitAppOnDoubleTap();
         this.exitAppOnAlert();
+        this.handleBackButton();
       });
       this.navCtrl.navigateRoot('/register');
       console.log("app component constructor");
@@ -62,6 +137,7 @@ export class AppComponent {
         this.getNameUser(); // صفحه جدید به عنوان root تنظیم می‌شود
       }
   }
+
   async initializeApp() {
     console.log("app component initializeApp");
     this.tokenRegister = await this.storage.getItem('tokenRegister') || '';  // انتظار برای دریافت مقدار
@@ -105,10 +181,40 @@ export class AppComponent {
     // }
     this.dbSer.setNameUser(this.NameUser);
   }
+// متد فیلتر زنده
+  // این متد هر بار که سرچ تغییر می‌کنه اجرا میشه
+  filterMenu() {
+    const term = this.menuSearchTerm.toLowerCase();
+    if (!term) {
+      this.filteredGroups = this.groups;
+      return;
+    }
 
+    this.filteredGroups = this.groups.filter(group => {
+      const translated = this.translate.instant(group.title).toLowerCase();
+      return translated.includes(term);
+    });
+  }
   ngOnInit() {
+    this.groups = this.pointsService.getGroups();
+    this.filteredGroups = this.groups;
     //this.getNameUser();// for ostad whitout code comment
   }
+
+  handleBackButton() {
+    this.platform.backButton.subscribeWithPriority(10, () => {
+      const currentUrl = this.router.url;
+
+      if (currentUrl === '/home') {
+        // اگه روی صفحه خانه هست، با بک از اپ خارج بشه
+        this.exitAppOnAlert();
+      } else {
+        // اگه صفحه دیگه هست، به صفحه قبل بره
+        window.history.back();
+      }
+    });
+  }
+
   logout(){
     this.storage.setItem('userName','');
     this.dbSer.setNameUser('');
@@ -233,5 +339,6 @@ export class AppComponent {
         }
     }
   }
+
 
 }

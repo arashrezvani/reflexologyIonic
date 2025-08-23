@@ -12,6 +12,7 @@ export class PrescriptionultraPage implements OnInit {
 
   prescriptions: PrescriptionultraModel[] = [];
   searchTerm: string = '';
+  searchTermSubject: string = '';
   
   constructor(private prescriptionService: PrescriptionultraService) {
     this.prescriptions = this.prescriptionService.getAllPrescriptions();
@@ -21,7 +22,7 @@ export class PrescriptionultraPage implements OnInit {
     this.prescriptions = this.prescriptionService.searchPrescriptions(this.searchTerm);
   }
   onSearchSubject(){
-    this.prescriptions = this.prescriptionService.searchPrescriptionsSubject(this.searchTerm);
+    this.prescriptions = this.prescriptionService.searchPrescriptionsSubject(this.searchTermSubject);
   }
 
   ngOnInit() {

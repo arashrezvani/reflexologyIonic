@@ -22,11 +22,11 @@
 
 <ion-content [fullscreen]="true"  class="ion-padding font-iransans content-area">
     <!-- ✅ با ion-sticky-header شبیه‌سازی شده -->
-    <div style="position: sticky; top: 0; z-index: 10; background: white; padding-bottom: 8px;">
-      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearchSubject()"  placeholder="{{'search' | translate}} ..."></ion-searchbar>
+    <div style="position: sticky; top: 2%; z-index: 10; background: white; padding-bottom: 8px;">
+      <ion-searchbar [(ngModel)]="searchTermSubject" (ionInput)="onSearchSubject()"  placeholder="{{'search' | translate}} ..."></ion-searchbar>
     </div>
-    <div style="position: sticky; top: 0; z-index: 10; background: white; padding-bottom: 8px;">
-      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()"  placeholder="{{'search' | translate}} ..."></ion-searchbar>
+    <div style="position: sticky; top: 2%; z-index: 10; background: white; padding-bottom: 8px;">
+      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()"  placeholder="{{'searchT' | translate}} ..."></ion-searchbar>
     </div>
   <div style="position: sticky; top: 4%; z-index: 10; background: white; padding-bottom: 10px;" class="font-size-controls">
     <ion-button (click)="increaseFontSize()">{{'Larger' | translate}}</ion-button>

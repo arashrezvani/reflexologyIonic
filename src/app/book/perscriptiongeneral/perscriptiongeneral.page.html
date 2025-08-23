@@ -1,0 +1,154 @@
+
+<ion-header class="container" style="top: 2%;">
+  <ion-toolbar>
+    <!-- منوی کشویی سمت چپ -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <!-- عنوان در مرکز -->
+    <ion-title>
+    {{category | translate}}
+    </ion-title>
+    <!-- دکمه خروج سمت راست -->
+    <ion-buttons slot="end">
+      <ion-button (click)="exitApp()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content-area font-iransans">
+
+  <!-- 🔍 سرچ -->
+  <div style="position: sticky; top: 2%; z-index: 10; background: white; padding-bottom: 8px;">
+    <ion-searchbar [(ngModel)]="searchTermSubject" (ionInput)="onSearchSubject()" placeholder="{{'search' | translate}} ..."></ion-searchbar>
+  </div>
+    <div style="position: sticky; top: 2%; z-index: 10; background: white; padding-bottom: 8px;">
+      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()"  placeholder="{{'searchT' | translate}} ..."></ion-searchbar>
+    </div>
+  <div style="position: sticky; top: 4%; z-index: 10; background: white; padding-bottom: 10px;" class="font-size-controls">
+    <ion-button (click)="increaseFontSize()">{{'Larger' | translate}}</ion-button>
+    <ion-button (click)="decreaseFontSize()">{{'Smaller' | translate}}</ion-button>
+  </div>
+
+  <!-- 🧠 تعداد موارد -->
+  <ion-item lines="none" class="total-comments">
+    <ion-label>
+      📝 {{ 'Number of submitted2' | translate }} {{ prescriptions.length }}
+    </ion-label>
+  </ion-item>
+
+  <!-- 📦 لیست نقاط -->
+  <ion-accordion-group>
+    <ion-accordion *ngFor="let p of prescriptions">
+      <ion-item slot="header">
+        <pre class="pre-rtl">
+          <b>{{ p.subject }}   </b> 
+        </pre>
+      </ion-item>
+
+      <ion-card slot="content" class="ion-padding" *ngIf="p">
+        <!-- توضیحات اصلی -->
+        <ion-list lines="none">
+          
+          <ion-item [ngStyle]="{'font-size': fontSize + 'px'}"  *ngIf="p.prescriptoin">
+            <pre class="pre-rtl" >نسخه: {{ p.prescriptoin }}</pre>
+            
+          </ion-item>
+
+          <ion-item  [ngStyle]="{'font-size': fontSize + 'px'}" *ngIf="p.comment">
+            <pre class="pre-rtl">توضیح: {{ p.comment }}</pre>
+          </ion-item>
+
+          <ion-item [ngStyle]="{'font-size': fontSize + 'px'}"  *ngIf="p.Symptoms">
+            <pre class="pre-rtl">علائم: {{ p.Symptoms }}</pre>
+          </ion-item>
+
+          <ion-item [ngStyle]="{'font-size': fontSize + 'px'}"  *ngIf="p.Causes">
+            <pre class="pre-rtl">علت‌ها: {{ p.Causes  }}</pre>
+          </ion-item>
+
+          <ion-item [ngStyle]="{'font-size': fontSize + 'px'}"  *ngIf="p.Effects">
+            <pre class="pre-rtl">تأثیرات: {{ p.Effects }}</pre>
+          </ion-item>
+
+          <ion-item [ngStyle]="{'font-size': fontSize + 'px'}" *ngIf="p.page1">
+            <ion-icon name="repeat-outline" slot="start"></ion-icon>
+            <ion-button expand="block" class="link-btn" (click)="openPage(p.page1)">
+              
+              {{ p.page1 | translate }}
+            </ion-button>
+          </ion-item>
+          <ion-item [ngStyle]="{'font-size': fontSize + 'px'}"  *ngIf="p.page2">
+            <ion-icon name="repeat-outline" slot="start"></ion-icon>
+            <ion-button expand="block" class="link-btn" (click)="openPage(p.page2)">
+              
+              {{ p.page2 | translate }}
+            </ion-button>
+          </ion-item>
+          <ion-item [ngStyle]="{'font-size': fontSize + 'px'}"  *ngIf="p.page3">
+            <ion-icon name="repeat-outline" slot="start"></ion-icon>
+            <ion-button expand="block" class="link-btn" (click)="openPage(p.page3)">
+              
+              {{ p.page3 | translate }}
+            </ion-button>
+          </ion-item>
+          <ion-item [ngStyle]="{'font-size': fontSize + 'px'}"  *ngIf="p.page4">
+            <ion-icon name="repeat-outline" slot="start"></ion-icon>
+            <ion-button expand="block" class="link-btn" (click)="openPage(p.page4)">
+              
+              {{ p.page4 | translate }}
+            </ion-button>
+          </ion-item>
+          <ion-item [ngStyle]="{'font-size': fontSize + 'px'}"  *ngIf="p.page5">
+            <ion-icon name="repeat-outline" slot="start"></ion-icon>
+            <ion-button expand="block" class="link-btn" (click)="openPage(p.page5)">
+              
+              {{ p.page5 | translate }}
+            </ion-button>
+          </ion-item>
+          <ion-item [ngStyle]="{'font-size': fontSize + 'px'}"  *ngIf="p.page6">
+            <ion-icon name="repeat-outline" slot="start"></ion-icon>
+            <ion-button expand="block" class="link-btn" (click)="openPage(p.page6)">
+              
+              {{ p.page6 | translate }}
+            </ion-button>
+          </ion-item>
+          <ion-item [ngStyle]="{'font-size': fontSize + 'px'}"  *ngIf="p.page7">
+            <ion-icon name="repeat-outline" slot="start"></ion-icon>
+            <ion-button expand="block" class="link-btn" (click)="openPage(p.page7)">
+              
+              {{ p.page7 | translate }}
+            </ion-button>
+          </ion-item>
+
+        </ion-list>
+      </ion-card>
+<!--       
+      <ion-card *ngIf="hasAnyPage(p)">
+        <ion-card-header>
+          <ion-card-title>صفحات مرتبط</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6" size-md="4" size-lg="3" 
+                      *ngFor="let page of getPages(p)">
+                <ion-button expand="block" color="primary" (click)="openPage(page)">
+                  
+                  {{ getPageTitle(page) }}
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card> -->
+    </ion-accordion>
+  </ion-accordion-group>
+
+</ion-content>
+
+
