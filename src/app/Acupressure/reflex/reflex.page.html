@@ -1,0 +1,218 @@
+<ion-header class="container" style="top: 2%;">
+  <ion-toolbar>
+    <!-- منوی کشویی سمت چپ -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <!-- عنوان در مرکز -->
+    <ion-title>
+    {{ category | translate}}
+    </ion-title>
+    <!-- دکمه برگشت سمت راست -->
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <!-- دکمه خروج سمت راست -->
+    <ion-buttons slot="end">
+      <ion-button (click)="exitApp()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content-area font-iransans">
+
+  <!-- 🔍 سرچ -->
+  
+
+  <!-- بخش ثابت سرچ و کنترل فونت -->
+  <div class="sticky-header">
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()" placeholder="{{ 'search' | translate }} ..."></ion-searchbar>
+    <div class="font-size-controls">
+      <ion-button (click)="increaseFontSize()">{{ 'Larger' | translate }}</ion-button>
+      <ion-button (click)="decreaseFontSize()">{{ 'Smaller' | translate }}</ion-button>
+    </div>
+  </div>
+
+
+  <!-- 🧠 تعداد موارد -->
+  <ion-item lines="none" class="total-comments">
+    <ion-label>
+      📝 {{ 'Number of submitted2' | translate }} {{ points.length }}
+    </ion-label>
+  </ion-item>
+
+<ion-accordion-group>
+  <ion-accordion *ngFor="let point of points">
+    <!-- هدر هر نقطه -->
+    <ion-item slot="header">
+      <ion-label>
+        <ion-chip *ngIf="point.id" color="primary" class="ml-2">{{ point.id }}</ion-chip>
+        <ion-chip *ngIf="point.faname" color="" class="ml-2">{{ point.faname }}</ion-chip>
+        <!-- <ion-chip *ngIf="point.main" color="success" class="ml-2">{{ point.main }}</ion-chip> -->
+        <ion-chip *ngIf="point.boss" color="danger" class="ml-2">{{ point.boss }}</ion-chip>
+      </ion-label>
+    </ion-item>
+
+    <!-- محتوای بازشونده -->
+    <ion-card slot="content" class="ion-padding">
+      <ion-list lines="none">
+
+        <ion-item *ngIf="point.main" [ngStyle]="{'font-size': fontSize + 'px'}">
+          <ion-icon name="book-outline" slot="start"></ion-icon>
+          <ion-label>{{ point.main }}</ion-label>
+        </ion-item>
+
+        <!-- توضیح کوتاه -->
+        <ion-item *ngIf="point.description" [ngStyle]="{'font-size': fontSize + 'px'}">
+          <ion-icon name="information-circle-outline" slot="start"></ion-icon>
+          <ion-label>{{ point.description }}</ion-label>
+        </ion-item>
+
+        <!-- لوکیشن -->
+        <ion-item *ngIf="point.location" [ngStyle]="{'font-size': fontSize + 'px'}">
+          <ion-icon name="location-outline" slot="start"></ion-icon>
+          <ion-label>{{ point.location }}</ion-label>
+        </ion-item>
+
+        <!-- میزان فشار -->
+        <ion-item *ngIf="point.pressureAmount" [ngStyle]="{'font-size': fontSize + 'px'}">
+          <ion-icon name="speedometer-outline" slot="start"></ion-icon>
+          <ion-label>میزان فشار: {{ point.pressureAmount }}</ion-label>
+        </ion-item>
+
+        <!-- زاویه فشار -->
+        <ion-item *ngIf="point.pressureAngle" [ngStyle]="{'font-size': fontSize + 'px'}">
+          <ion-icon name="swap-vertical-outline" slot="start"></ion-icon>
+          <ion-label>زاویه فشار: {{ point.pressureAngle }}</ion-label>
+        </ion-item>
+
+        <!-- تعداد تکرار -->
+        <ion-item *ngIf="point.repetitions" [ngStyle]="{'font-size': fontSize + 'px'}">
+          <ion-icon name="repeat-outline" slot="start"></ion-icon>
+          <ion-label>تکرار: {{ point.repetitions }}</ion-label>
+        </ion-item>
+
+        <!-- زمان -->
+        <ion-item *ngIf="point.time" [ngStyle]="{'font-size': fontSize + 'px'}">
+          <ion-icon name="time-outline" slot="start"></ion-icon>
+          <ion-label>زمان: {{ point.time }}</ion-label>
+        </ion-item>
+
+        <!-- ویژگی اضافه -->
+        <ion-item *ngIf="point.extra" [ngStyle]="{'font-size': fontSize + 'px'}">
+          <ion-icon name="sparkles-outline" slot="start"></ion-icon>
+          <ion-label>{{ point.extra }}</ion-label>
+        </ion-item>
+
+        <!-- مریدین -->
+        <ion-item *ngIf="point.Fameridian" [ngStyle]="{'font-size': fontSize + 'px'}">
+          <ion-icon name="pulse-outline" slot="start"></ion-icon>
+          <ion-label>مریدین: {{ point.Fameridian }} - {{ point.meridian }}</ion-label>
+        </ion-item>
+
+        <!-- توضیحات طولانی (بدون آیکون - پاراگراف قشنگ) -->
+        <!-- <ion-item *ngIf="point.desc" >
+          <ion-label>
+            <pre  class=" pre-rtl" [ngStyle]="{'font-size': fontSize + 'px'}">
+              {{ point.desc }}
+            </pre>            
+          </ion-label>
+        </ion-item> -->
+        <!-- توضیحات طولانی -->
+        <ion-item *ngIf="point.desc">
+          <ion-label>
+            <pre class="pre-rtl" [ngStyle]="{'font-size': fontSize + 'px'}">
+              {{ isDescExpanded ? point.desc : (point.desc | slice:0:150) + (point.desc.length > 150 ? '...' : '') }}
+            </pre>
+            <ion-item *ngIf="point.desc && point.desc.length > 150" lines="none">
+              <ion-button fill="clear" size="small" (click)="isDescExpanded = !isDescExpanded">
+                {{ isDescExpanded ? 'کمتر' : 'بیشتر' }}
+              </ion-button>
+            </ion-item>
+          </ion-label>
+        </ion-item>
+        <!-- دکمه بیشتر / کمتر -->
+        
+        
+        <ion-item *ngIf="point.descrip" [ngStyle]="{'font-size': fontSize + 'px'}">
+          <ion-icon name="reader-outline" slot="start"></ion-icon>
+          <ion-label>{{ point.descrip }}</ion-label>
+        </ion-item>
+
+        <ion-item *ngIf="point.descExtra" [ngStyle]="{'font-size': fontSize + 'px'}">
+          <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+          <ion-label>{{ point.descExtra }}</ion-label>
+        </ion-item>
+
+        <ion-item *ngIf="point.supplementary" [ngStyle]="{'font-size': fontSize + 'px'}">
+          <ion-icon name="layers-outline" slot="start"></ion-icon>
+          <ion-label>{{ point.supplementary }}</ion-label>
+        </ion-item>
+
+        <ion-item *ngIf="point.boss" [ngStyle]="{'font-size': fontSize + 'px'}">
+          <ion-icon name="shield-outline" slot="start"></ion-icon>
+          <ion-label>{{ point.boss }}</ion-label>
+        </ion-item>
+
+        <ion-item *ngIf="point.ex" [ngStyle]="{'font-size': fontSize + 'px'}">
+          <ion-icon name="flask-outline" slot="start"></ion-icon>
+          <ion-label>{{ point.ex }}</ion-label>
+        </ion-item>
+
+        <ion-item *ngIf="point.yinyang" [ngStyle]="{'font-size': fontSize + 'px'}">
+          <ion-icon name="contrast-outline" slot="start"></ion-icon>
+          <ion-label>{{ point.yinyang }}</ion-label>
+        </ion-item>
+
+        <ion-item *ngIf="point.des" [ngStyle]="{'font-size': fontSize + 'px'}">
+          <ion-icon name="book-outline" slot="start"></ion-icon>
+          <ion-label>{{ point.des }}</ion-label>
+        </ion-item>
+        
+
+        <!-- 📷 تصویر -->
+          <ion-item button *ngIf="point.imageUrl" (click)="navigateToImageViewer(point.imageUrl)">
+            <ion-icon name="image-outline" slot="start"></ion-icon>
+            <ion-label [ngStyle]="{'font-size': fontSize + 'px'}">مشاهده تصویر {{ point.name }}</ion-label>
+          </ion-item>
+          
+          <ion-item button *ngIf="point.imageUrls" (click)="navigateToImageViewer(point.imageUrls)">
+            <ion-icon name="image-outline" slot="start"></ion-icon>
+            <ion-label [ngStyle]="{'font-size': fontSize + 'px'}">مشاهده تصویر {{ point.name }}</ion-label>
+          </ion-item>
+
+        <!-- 📷 تصویر -->
+          <!-- <ion-item button *ngIf="point.imageUrls" (click)="openImageModal(point.imageUrls)">
+            <ion-icon name="image-outline" slot="start"></ion-icon>
+            <ion-label [ngStyle]="{'font-size': fontSize + 'px'}" >مشاهده تصویر {{ point.name }}</ion-label>
+          </ion-item>
+          <ion-item button *ngIf="point.imageUrl" (click)="openImageModal(point.imageUrl)">
+            <ion-icon name="image-outline" slot="start"></ion-icon>
+            <ion-label [ngStyle]="{'font-size': fontSize + 'px'}" >مشاهده تصویر {{ point.name }}</ion-label>
+          </ion-item> -->
+
+      </ion-list>
+    </ion-card>
+  </ion-accordion>
+</ion-accordion-group>
+  <!-- 🖼 Modal تصویر -->
+  <!-- <ion-modal [isOpen]="isModalOpen" (willDismiss)="closeImageModal()">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>نمایش تصویر</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="closeImageModal()">بستن</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding font-iransans">
+        <div class="zoom-container" style="text-align: center;">
+          <img [src]="selectedImageUrl" alt="نقطه طب فشاری" style="max-width: 100%; border-radius: 12px;" />
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal> -->
+  </ion-content>

@@ -2,16 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import { Share } from '@capacitor/share';//for share npm install @capacitor/share npx cap sync
 import { App } from '@capacitor/app';
 import { PrescriptionultraModel, PrescriptionultraService } from 'src/app/services/prescriptionultra/prescriptionultra.service';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-prescriptionultra',
   templateUrl: './prescriptionultra.page.html',
   styleUrls: ['./prescriptionultra.page.scss'],
+  animations: [
+    trigger('fadeIn', [
+      state('void', style({ opacity: 0 })),
+      state('*', style({ opacity: 1 })),
+      transition('void => *', animate('300ms ease-in')),
+    ]),
+  ],
 })
 export class PrescriptionultraPage implements OnInit {
 
   prescriptions: PrescriptionultraModel[] = [];
   searchTerm: string = '';
+  searchTermSubject: string = '';
+  state: string = 'void'; // برای انیمیشن
   
   constructor(private prescriptionService: PrescriptionultraService) {
     this.prescriptions = this.prescriptionService.getAllPrescriptions();
@@ -21,10 +31,11 @@ export class PrescriptionultraPage implements OnInit {
     this.prescriptions = this.prescriptionService.searchPrescriptions(this.searchTerm);
   }
   onSearchSubject(){
-    this.prescriptions = this.prescriptionService.searchPrescriptionsSubject(this.searchTerm);
+    this.prescriptions = this.prescriptionService.searchPrescriptionsSubject(this.searchTermSubject);
   }
 
   ngOnInit() {
+    this.state = 'active'; // فعال کردن انیمیشن بعد از لود
   }
 
   async sharePrescription(prescription: PrescriptionultraModel) {

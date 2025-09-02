@@ -1,79 +1,54 @@
-
-<ion-header class="container" style="top: 2%;">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar style="background: linear-gradient(90deg, #1E88E5, #42A5F5);">
     <!-- منوی کشویی سمت چپ -->
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button style="color: #333333;"></ion-menu-button>
     </ion-buttons>
 
     <!-- عنوان در مرکز -->
-    <ion-title>
-    {{'prescription' | translate}}
+    <ion-title style="color: #333333; font-weight: bold; text-transform: uppercase;">
+      {{ 'prescription' | translate }}
     </ion-title>
-    <!-- دکمه خروج سمت راست -->
+
+    <!-- دکمه‌ها سمت راست -->
     <ion-buttons slot="end">
-      <ion-button (click)="exitApp()">
+      <ion-back-button defaultHref="/home" style="color: #333333;"></ion-back-button>
+      <ion-button (click)="exitApp()" style="color: #333333; margin-left: 10px;">
         <ion-icon name="log-out-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-
-<ion-content [fullscreen]="true"  class="ion-padding font-iransans content-area">
-    <!-- ✅ با ion-sticky-header شبیه‌سازی شده -->
-    <div style="position: sticky; top: 0; z-index: 10; background: white; padding-bottom: 8px;">
-      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearchSubject()"  placeholder="{{'search' | translate}} ..."></ion-searchbar>
+<ion-content [fullscreen]="true" class="content-area font-iransans" style="background-color: #F0F4F8; color: #333333;">
+  <!-- بخش ثابت سرچ و کنترل فونت -->
+  <div class="sticky-header" [@fadeIn]="state">
+    <ion-searchbar [(ngModel)]="searchTermSubject" (ionInput)="onSearchSubject()" placeholder="{{ 'search' | translate }} ..." style="background: #E3F2FD; border: 1px solid #FFD700; border-radius: 8px;"></ion-searchbar>
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()" placeholder="{{ 'searchT' | translate }} ..." style="background: #E3F2FD; border: 1px solid #FFD700; border-radius: 8px; margin-top: 10px;"></ion-searchbar>
+    <div class="font-size-controls">
+      <ion-button fill="outline" color="dark" (click)="increaseFontSize()" style="border-color: #FFD700; color: #FFD700;">
+        {{ 'Larger' | translate }}
+      </ion-button>
+      <ion-button fill="outline" color="dark" (click)="decreaseFontSize()" style="border-color: #FFD700; color: #FFD700;">
+        {{ 'Smaller' | translate }}
+      </ion-button>
     </div>
-    <div style="position: sticky; top: 0; z-index: 10; background: white; padding-bottom: 8px;">
-      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()"  placeholder="{{'search' | translate}} ..."></ion-searchbar>
-    </div>
-  <div style="position: sticky; top: 4%; z-index: 10; background: white; padding-bottom: 10px;" class="font-size-controls">
-    <ion-button (click)="increaseFontSize()">{{'Larger' | translate}}</ion-button>
-    <ion-button (click)="decreaseFontSize()">{{'Smaller' | translate}}</ion-button>
   </div>
 
-    <ion-item lines="none" class="total-comments">
-      <ion-label>
-        📝 {{'Number of submitted prescription' | translate}} {{ prescriptions.length }}
-      </ion-label>
-    </ion-item>
-    <ion-accordion-group>
-      <ion-accordion *ngFor="let prescription of prescriptions">
-        <ion-item slot="header">
-          <ion-label>{{ prescription.subject }} - {{ prescription.type }} - {{ prescription.name }}</ion-label>
-        </ion-item>
-        <div class="ion-padding" slot="content">
-          <pre [ngStyle]="{'font-size': fontSize + 'px'}" class="pre-rtl ion-padding">{{ prescription.prescriptoin }}</pre>
-        </div>
-      </ion-accordion>
-    </ion-accordion-group>
-  <!-- <ion-list>
-    <ion-card *ngFor="let prescription of prescriptions">
-      <ion-card-header>
-        <ion-card-title  [ngStyle]="{'font-size': fontSize + 6 + 'px'}">{{ prescription.subject }}</ion-card-title>
-        <ion-card-subtitle  [ngStyle]="{'font-size': fontSize + 'px'}" >{{ prescription.type }} - {{ prescription.name }}</ion-card-subtitle>
-      </ion-card-header>
-
-      <ion-card-content [ngStyle]="{'font-size': fontSize + 'px'}" >
-        {{ prescription.prescriptoin }}
-      </ion-card-content>
-      <ion-button fill="clear" (click)="sharePrescription(prescription)">
-        <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
-      </ion-button>
-    </ion-card>
-  </ion-list> -->
-</ion-content>
-
-
-<!-- <ion-footer class="container"  class="custom-footer">
-  <ion-item>
-    <div class="font-size-controls">
-      <ion-button (click)="increaseFontSize()">{{'Larger' | translate}}</ion-button>
-      <ion-button (click)="decreaseFontSize()">{{'Smaller' | translate}}</ion-button>
-    </div>
-    <ion-label color="success" class="center-text">
-      <h2 class="center-text" class="text-danger">{{'BonyanGroup' | translate}}</h2>
+  <ion-item lines="none" class="total-comments" style="background: #FFFFFF; color: #333333; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <ion-label style="color: #1E88E5;">
+      📝 {{ 'Number of submitted prescription' | translate }} {{ prescriptions.length }}
     </ion-label>
   </ion-item>
-</ion-footer> -->
+
+  <ion-accordion-group>
+    <ion-accordion *ngFor="let prescription of prescriptions" class="custom-accordion">
+      <ion-item slot="header" style="background: #1E88E5; color: white; border-radius: 8px 8px 0 0;">
+        <ion-label style="font-weight: bold;">{{ prescription.subject }} - {{ prescription.type }} - {{ prescription.name }}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content" style="background: #FFFFFF; border-radius: 0 0 8px 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <pre [ngStyle]="{'font-size': fontSize + 'px'}" class="pre-rtl" style="color: #333333;">{{ prescription.prescriptoin }}</pre>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-content>

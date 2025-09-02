@@ -12,6 +12,10 @@
     <!-- <ion-toolbar>
       <ion-searchbar placeholder="جستجو..." (ionInput)="onSearch($event)"></ion-searchbar>  
     </ion-toolbar> -->
+    <!-- دکمه برگشت سمت راست -->
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
     <!-- دکمه خروج سمت راست -->
     <ion-buttons slot="end">
       <ion-button (click)="exitApp()">
@@ -27,15 +31,25 @@
 <ion-content class="ion-padding font-iransans content-area " [fullscreen]="true">
   
     <!-- ✅ با ion-sticky-header شبیه‌سازی شده -->
-    <div style="position: sticky; top: 0; z-index: 10; background: white; padding-bottom: 8px;">
-      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearchSubject()"  placeholder="{{'search' | translate}} ..."></ion-searchbar>
+    <!-- <div style="position: sticky; top: 2%; z-index: 10; background: white; padding-bottom: 8px;">
+      <ion-searchbar [(ngModel)]="searchTermSubject" (ionInput)="onSearchSubject()"  placeholder="{{'search' | translate}} ..."></ion-searchbar>
     </div>
-    <div style="position: sticky; top: 0; z-index: 10; background: white; padding-bottom: 8px;">
-      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch1()"  placeholder="{{'search' | translate}} ..."></ion-searchbar>
+    <div style="position: sticky; top: 2%; z-index: 10; background: white; padding-bottom: 8px;">
+      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()"  placeholder="{{'searchT' | translate}} ..."></ion-searchbar>
     </div>
   <div style="position: sticky; top: 4%; z-index: 10; background: white; padding-bottom: 10px;" class="font-size-controls">
     <ion-button (click)="increaseFontSize()">{{'Larger' | translate}}</ion-button>
     <ion-button (click)="decreaseFontSize()">{{'Smaller' | translate}}</ion-button>
+  </div> -->
+
+  
+  <div class="sticky-header">
+    <ion-searchbar [(ngModel)]="searchTermSubject" (ionInput)="onSearchSubject()" placeholder="{{ 'search' | translate }} ..."></ion-searchbar>
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()" placeholder="{{ 'searchT' | translate }} ..."></ion-searchbar>
+    <div class="font-size-controls">
+      <ion-button (click)="increaseFontSize()">{{ 'Larger' | translate }}</ion-button>
+      <ion-button (click)="decreaseFontSize()">{{ 'Smaller' | translate }}</ion-button>
+    </div>
   </div>
 
     <ion-item lines="none" class="total-comments">

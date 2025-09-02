@@ -8,6 +8,7 @@ import { DbinprojectService } from '../services/dataBase/dbinproject.service';
 import { StorageService } from '../services/storage/storage.service';
 import { RegisterService } from '../services/register/register.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Preferences } from '@capacitor/preferences';
 
 
 @Component({
@@ -30,6 +31,8 @@ export class RegisterPage implements OnInit {
   codeMelli: string='';
   mobile: string='';
   mainCode: string='';
+  CountresetCounter: string='';
+  Counter: string = '';
   constructor(
     private storage : StorageService,
     private dbreg : RegisterService,
@@ -38,16 +41,41 @@ export class RegisterPage implements OnInit {
     public translate: TranslateService,
     private device: Device) 
   { 
+    this.checkExecutionSeed();
       console.log("Register page ");
-    this.deviceUUID = this.device.uuid;
     //this.activationCode = crypto.SHA256(this.deviceUUID + this.secretKey).toString();
-    this.activationCode = dbreg.convertStringToAsciiString(this.deviceUUID,this.codeMelli,this.mobile);
-    this.UUIDdevice=this.device.uuid;
     //this.GetUserPass();
     this.registerCodeTemp = this.activationCode;
     //this.navCtrl.navigateRoot('/home');// for ostad whitout code comment
   }
+async checkExecutionSeed() {
+  
+      // تاریخ و ساعت نصب
+      const randomPart = Math.floor(Math.random() * 90 + 10).toString();
 
+      const now = new Date();
+      const datePart = now.getFullYear().toString() +
+                      (now.getMonth() + 1).toString().padStart(2, '0') +
+                      now.getDate().toString().padStart(2, '0');
+
+      const timePart = now.getHours().toString().padStart(2, '0') +
+                      now.getMinutes().toString().padStart(2, '0') +
+                      now.getSeconds().toString().padStart(2, '0');
+
+      // کلید نهایی
+      const codeNUM = (parseInt(randomPart + datePart + timePart)+2)*40/3;
+
+    //this.Counter = await this.storage.getItem('Counter') || '';  // انتظار برای دریافت مقدار
+    this.deviceUUID = this.device.uuid;
+    const resetCounterKey = 'resetCounter';
+    const resetCounter = await Preferences.get({ key: resetCounterKey });
+    
+    const resetValue = resetCounter.value || '0';
+    this.UUIDdevice=codeNUM+this.device.uuid+codeNUM;
+    this.activationCode = this.dbreg.convertStringToAsciiString(this.UUIDdevice,this.codeMelli,this.mobile);
+
+    
+}
   ngOnInit() {
     
     //this.navCtrl.navigateRoot('/home');
@@ -86,10 +114,12 @@ export class RegisterPage implements OnInit {
     //if(this.activationCode.trim().includes(this.registerCode.trim())){
     if(this.activationCode.trim() === this.registerCode.trim()){
       this.storage.setItem('tokenRegister',this.registerCode);
+      this.storage.setItem('Counter',Math.floor(Math.random() * 90 + 10).toString());
+      this.storage.setItem('CounterRegister',0);
       this.dbSer.settokenRegister(this.registerCode);
       //this.initializeApp();
       //this.navCtrl.navigateRoot('/home'); // صفحه جدید به عنوان root تنظیم می‌شود
-      this.navCtrl.navigateRoot('/login'); // صفحه جدید به عنوان root تنظیم می‌شود
+      this.navCtrl.navigateRoot('/home'); // صفحه جدید به عنوان root تنظیم می‌شود
     }else{
         alert(this.translate.instant('invalid register'));
     }
@@ -109,7 +139,7 @@ export class RegisterPage implements OnInit {
     this.tokenRegister = await this.storage.getItem('tokenRegister') || '';  // انتظار برای دریافت مقدار
     //alert('tokenRegister :'+ this.tokenRegister);
     if(this.tokenRegister == ''){
-      this.navCtrl.navigateRoot('/login'); // صفحه جدید به عنوان root تنظیم می‌شود
+      this.navCtrl.navigateRoot('/home'); // صفحه جدید به عنوان root تنظیم می‌شود
     }else{
       //this.navCtrl.navigateRoot('/register');
       this.navCtrl.navigateRoot('/home');

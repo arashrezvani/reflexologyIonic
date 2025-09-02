@@ -1,13 +1,68 @@
+.content-grid {
+  padding: 10px;
+}
+
+.custom-card {
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+  direction: rtl;
+  text-align: right;
+}
+
+ion-card-header {
+  background-color: #4CAF50; /* رنگ هدر */
+  color: white;
+  padding: 15px;
+}
+
+ion-card-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+ion-card-content {
+  background-color: #E8F5E9; /* بک‌گراند بدنه */
+  color: #333333; /* متن تیره برای خوانایی */
+  padding: 15px;
+  white-space: pre-wrap;
+  direction: rtl;
+  text-align: right;
+}
+
+.center-text {
+  text-align: center;
+  margin: 8px 0; /* فاصله بین خطوط */
+}
+
+ion-item-divider {
+  --background: #E0E0E0; /* رنگ جداکننده ملایم */
+}
+
+.custom-button {
+  --background: #2196F3; /* رنگ دکمه */
+  --color: white; /* متن سفید */
+  margin: 10px 0;
+  width: 80%; /* عرض دکمه */
+  margin-left: 10%; /* مرکز کردن */
+  border-radius: 8px;
+  text-transform: none; /* متن به‌صورت عادی */
+}
+
+.custom-button ion-icon {
+  margin-right: 8px;
+}
+
+/* استایل‌های قدیمی که دیگه لازم نیستن */
 .output-container {
-    margin-top: 20px;
-    padding: 16px;
-    background-color: #f9f9f9; /* پس‌زمینه روشن */
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* سایه */
-  }
-  
-  
-  p {
-    font-size: 18px;
-    margin: 8px 0; /* فاصله بین پاراگراف‌ها */
-  }
+  margin-top: 20px;
+  padding: 16px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+p {
+  font-size: 18px;
+  margin: 8px 0;
+}

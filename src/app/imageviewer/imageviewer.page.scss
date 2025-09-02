@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'iransans';
+  src: url('/assets/fonts/iransans.ttf') format('truetype');
+}
+
+.content-area {
+  --ion-background-color: #f5f5f5;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  overflow: auto;
+}
+
+.zoom-wrapper {
+  display: inline-block;
+}
+
+.zoomable-image {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.no-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  ion-label {
+    font-family: 'iransans', sans-serif;
+    font-size: 18px;
+    color: #666;
+  }
+}

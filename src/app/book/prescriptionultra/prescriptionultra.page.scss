@@ -1,19 +1,68 @@
 ion-item {
-    --background: #f9f9f9;
-    --color: #222;
-  }
-  ion-card-content pre {
-    direction: rtl;  /* راست به چپ */
-    text-align: right;  /* متن را در راست چین می‌کند */
-  }
-  ion-accordion {
-    margin-bottom: 10px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  .pre-rtl {
-    white-space: pre-wrap;
-    direction: ltr;
-    text-align: right;
-    font-family: "IRANSans", sans-serif; /* اگر می‌خواهید فونت فارسی مشخص کنید */
-  }
+  --background: #f9f9f9;
+  --color: #222;
+}
+
+ion-card-content pre {
+  direction: rtl;
+  text-align: right;
+}
+
+ion-accordion {
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.custom-accordion {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease; /* انیمیشن ملایم */
+}
+
+.custom-accordion[open] {
+  transform: scale(1.02); /* بزرگ‌تر شدن وقتی باز می‌شه */
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #F0F4F8;
+  padding: 15px 10px;
+  border-bottom: 2px solid #FFD700; /* خط طلایی برای جداسازی */
+}
+
+.font-size-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.total-comments {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.pre-rtl {
+  white-space: pre-wrap;
+  direction: rtl;
+  unicode-bidi: plaintext;
+  text-align: right;
+  font-family: "IRANSans", sans-serif;
+  color: #333333;
+}
+
+ion-accordion ion-item[slot="header"] {
+  background: #1E88E5;
+  color: white;
+  border-radius: 8px 8px 0 0;
+  padding: 15px;
+}
+
+ion-accordion div[slot="content"] {
+  background: #FFFFFF;
+  border-radius: 0 0 8px 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

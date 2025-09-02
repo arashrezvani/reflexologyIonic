@@ -1,5 +1,4 @@
-
-<ion-header  class="container">
+<ion-header>
   <ion-toolbar>
     <!-- منوی کشویی سمت چپ -->
     <ion-buttons slot="start">
@@ -8,54 +7,53 @@
 
     <!-- عنوان در مرکز -->
     <ion-title>
-      {{'contact_us' | translate}}
+      {{ 'contact_us' | translate }}
     </ion-title>
 
-    <!-- دکمه خروج سمت راست -->
+    <!-- دکمه برگشت سمت راست -->
     <ion-buttons slot="end">
-      <ion-button (click)="exitApp()">
-        <ion-icon name="log-out-outline"></ion-icon>
-      </ion-button>
-      <!-- <ion-buttons shape="round" color="success"  >
-        <ion-back-button defaultHref="/" [text]="'Back' | translate"></ion-back-button>
-      </ion-buttons> -->
+      <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="container font-iransans content-area">
-
-  
-  <ion-item-divider></ion-item-divider>
-  <ion-item>
-    <ion-label color="Dark Gray" class="center-text">
-      <h2 class="center-text" >{{'A gift of prayers (Salawat) as a vow for the' | translate}}</h2>
-      <h2 class="center-text">اللهم صلی علی محمد و آل محمد و عجل فرجهم</h2>
-      <h2 class="center-text">اللهم بارک لمولانا صاحب الزمان(عج)</h2>
-      <h2 class="center-text">{{'A gift of Surah Al-Qadr and Ayat al-Kursi' | translate}}</h2>
-    </ion-label>
-  </ion-item>
-  <ion-item>
-    <ion-label  class="center-text">
-      <h2> {{'Our communication channels' | translate}} </h2>
-    </ion-label>
-  </ion-item>
-  <ion-item-divider></ion-item-divider>
-  <ion-button color="Light" class="center-text text-dark" (click)="openEitaa()">
-    {{'contact_us' | translate}}
-    <img src="assets/icons/eitaa.png" alt="Eitaa" style="width: 20px; height: 20px; margin-right: 8px;"> 
-  </ion-button>
-  <!-- <ion-button color="Light"  class="center-text text-dark" (click)="openTelegram()">
-    <i class="fab fa-telegram"></i>
-    {{'contact_us' | translate}}
-    <img src="assets/icons/tele.png" alt="Eitaa" style="width: 20px; height: 20px; margin-right: 8px;"> 
-  </ion-button> -->
-
+<ion-content [fullscreen]="true" class="content-area font-iransans" style="background-color: #F5F5F5;">
+  <ion-grid class="content-grid">
+    <ion-row>
+      <ion-col size="12">
+        <ion-card class="custom-card">
+          <ion-card-header style="background-color: #4CAF50; color: white;">
+            <ion-card-title>{{ 'contact_us' | translate }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content style="background-color: #E8F5E9; color: #333333;">
+            <ion-item-divider></ion-item-divider>
+            <h2 class="center-text">{{ 'A gift of prayers (Salawat) as a vow for the' | translate }}</h2>
+            <h2 class="center-text">اللهم صلی علی محمد و آل محمد و عجل فرجهم</h2>
+            <h2 class="center-text">اللهم بارک لمولانا صاحب الزمان(عج)</h2>
+            <h2 class="center-text">{{ 'A gift of Surah Al-Qadr and Ayat al-Kursi' | translate }}</h2>
+            <ion-item-divider></ion-item-divider>
+            <h2 class="center-text">{{ 'Our communication channels' | translate }}</h2>
+            <ion-item-divider></ion-item-divider>
+            <ion-button expand="block" color="primary" class="custom-button" (click)="openEitaa()">
+              <img src="assets/icons/eitaa.png" alt="Eitaa" style="width: 20px; height: 20px; margin-right: 8px;">
+              {{ 'contact_us' | translate }} (Eitaa)
+            </ion-button>
+            <!-- <ion-button expand="block" color="primary" class="custom-button" (click)="openTelegram()">
+              <img src="assets/icons/tele.png" alt="Telegram" style="width: 20px; height: 20px; margin-right: 8px;">
+              {{ 'contact_us' | translate }} (Telegram)
+            </ion-button> -->
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
-<ion-footer class="container"  class="custom-footer">
+
+<!-- فوتر اختیاری -->
+<!-- <ion-footer class="custom-footer">
   <ion-item>
     <ion-label color="success" class="center-text">
-      <h2 class="center-text" class="text-danger">{{'BonyanGroup' | translate}}</h2>
+      <h2 class="center-text">{{ 'BonyanGroup' | translate }}</h2>
     </ion-label>
   </ion-item>
-</ion-footer>
+</ion-footer> -->

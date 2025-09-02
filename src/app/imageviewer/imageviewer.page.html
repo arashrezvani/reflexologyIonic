@@ -1,0 +1,46 @@
+<ion-header class="container" style="top: 2%;">
+
+ <ion-toolbar>
+    
+    <!-- منوی کشویی سمت چپ -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <!-- عنوان در مرکز -->
+    <ion-title>
+    {{ 'image' | translate}}
+    </ion-title>
+    
+
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="zoomIn()">
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="zoomOut()">
+        <ion-icon name="remove-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="resetZoom()">
+        <ion-icon name="refresh-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="font-iransans content-area">
+  <div class="image-container" *ngIf="imageSrc.length > 0">
+    <div class="zoom-wrapper" #zoomWrapper [ngStyle]="{
+      transform: 'scale(' + scale + ') translate(' + translateX + 'px, ' + translateY + 'px)',
+      transition: 'transform 0.2s ease-in-out'
+    }">
+      <img [src]="imageSrc" alt="نقطه طب فشاری" class="zoomable-image" loading="lazy" />
+    </div>
+  </div>
+  <div *ngIf="imageSrc.length === 0" class="no-image">
+    <ion-label>تصویری یافت نشد</ion-label>
+  </div>
+</ion-content>

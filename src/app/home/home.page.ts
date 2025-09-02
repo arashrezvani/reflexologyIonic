@@ -22,6 +22,52 @@ export class HomePage {
   MomnameInput:string='';
   namesList: string[] = []; // لیست برای نمایش نام‌ها
   //=========================================
+features = [
+    {
+      title: 'بازتاب ها',
+      description: 'تحلیل و درمان نقاط بازتابی برای بهبود سلامتی',
+      icon: 'body-outline',
+      route: '/reflexologymain/reflection',
+      buttonText: 'ورود',
+      color: '#4CAF50',
+      gradient: 'linear-gradient(135deg, #4CAF50, #81C784)',
+    },
+    {
+      title: 'مریدین',
+      description: 'بررسی مسیرهای انرژی اصلی بدن',
+      icon: 'pulse-outline',
+      route: '/reflexologymain/meridian',
+      buttonText: 'مشاهده',
+      color: '#2196F3',
+      gradient: 'linear-gradient(135deg, #2196F3, #64B5F6)',
+    },
+    {
+      title: 'کانال ها',
+      description: 'مدیریت کانال‌های فوق‌العاده انرژی',
+      icon: 'water-outline',
+      route: '/reflexologymain/channels',
+      buttonText: 'شروع',
+      color: '#FF9800',
+      gradient: 'linear-gradient(135deg, #FF9800, #FFB74D)',
+    },
+    {
+      title: 'نقاط کلیدی',
+      description: 'نقاط ویژه برای درمان‌های خاص',
+      icon: 'star-outline',
+      route: '/reflexologymain/keypoints',
+      buttonText: 'کاوش',
+      color: '#9C27B0',
+      gradient: 'linear-gradient(135deg, #9C27B0, #AB47BC)',
+    },
+  ];
+
+infoSections = [
+    // { title: 'توضیحات اپلیکیشن', icon: 'information-circle-outline', route: '/description', color: '#4CAF50' },
+    // { title: 'نظرات', icon: 'chatbox-ellipses-outline', route: '/comments', color: '#2196F3' },
+    { title: 'درباره ما', icon: 'business-outline', route: '/about-us', color: '#FF9800' },
+    { title: 'تماس با ما', icon: 'call-outline', route: '/contact-us', color: '#9C27B0' },
+  ];
+
 
   appVersion: string = '';
   optionss = [
@@ -110,6 +156,9 @@ export class HomePage {
       this.router.navigate(['/determine-time']);
     }
 
+    navigateTo(route : string){
+      this.router.navigate([route]);
+    }
     onOptionChange(event:any) {
       console.log('گزینه انتخاب شده:', event.detail.value);
     }
@@ -157,7 +206,6 @@ export class HomePage {
     console.log("days.detail.value ======= "+daysInsert);
     this.daysS=daysInsert;
   }
-
   exitApp() {
     console.log("exitApp");
     App.exitApp();
@@ -173,6 +221,22 @@ export class HomePage {
       this.flag=true;
       console.log("en-gb");
       this.AppComp.checkLanguage("en-gb");
+    }
+  }
+  
+  // متغیر اندازه فونت
+
+  fontSize = 14; // اندازه پیش‌فرض
+
+  // تابع برای افزایش اندازه فونت
+  increaseFontSize() {
+    this.fontSize += 2; // افزایش اندازه فونت
+  }
+
+  // تابع برای کاهش اندازه فونت
+  decreaseFontSize() {
+    if (this.fontSize > 8) { // حداقل اندازه فونت
+      this.fontSize -= 2; // کاهش اندازه فونت
     }
   }
 

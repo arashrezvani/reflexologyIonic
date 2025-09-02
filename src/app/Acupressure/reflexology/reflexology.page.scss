@@ -1,0 +1,123 @@
+.image-container {
+    text-align: center;
+    position: relative;
+  }
+
+  .image-container {
+    text-align: center;
+    position: relative;
+  }
+  
+  .image-container img {
+    max-height: 200px; /* ارتفاع تصویر کوچک */
+    max-width: 100%; /* عرض تصویر */
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
+  }
+  
+  /* زوم تصویر با کلیک */
+  .image-container img:active {
+    transform: scale(2); /* زوم 2 برابر */
+    cursor: zoom-out;
+  }
+  .image-container {
+    margin-top: 20%; /* فاصله از بالا */
+  }
+
+  .zoom-container {
+    overflow: hidden;
+    touch-action: none; // برای جلوگیری از اسکرول پیش‌فرض
+  }
+
+  .zoom-container img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    touch-action: none;
+  }
+  
+  .image-container img {
+    max-height: 200px; /* ارتفاع تصویر کوچک */
+    max-width: 100%; /* عرض تصویر */
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
+  }
+  
+  /* زوم تصویر با کلیک */
+  .image-container img:active {
+    transform: scale(2); /* زوم 2 برابر */
+    cursor: zoom-out;
+  }
+  .image-container {
+    margin-top: 20%; /* فاصله از بالا */
+  }
+
+  .zoom-container {
+    overflow: hidden;
+    touch-action: none; // برای جلوگیری از اسکرول پیش‌فرض
+  }
+
+  .zoom-container img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    touch-action: none;
+  }
+
+
+  :root {
+  --primary-color: #2196f3;
+  --primary-gradient: linear-gradient(90deg, #4cafef, #2196f3);
+  --text-on-primary: white;
+  }
+
+.accordion-content {
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+.accordion-open {
+  max-height: 500px; /* بیشتر از بزرگ‌ترین محتوای ممکن */
+  opacity: 1;
+}
+
+.accordion-closed {
+  max-height: 0;
+  opacity: 0;
+}
+
+
+ion-accordion {
+  --background: #f8f9fa; /* رنگ پس‌زمینه */
+  --border-color: #e0e0e0;
+
+  ion-item[slot="header"] {
+    background: linear-gradient(90deg, #4cafef, #2196f3);
+    //color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    --min-height: 50px;
+  }
+
+  ion-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-top: 6px;
+  }
+
+  ion-icon {
+    color: #2196f3;
+  }
+}
+
+  .pre-rtl {
+    white-space: pre-wrap;
+    direction: rtl;       /* راست به چپ */
+    unicode-bidi: plaintext; /* یا bidi-override بسته به نتیجه */
+    text-align: right;
+    font-family: "IRANSans", sans-serif; /* اگر می‌خواهید فونت فارسی مشخص کنید */
+  }

@@ -1,4 +1,4 @@
-<ion-header  class="container">
+<ion-header>
   <ion-toolbar>
     <!-- منوی کشویی سمت چپ -->
     <ion-buttons slot="start">
@@ -7,53 +7,44 @@
 
     <!-- عنوان در مرکز -->
     <ion-title>
-      {{'comments' | translate}}
+      {{ 'comments' | translate }}
     </ion-title>
+
+    <!-- دکمه برگشت سمت راست -->
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true"  class="ion-padding font-iransans content-area">
-  
-    <!-- ✅ با ion-sticky-header شبیه‌سازی شده -->
-    <div style="position: sticky; top: 0; z-index: 10; background: white; padding-bottom: 8px;">
-      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()"  placeholder="{{'search' | translate}} ..."></ion-searchbar>
+<ion-content [fullscreen]="true" class="font-iransans content-area" style="background-color: #F5F5F5;">
+  <!-- بخش ثابت سرچ و کنترل فونت -->
+  <div class="sticky-header">
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()" placeholder="{{ 'search' | translate }} ..."></ion-searchbar>
+    <div class="font-size-controls">
+      <ion-button (click)="increaseFontSize()">{{ 'Larger' | translate }}</ion-button>
+      <ion-button (click)="decreaseFontSize()">{{ 'Smaller' | translate }}</ion-button>
     </div>
-  <div style="position: sticky; top: 4%; z-index: 10; background: white; padding-bottom: 10px;" class="font-size-controls">
-    <ion-button (click)="increaseFontSize()">{{'Larger' | translate}}</ion-button>
-    <ion-button (click)="decreaseFontSize()">{{'Smaller' | translate}}</ion-button>
   </div>
 
-    <ion-item lines="none" class="total-comments">
-      <ion-label>
-        📝 {{'Number of submitted comments' | translate}} {{ comments.length }}
-      </ion-label>
-    </ion-item>
+  <ion-item lines="none" class="total-comments">
+    <ion-label>
+      📝 {{ 'Number of submitted comments' | translate }} {{ comments.length }}
+    </ion-label>
+  </ion-item>
+
   <ion-list>
-    <ion-card *ngFor="let comment of comments">
-      <ion-card-header>
-        <ion-card-title  [ngStyle]="{'font-size': fontSize + 6 + 'px'}">{{ comment.name }}</ion-card-title>
-        <ion-card-subtitle  [ngStyle]="{'font-size': fontSize + 'px'}" >{{ comment.job }} - {{ comment.city }}</ion-card-subtitle>
+    <ion-card *ngFor="let comment of comments" class="custom-card">
+      <ion-card-header style="background-color: #4CAF50; color: white;">
+        <ion-card-title [ngStyle]="{'font-size': fontSize + 6 + 'px'}">{{ comment.name }}</ion-card-title>
+        <ion-card-subtitle [ngStyle]="{'font-size': fontSize + 'px', 'color': '#E0F2F1'}">{{ comment.job }} - {{ comment.city }}</ion-card-subtitle>
       </ion-card-header>
-
-      <ion-card-content [ngStyle]="{'font-size': fontSize + 'px'}" >
-
+      <ion-card-content [ngStyle]="{'font-size': fontSize + 'px', 'color': '#333333', 'background-color': '#E8F5E9'}">
         {{ comment.comment }}
       </ion-card-content>
-      <ion-button fill="clear" (click)="shareComment(comment)">
+      <ion-button fill="clear" (click)="shareComment(comment)" style="color: #2196F3;">
         <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
       </ion-button>
     </ion-card>
   </ion-list>
 </ion-content>
-
-<!-- <ion-footer class="container"  class="custom-footer">
-  <ion-item>
-    <div class="font-size-controls">
-      <ion-button (click)="increaseFontSize()">{{'Larger' | translate}}</ion-button>
-      <ion-button (click)="decreaseFontSize()">{{'Smaller' | translate}}</ion-button>
-    </div>
-    <ion-label color="success" class="center-text">
-      <h2 class="center-text" class="text-danger">{{'BonyanGroup' | translate}}</h2>
-    </ion-label>
-  </ion-item>
-</ion-footer> -->

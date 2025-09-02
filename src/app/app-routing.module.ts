@@ -86,7 +86,8 @@ const routes: Routes = [
   {
     path: 'prescription',
     loadChildren: () => import('./book/prescription/prescription.module').then( m => m.PrescriptionPageModule)
-  },  {
+  },
+  {
     path: 'prescriptionultra',
     loadChildren: () => import('./book/prescriptionultra/prescriptionultra.module').then( m => m.PrescriptionultraPageModule)
   },
@@ -98,6 +99,35 @@ const routes: Routes = [
     path: 'mention',
     loadChildren: () => import('./book/mention/mention.module').then( m => m.MentionPageModule)
   },
+  // {
+  //   path: 'reflexology',
+  //   loadChildren: () => import('./acupressure/reflexology/reflexology.module').then( m => m.ReflexologyPageModule)
+  // },
+  {
+    path: 'reflexology/:category',
+    loadChildren: () => import('./acupressure/reflexology/reflexology.module').then( m => m.ReflexologyPageModule)
+  },
+  {
+    path: 'perscriptiongeneral/:category',
+    loadChildren: () => import('./book/perscriptiongeneral/perscriptiongeneral.module').then( m => m.PerscriptiongeneralPageModule)
+  },
+  {
+    path: 'reflex/:category',
+    loadChildren: () => import('./Acupressure/reflex/reflex.module').then( m => m.ReflexPageModule)
+  },
+  {
+    path: 'reflexologymain/:title',
+    loadChildren: () => import('./reflexologymain/reflexologymain.module').then( m => m.ReflexologymainPageModule)
+  },
+  {
+    path: 'imageviewer/:images',
+    loadChildren: () => import('./imageviewer/imageviewer.module').then( m => m.ImageviewerPageModule)
+    
+  },
+
+
+
+
 
 
 ];

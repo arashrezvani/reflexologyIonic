@@ -13,7 +13,24 @@ ion-item {
   }
   .pre-rtl {
     white-space: pre-wrap;
-    direction: ltr;
+    direction: rtl;       /* راست به چپ */
+    unicode-bidi: plaintext; /* یا bidi-override بسته به نتیجه */
     text-align: right;
     font-family: "IRANSans", sans-serif; /* اگر می‌خواهید فونت فارسی مشخص کنید */
+  }
+
+  .sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 100; /* بالاتر از همه المان‌ها */
+    background: white;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee; /* خط جداکننده اختیاری */
+  }
+
+  .font-size-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* فاصله بین دکمه‌ها */
+    margin-top: 5px;
   }

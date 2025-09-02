@@ -134,7 +134,7 @@ export class DbinprojectService {
   db_oilUltra:Array<{oilName: string, temperamentName: string, temperament: string, day: string, TypeSick: string}>=[
     {oilName: 'بنفشه', temperamentName: 'بلغم', temperament: 'سرد و تر', day: 'جمعه و دوشنبه شب', TypeSick: 'صفراوی'},
     {oilName: 'بادام شیرین', temperamentName: 'دم', temperament: 'گرم و تر', day: 'دوشنبه و شنبه شب', TypeSick: 'صفراوی'},
-    {oilName: 'بادام تلخ کوهی', temperamentName: 'صفرا', temperament: 'گرم و خشک', day: 'یکشنبه و پنج شنبه شب', TypeSick: 'صفراوی'},
+    {oilName: 'بادام تلخ داودی نژاد', temperamentName: 'صفرا', temperament: 'گرم و خشک', day: 'یکشنبه و پنج شنبه شب', TypeSick: 'صفراوی'},
     {oilName: 'سیاه دانه', temperamentName: 'صفرا', temperament: 'گرم و خشک', day: 'شنبه و پنج شنبه شب', TypeSick: 'صفراوی'},
     {oilName: 'گل سرخ', temperamentName: 'سودا', temperament: 'سرد و خشک', day: 'شنبه و چهارشنبه شب', TypeSick: 'صفراوی'},
     {oilName: 'بابونه', temperamentName: 'صفرا', temperament: 'گرم و خشک', day: 'جمعه و پنج شنبه شب', TypeSick: 'صفراوی'},
@@ -398,7 +398,28 @@ export class DbinprojectService {
 
 
   db_Users: Array<{Username: string, Mobile: string, Mobile1: string, Password: string, City: string, Package : string,Job: string, Cost: string, Costopt: string, Gender: string, etiaa: string ,telegram: string, FirstName: string, LastName: string, Name:string, id:number}>=[
-    
+    {Username: '1064010000' , Mobile: '', Mobile1: '', Password: '09106401000', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: '', etiaa: '' ,telegram: '@systemAnalyzer', FirstName: 'ادمین', LastName: '', Name:'ادمین', id: 0 },
+    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 325  },
+    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 326  },
+    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 327  },
+    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 328  },
+    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 329  },
+    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 330  },
+    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 331  },
+    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 332  },
+    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 333  },
+    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 334  },
+    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 335  },
+    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 336  },
+    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 337  },
+    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 338  },
+    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 339  },
+    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 340  },
+    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 341  },
+    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 342  },
+    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 343  },
+    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 344  },
+    {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 345  },
     {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 346  },
     {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 347  },
     {Username: '2443424434' , Mobile: '', Mobile1: '', Password: '12443424434', City: '', Package : '2', Job: '', Cost: 'asmaHosna', Costopt: 'خير', Gender: 'خانم', etiaa: '' ,telegram: '', FirstName: '', LastName: '', Name:'', id: 348  },

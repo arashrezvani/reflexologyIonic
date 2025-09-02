@@ -214,7 +214,7 @@ export class InfoDarmanAbjadPage implements OnInit {
   //   console.log("nameInput",this.nameInput);
   //   const docDefinition: any = {
   //     content: [
-  //       { text: this.reverseText(' اپلیکیشن طب ماورا گروه بنیان مرصوص استاد  41'), style: 'header' , alignment: 'right' },
+  //       { text: this.reverseText(' اپلیکیشن طب ماورا گروه بازتاب درمانی استاد  41'), style: 'header' , alignment: 'right' },
   //       { text: this.reverseText(' نتایج تحلیل ابجد : '), style: 'header'   },
   //       { text: this.reverseText(`نام :  ${this.nameInput || 'N/A'}`)   },
   //       { text: this.reverseText(`نام مادر :  ${this.MomnameInput || 'N/A'}`)   },
@@ -226,7 +226,7 @@ export class InfoDarmanAbjadPage implements OnInit {
   //       { text: this.reverseText(`سنگ درمان :  ${this.SecondaryStoneD || 'N/A'}`)  },
   //       { text: this.reverseText(`روغن موافق صحه :  ${this.oliM || 'N/A'}` )  },
   //       { text: this.reverseText(`نام فرشته :  ${this.angel1 || 'N/A'}`) },
-  //       { text: this.reverseText('اپلیکیشن طب ماورا گروه بنیان مرصوص استاد 41'), dir:'ltr' },
+  //       { text: this.reverseText('اپلیکیشن طب ماورا گروه بازتاب درمانی استاد 41'), dir:'ltr' },
   //       // ادامه اطلاعات دیگر از کارت‌ها و داده‌ها
   //     ],
   //     styles: {

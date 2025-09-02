@@ -10,6 +10,10 @@
     <ion-title>
     {{'prescription' | translate}}
     </ion-title>
+    <!-- دکمه برگشت سمت راست -->
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
     <!-- دکمه خروج سمت راست -->
     <ion-buttons slot="end">
       <ion-button (click)="exitApp()">
@@ -23,16 +27,28 @@
 <ion-content [fullscreen]="true"  class="ion-padding font-iransans content-area">
   
     <!-- ✅ با ion-sticky-header شبیه‌سازی شده -->
-    <div style="position: sticky; top: 0; z-index: 10; background: white; padding-bottom: 8px;">
-      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearchSubject()"  placeholder="{{'search' | translate}} ..."></ion-searchbar>
+    <!-- <div style="position: sticky; top: 2%; z-index: 10; background: white; padding-bottom: 8px;">
+      <ion-searchbar [(ngModel)]="searchTermSubject" (ionInput)="onSearchSubject()"  placeholder="{{'search' | translate}} ..."></ion-searchbar>
     </div>
-    <div style="position: sticky; top: 0; z-index: 10; background: white; padding-bottom: 8px;">
-      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()"  placeholder="{{'search' | translate}} ..."></ion-searchbar>
+    <div style="position: sticky; top: 2%; z-index: 10; background: white; padding-bottom: 8px;">
+      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()"  placeholder="{{'searchT' | translate}} ..."></ion-searchbar>
     </div>
   <div style="position: sticky; top: 4%; z-index: 10; background: white; padding-bottom: 10px;" class="font-size-controls">
     <ion-button (click)="increaseFontSize()">{{'Larger' | translate}}</ion-button>
     <ion-button (click)="decreaseFontSize()">{{'Smaller' | translate}}</ion-button>
+  </div> -->
+
+
+  
+  <div class="sticky-header">
+    <ion-searchbar [(ngModel)]="searchTermSubject" (ionInput)="onSearchSubject()" placeholder="{{ 'search' | translate }} ..."></ion-searchbar>
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()" placeholder="{{ 'searchT' | translate }} ..."></ion-searchbar>
+    <div class="font-size-controls">
+      <ion-button (click)="increaseFontSize()">{{ 'Larger' | translate }}</ion-button>
+      <ion-button (click)="decreaseFontSize()">{{ 'Smaller' | translate }}</ion-button>
+    </div>
   </div>
+
 
     <ion-item lines="none" class="total-comments">
       <ion-label>
@@ -49,32 +65,6 @@
         </div>
       </ion-accordion>
     </ion-accordion-group>
-  <!-- <ion-list>
-    <ion-card *ngFor="let prescription of prescriptions">
-      <ion-card-header>
-        <ion-card-title  [ngStyle]="{'font-size': fontSize + 6 + 'px'}">{{ prescription.subject }}</ion-card-title>
-        <ion-card-subtitle  [ngStyle]="{'font-size': fontSize + 'px'}" >{{ prescription.type }} - {{ prescription.name }}</ion-card-subtitle>
-      </ion-card-header>
-
-      <ion-card-content [ngStyle]="{'font-size': fontSize + 'px'}" >
-        {{ prescription.prescriptoin }}
-      </ion-card-content>
-      <ion-button fill="clear" (click)="sharePrescription(prescription)">
-        <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
-      </ion-button>
-    </ion-card>
-  </ion-list> -->
 </ion-content>
 
 
-<!-- <ion-footer class="container"  class="custom-footer">
-  <ion-item>
-    <div class="font-size-controls">
-      <ion-button (click)="increaseFontSize()">{{'Larger' | translate}}</ion-button>
-      <ion-button (click)="decreaseFontSize()">{{'Smaller' | translate}}</ion-button>
-    </div>
-    <ion-label color="success" class="center-text">
-      <h2 class="center-text" class="text-danger">{{'BonyanGroup' | translate}}</h2>
-    </ion-label>
-  </ion-item>
-</ion-footer> -->

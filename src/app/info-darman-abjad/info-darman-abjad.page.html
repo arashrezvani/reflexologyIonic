@@ -7,6 +7,10 @@
     </ion-buttons>
     <!-- عنوان در مرکز -->
     <ion-title>{{'abjadCal' | translate}}</ion-title>
+    <!-- دکمه برگشت سمت راست -->
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
     <!-- دکمه خروج سمت راست -->
     <ion-buttons slot="end">
       <ion-button (click)="exitApp()">
@@ -453,6 +457,8 @@
       <p class="center-text">{{'The name complete' | translate}}</p>
       <ion-icon name="id-card-outline"></ion-icon>
       <p class="center-text">{{'If there is a Sayyidat' | translate}}</p>
+      <ion-icon name="id-card-outline"></ion-icon>
+      <p class="center-text">{{'note1' | translate}}</p>
     </ion-label>
   </ion-item>
   <ion-item-divider></ion-item-divider>
@@ -460,8 +466,8 @@
 
 </ion-content>
 <!-- پاورقی -->
-<ion-footer class="container"  class="custom-footer">
+<!-- <ion-footer class="container"  class="custom-footer">
   <ion-item>
     <ion-label class="center-text">{{ 'BonyanGroup' | translate }}</ion-label>
   </ion-item>
-</ion-footer>
+</ion-footer> -->

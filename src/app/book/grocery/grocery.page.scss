@@ -11,9 +11,11 @@ ion-item {
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
+
   .pre-rtl {
     white-space: pre-wrap;
-    direction: ltr;
+    direction: rtl;       /* راست به چپ */
+    unicode-bidi: plaintext; /* یا bidi-override بسته به نتیجه */
     text-align: right;
     font-family: "IRANSans", sans-serif; /* اگر می‌خواهید فونت فارسی مشخص کنید */
   }

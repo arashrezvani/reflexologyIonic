@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">بنیان مرصوص</string>
-    <string name="title_activity_main">بنیان مرصوص</string>
+    <string name="app_name">بازتاب درمانی</string>
+    <string name="title_activity_main">بازتاب درمانی</string>
     <string name="package_name">ultra.medicice.app</string>
     <string name="custom_url_scheme">ultra.medicice.app</string>
 </resources>

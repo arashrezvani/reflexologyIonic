@@ -16,7 +16,7 @@ export function LanguageLoader(http: HttpClient) {
 }
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { Device } from '@awesome-cordova-plugins/device/ngx';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,7 +33,8 @@ import { Device } from '@awesome-cordova-plugins/device/ngx';
       }
     }),
     IonicStorageModule.forRoot() ,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule 
   ],
   providers: [
     Device,

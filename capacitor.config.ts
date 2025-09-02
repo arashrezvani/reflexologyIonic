@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'ultra.medicice.app',
-  appName: 'بنیان مرصوص',
+  appName: 'بازتاب درمانی',
   webDir: 'www',
   bundledWebRuntime: false,
   plugins: {

@@ -1,88 +1,64 @@
-// ion-card {
-//   margin-bottom: 20px;
-//   border-radius: 10px;
-//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-// }
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: white;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
 
-// ion-card-header {
-//   background-color: #f7f7f7;
-//   padding: 15px;
-// }
+.font-size-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 5px;
+}
 
-// ion-card-title {
-//   font-size: 1.2em;
-//   font-weight: bold;
-//   color: #4a4a4a;
-// }
+.custom-card {
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+  direction: rtl;
+  text-align: right;
+  background-color: #E8F5E9; /* بک‌گراند کارت */
+}
 
-// ion-card-content {
-//   font-size: 1em;
-//   color: #6c6c6c;
-// }
+ion-card-header {
+  background-color: #4CAF50; /* رنگ هدر */
+  color: white;
+  padding: 15px;
+}
 
-// ion-item {
-//   padding: 10px 0;
-// }
+ion-card-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
 
-// ion-item ion-icon {
-//   color: #488aff;
-// }
+ion-card-content {
+  font-size: 1em;
+  color: #333333; /* متن تیره برای خوانایی */
+  white-space: pre-wrap;
+  direction: rtl;
+  text-align: right;
+  padding: 15px;
+}
 
-// ion-item ion-label {
-//   font-size: 1em;
-// }
+ion-button[fill="clear"] {
+  color: #2196F3; /* رنگ دکمه به‌اشتراک‌گذاری */
+  margin: 10px;
+}
+  .sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100; /* بالاتر از همه المان‌ها */
+  background: white;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee; /* خط جداکننده اختیاری */
+}
 
-
-// div[innerHTML] {
-//   font-size: 1em;
-//   line-height: 1.6;
-//   color: #333;
-//   margin-top: 10px;
-// }
-
-
-
-ion-label h3 {
-    font-weight: bold;
-  }
-  ion-label p {
-    font-size: 0.85rem;
-    color: gray;
-  }
-  ion-item {
-    --background: #f9f9f9;
-    --color: #222;
-  }
-  ion-card-content pre {
-    direction: rtl;  /* راست به چپ */
-    text-align: right;  /* متن را در راست چین می‌کند */
-  }
-  ion-accordion {
-    margin-bottom: 10px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  .pre-rtl {
-    white-space: pre-wrap;
-    direction: ltr;
-    text-align: right;
-    font-family: "IRANSans", sans-serif; /* اگر می‌خواهید فونت فارسی مشخص کنید */
-  }
-  ion-card-content p {
-    direction: rtl;  /* راست به چپ */
-    text-align: right;  /* متن را در راست چین می‌کند */
-  }
-  ion-card {
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    margin-bottom: 16px;
-    direction: rtl; // برای راست‌چین
-    text-align: right;
-  }
-
-  ion-card-content{
-    
-    white-space: pre-wrap;
-    direction: rtl;
-    text-align: right;
-  }
+.font-size-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* فاصله بین دکمه‌ها */
+  margin-top: 5px;
+}

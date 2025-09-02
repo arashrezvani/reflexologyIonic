@@ -1,4 +1,4 @@
-<ion-header class="container" style="top: 2%;">
+<ion-header>
   <ion-toolbar>
     <!-- منوی کشویی سمت چپ -->
     <ion-buttons slot="start">
@@ -7,7 +7,7 @@
 
     <!-- عنوان در مرکز -->
     <ion-title>
-      {{'Bonyan' | translate}}
+      {{ 'Bonyan' | translate }}
     </ion-title>
 
     <!-- دکمه خروج سمت راست -->
@@ -19,30 +19,56 @@
   </ion-toolbar>
 </ion-header>
 
-
-
-<ion-content [fullscreen]="true" class="container font-iransans content-area ">
-  
-
+<ion-content [fullscreen]="true" class="font-iransans content-area page-content">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" *ngFor="let item of features">
+        <ion-card (click)="navigateTo(item.route)" class="feature-card" [style.background]="item.gradient">
+        <!-- <ion-card (click)="navigateTo(item.route)" class="feature-card" [style.background-color]="item.color"> -->
+          <ion-icon [name]="item.icon" class="card-icon"></ion-icon>
+          <ion-card-title [ngStyle]="{'font-size': fontSize  + 'px'}">{{ item.title }}</ion-card-title>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
   <ion-item-divider></ion-item-divider>
   <ion-item>
-    <ion-label color="Dark Gray" class="center-text">
-      <h2 class="center-text" >{{'A gift of prayers (Salawat) as a vow for the' | translate}}</h2>
+    <ion-label color="dark" class="center-text">
+      <h2 class="center-text">{{ 'A gift of prayers (Salawat) as a vow for the' | translate }}</h2>
       <h2 class="center-text">اللهم صلی علی محمد و آل محمد و عجل فرجهم</h2>
       <h2 class="center-text">اللهم بارک لمولانا صاحب الزمان(عج)</h2>
-      <h2 class="center-text">{{'A gift of Surah Al-Qadr and Ayat al-Kursi' | translate}}</h2>
-      <h2 class="center-text">{{'If you are not a member' | translate}}</h2>
-      <ion-item-divider></ion-item-divider>
+      <!-- <ion-item-divider></ion-item-divider> -->
     </ion-label>
   </ion-item>
-  
 
+  <!-- چهار کارت جدید در یک ردیف -->
+  <ion-grid class="footer-section">
+    <ion-row>
+      <ion-col size="6" *ngFor="let infoItem of infoSections">
+        <ion-card (click)="navigateTo(infoItem.route)" class="info-card" [style.background-color]="infoItem.color">
+          <ion-icon [name]="infoItem.icon" class="card-icon"></ion-icon>
+          <ion-card-title [ngStyle]="{'font-size': fontSize  + 'px'}">{{ infoItem.title }}</ion-card-title>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
-<ion-footer class="container"  class="custom-footer">
+
+<ion-footer class="custom-footer">
   <ion-item>
+  <ion-buttons slot="start">
+    <ion-button (click)="increaseFontSize()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
     <ion-label color="success" class="center-text">
-      <h2 class="center-text" class="text-danger">{{'BonyanGroup' | translate}}</h2>
+      <h2 class="center-text">{{ 'BonyanGroup' | translate }}</h2>
     </ion-label>
+  <ion-buttons slot="end">
+    <ion-button (click)="decreaseFontSize()">
+      <ion-icon name="remove-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
   </ion-item>
 </ion-footer>

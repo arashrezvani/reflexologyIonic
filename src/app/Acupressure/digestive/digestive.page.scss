@@ -1,0 +1,33 @@
+.image-container {
+    text-align: center;
+    position: relative;
+  }
+  
+  .image-container img {
+    max-height: 200px; /* ارتفاع تصویر کوچک */
+    max-width: 100%; /* عرض تصویر */
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
+  }
+  
+  /* زوم تصویر با کلیک */
+  .image-container img:active {
+    transform: scale(2); /* زوم 2 برابر */
+    cursor: zoom-out;
+  }
+  .image-container {
+    margin-top: 20%; /* فاصله از بالا */
+  }
+
+  .zoom-container {
+    overflow: hidden;
+    touch-action: none; // برای جلوگیری از اسکرول پیش‌فرض
+  }
+
+  .zoom-container img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    touch-action: none;
+  }
