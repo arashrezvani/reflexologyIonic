@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'ultra.medicice.app',
+  appId: 'reflex.reflexology.app',
   appName: 'بازتاب درمانی',
   webDir: 'www',
   bundledWebRuntime: false,

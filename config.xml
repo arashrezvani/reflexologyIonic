@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="ultra.medicice.app" version="1.2.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="reflex.reflexology.app" version="1.2.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>بازتاب درمانی</name>
-    <description>بازتاب درمانی کلاس استاد جان در شهر ری</description>
+    <description>بازتاب درمانی کلاس استاد جان در شهر مشهد</description>
     <author>rezvani</author>
     <content src="index.html" />
     <platform name="android">

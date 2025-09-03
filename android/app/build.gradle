@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace "ultra.medicice.app"
+    namespace "reflex.reflexology.app"
     compileSdk rootProject.ext.compileSdkVersion
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_21
         targetCompatibility JavaVersion.VERSION_21
     }
     defaultConfig {
-        applicationId "ultra.medicice.app"
+        applicationId "reflex.reflexology.app"
         // minSdkVersion rootProject.ext.minSdkVersion
         // targetSdkVersion rootProject.ext.targetSdkVersion
         minSdkVersion 24       // این باعث میشه روی اندروید 5 به بعد نصب بشه
