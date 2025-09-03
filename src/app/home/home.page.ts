@@ -23,6 +23,17 @@ export class HomePage {
   namesList: string[] = []; // لیست برای نمایش نام‌ها
   //=========================================
 features = [
+   //براي admin
+    // {
+    //   title: 'تولید کد قفل',
+    //   description: 'بررسی مسیرهای انرژی اصلی بدن',
+    //   icon: 'pulse-outline',
+    //   route: '/generateregistercode',
+    //   buttonText: 'مشاهده',
+    //   color: '#4CAF50',
+    //   gradient: 'linear-gradient(135deg, #4CAF50, #81C784)',
+    // },
+    //براي admin
     {
       title: 'بازتاب ها',
       description: 'تحلیل و درمان نقاط بازتابی برای بهبود سلامتی',
