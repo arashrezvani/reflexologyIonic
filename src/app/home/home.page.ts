@@ -59,6 +59,24 @@ features = [
       color: '#9C27B0',
       gradient: 'linear-gradient(135deg, #9C27B0, #AB47BC)',
     },
+    {
+      title: 'نسخه سنتی',
+      description: 'بررسی مسیرهای انرژی اصلی بدن',
+      icon: 'pulse-outline',
+      route: '/perscriptiongeneral/TraditionalMedicine',
+      buttonText: 'مشاهده',
+      color: '#4CAF50',
+      gradient: 'linear-gradient(135deg, #4CAF50, #81C784)',
+    },
+    {
+      title: 'بازی ها با دست ',
+      description: 'نقاط ویژه برای درمان‌های خاص',
+      icon: 'star-outline',
+      route: '/perscriptiongeneral/GameMedicine',
+      buttonText: 'کاوش',
+      color: '#FF9800',
+      gradient: 'linear-gradient(135deg, #FF9800, #FFB74D)',
+    },
   ];
 
 infoSections = [
